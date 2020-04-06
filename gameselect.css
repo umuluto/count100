@@ -1,0 +1,98 @@
+.main-content {
+	padding: 20px;
+}
+
+.title {
+	font-family: 'Noto Sans';
+	text-align: center;
+	font-weight: bold;
+	line-height: 32px;
+	font-size: 22px;
+	letter-spacing: .4px;
+	margin-top: 10px;
+}
+
+.cardrow {
+	margin: auto;
+	width: fit-content;
+}
+
+.precard {
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	max-width: 165px;
+	margin-right: 18px;
+}
+
+.prelink:hover .cardname {
+	color: #ff4658;
+}
+
+.cardtop {
+	height: 20;
+}
+
+.tick {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	right: 0;
+	background: url(./public/check.svg) no-repeat;
+	background-color: #b0d2a8;
+	border-radius: 50%;
+	background-position: center;
+	z-index: 1;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.imgframe {
+    box-sizing: border-box;
+    border: #b0d2a8 solid 4px;
+    width: 165px;
+    height: 165px;
+    border-radius: 10px;
+    position: relative;
+    margin-top: -100%;
+}
+
+.precard {
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	max-width: 165px;
+	margin-right: 18px;
+}
+
+.prelink:hover .cardname {
+	color: #ff4658;
+}
+
+
+.cardname {
+	display: block;
+	margin-top: 13px;
+	font-family: 'Noto Sans';
+	line-height: 20px;
+	font-size: 15px;
+	text-align: center;
+	transition: 0.3s;
+}
+
+@font-face {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url(./public/noto-sans/noto-sans-v6-regular-65cf551a04da09241bedf3bd8c41bb56.woff2) format("woff2"),url(./public/noto-sans/noto-sans-v6-regular-42ce1d2f6fcd2f60de83d873da416d55.woff) format("woff")
+}
+
+@font-face {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: url(./public/noto-sans/noto-sans-v6-700-e048b84d60f7f31b143bbcd6c997fdfa.woff2) format("woff2"),url(./public/noto-sans/noto-sans-v6-700-fe7418c613771c54ab75b21ff481566a.woff) format("woff")
+}
