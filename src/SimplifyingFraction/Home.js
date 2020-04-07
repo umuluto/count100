@@ -1,8 +1,9 @@
 import React from 'react';
+import Form from './Form';
 
 var createReactClass=require('create-react-class');
 
-var NewComponent = createReactClass({
+var HomeScreen = createReactClass({
     render: function() {
       return (
         <div>
@@ -28,12 +29,15 @@ var NewComponent = createReactClass({
         </div>
       );
     }
-  });
+});
 
 class Home extends React.Component {
     render() {
         return (
-            <NewComponent />
+            <Form 
+              numerator={7}
+              denominator={9} 
+            />
         );
     }
 }

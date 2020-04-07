@@ -6,7 +6,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            screen: 0
+            screen: 1
         };
         this.switchScreen = this.switchScreen.bind(this);
     }
