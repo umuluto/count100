@@ -34,10 +34,7 @@ var HomeScreen = createReactClass({
 class Home extends React.Component {
     render() {
         return (
-            <Form 
-              numerator={7}
-              denominator={9} 
-            />
+            <HomeScreen />
         );
     }
 }
