@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './Home';
+import StepByStep from './StepByStep/StepByStep'
 import SimplifyingFraction from './SimplifyingFraction/SimplifyingFraction'
 
 class App extends React.Component {
@@ -23,9 +24,14 @@ class App extends React.Component {
                 <Home 
                     curScreen={this.state.screen}
                     simplifyingFractionScreen={() => this.switchScreen(1)}
+                    StepByStep={() => this.switchScreen(3)}
                 />
                 <SimplifyingFraction 
                     curScreen={this.state.screen}
+                    homeScreen={() => this.switchScreen(0)}
+                />
+                <StepByStep
+                    curScreen = {this.state.screen}
                     homeScreen={() => this.switchScreen(0)}
                 />
             </div>
