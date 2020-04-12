@@ -7,8 +7,8 @@ class Exam extends React.Component {
         super(props);
         this.state = {
             listQuestion: [{
-                numerator: 7,
-                denominator: 9
+                numerator: 6,
+                denominator: 12
             }, {
                 numerator: 9,
                 denominator: 12
@@ -39,6 +39,8 @@ class Exam extends React.Component {
                 denominator={this.state.listQuestion[this.state.screen].denominator}
                 nextScreen={this.nextScreen}
                 mainScreen={this.props.mainScreen}
+                screen={this.state.screen}
+                len={this.state.listQuestion.length}
             /> :
             <Ending 
                 mainScreen={this.props.mainScreen}

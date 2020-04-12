@@ -1,15 +1,6 @@
 import React from 'react';
-
-var createReactClass = require('create-react-class');
-
-function gcd_two_numbers(x, y) {
-    while(y) {
-      var t = y;
-      y = x % y;
-      x = t;
-    }
-    return x;
-}
+import './Form.css';
+import Step from './Step';
 
 class Form extends React.Component {
     render() {
@@ -43,78 +34,18 @@ class Form extends React.Component {
                     <div className="arrow-left" />
                         <span>     Trở lại màn hình chính</span>
                     </a>
-                </div>
-                <div className="card_content">
-                    <div id="board" className="uchiru-place card player-1 script3771 fixed run_on_windows cr" style={{lineHeight: '1.29'}}>
-                        <div>
-                            <div className="task">Tối giản phân số</div>
-                            <div className="sub_task">Viết con số mà cả tử số và mẫu số đều chia hết</div>
-                            <div className="action_wrap">
-                            <div className="expression_wrap" style={{width: '302px'}}>
-                                <div className="fraction">
-                                <div className="numerator">
-                                    <div className="f-input blank">
-                                    <div className="__outer">
-                                    <div className="__inner">
-                                    <span style={{width: '29px', marginTop: '-3px'}}>{this.props.numerator}</span>
-                                    <span style={{width: '0px', marginTop: '-3px'}} />
-                                    <div className="__carriage blank" />
-                                    </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div className="dash" />
-                                <div className="denominator">
-                                    <div className="f-input blank">
-                                    <div className="__outer">
-                                        <div className="__inner"><span style={{width: '29px', marginTop: '-3px'}}>{this.props.denominator}</span><span style={{width: '0px', marginTop: '-3px'}} />
-                                        <div className="__carriage blank" />
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div className="sign_equal">=</div>
-                                <div className="fraction">
-                                <div className="numerator">
-                                    <div className="f-input blank">
-                                    <div className="__outer">
-                                        <div className="__inner"><span style={{width: '29px', marginTop: '-3px'}}>{this.props.numerator}</span><span style={{width: '0px', marginTop: '-3px'}} />
-                                        <div className="__carriage" />
-                                        </div>
-                                    </div>
-                                    </div><span style={{position: 'relative', top: '8px'}}>÷</span>
-                                    <div className="f-input active">
-                                    <div className="__outer">
-                                        <div className="__inner"><span style={{width: '0px', marginTop: '-3px'}} /><span style={{width: '0px', marginTop: '-3px'}} />
-                                        <div className="__carriage" />
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div className="dash" />
-                                <div className="denominator">
-                                    <div className="f-input blank">
-                                    <div className="__outer">
-                                        <div className="__inner"><span style={{width: '29px', marginTop: '-3px'}}>{this.props.denominator}</span><span style={{width: '0px', marginTop: '-3px'}} />
-                                        <div className="__carriage" />
-                                        </div>
-                                    </div>
-                                    </div><span style={{position: 'relative', top: '8px'}}>÷</span>
-                                    <div className="f-input active">
-                                    <div className="__outer">
-                                        <div className="__inner"><span style={{width: '0px', marginTop: '-3px'}} /><span style={{width: '0px', marginTop: '-3px'}} />
-                                        <div className="__carriage" />
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
+                    <div className="beads-wrapper">
+                        <div id="progress">
+                            <span>Đã hoàn thành {this.props.screen} / {this.props.len}</span>
                         </div>
                     </div>
                 </div>
+                <Step 
+                    numerator={this.props.numerator}
+                    denominator={this.props.denominator}
+                    nextExam={this.props.nextScreen}
+                    mainScreen={this.props.mainScreen}
+                />
             </div>
         </div>
         );
