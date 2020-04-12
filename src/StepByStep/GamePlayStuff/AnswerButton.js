@@ -1,0 +1,22 @@
+import React from 'react';
+
+class AnswerButton extends React.Component{
+    
+    handleClick = (e) => {
+        this.props.handleAnswer();
+    }
+
+    render(){
+        return (
+            <div className="button-choice button-choice_font_ci button-choice_case_uc button-choice_color_blue answer-button number-answer" style={{width: '120px'}} onClick={this.handleClick}>
+                <div className="button-choice__placeholder ci" style={{visibility: 'hidden'}}> by {this.props.divider}</div>
+                <div className="button-choice__wrong" />
+                <div className="button-choice__right" />
+                <div className="button-choice__select" />
+                <div className="button-choice__text ci" style={{left: this.props.buttonSize}}> by {this.props.divider}</div>
+            </div>
+        )
+    }
+}
+
+export default AnswerButton;

@@ -1,0 +1,26 @@
+.answerinput{
+    width: 42px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 1px 0 1px 3px;
+    text-align: center;
+    white-space: nowrap;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
