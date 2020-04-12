@@ -6,7 +6,7 @@ class Home extends React.Component {
         return (
             <div>    
                 <button onClick={this.props.simplifyingFractionScreen}>SimplifyingFraction</button>
-                <button onClick={this.props.StepByStep}>StepByStep</button>
+                <button onClick={this.props.stepByStepScreen}>StepByStep</button>
             </div>
         );
     }
