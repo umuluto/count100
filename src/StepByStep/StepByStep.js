@@ -6,7 +6,7 @@ class StepByStep extends React.Component {
         if (this.props.curScreen !== 3) return <div></div>;
         return (
             <Home 
-                homeScreen = {() => this.props.homeScreen}
+                homeScreen = {() => {this.props.homeScreen()}}
             />
         );
     }
