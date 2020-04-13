@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import NavigationBar from './components/NavigationBar';
+import Task from './components/Task';
 
 class Stage2 extends Component {
   constructor(props) {
@@ -9,9 +11,8 @@ class Stage2 extends Component {
 
     return (
       <div>
-        <div>
-          Progress bar
-        </div>
+        <NavigationBar numberOfBeads={5} />
+        <Task text={"YO"} />
         <div>
           PlayScreen
         </div>

@@ -5,14 +5,14 @@ import App from './App';
 import "tachyons";
 // import App from "./stage2/App";
 import * as serviceWorker from './serviceWorker';
-// import Stage2 from "./stage2/Stage2";
-import GreenBead from "./stage2/components/GreenBead";
+import Stage2 from "./stage2/Stage2";
 // import ProgressBar from "./stage2/components/ProgressBar";
-import NavigationBar from './stage2/components/NavigationBar';
+// import NavigationBar from './stage2/components/NavigationBar';
+// import Task from './stage2/components/Task';
 
 ReactDOM.render(
   <React.StrictMode>
-    <NavigationBar numberOfBeads={5} />
+    <Stage2 />
   </React.StrictMode>,
   document.getElementById('root')
 );
