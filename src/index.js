@@ -7,11 +7,12 @@ import "tachyons";
 import * as serviceWorker from './serviceWorker';
 // import Stage2 from "./stage2/Stage2";
 import GreenBead from "./stage2/components/GreenBead";
-import ProgressBar from "./stage2/containers/ProgressBar";
+// import ProgressBar from "./stage2/components/ProgressBar";
+import NavigationBar from './stage2/components/NavigationBar';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProgressBar numberOfBeads={5} />
+    <NavigationBar numberOfBeads={5} />
   </React.StrictMode>,
   document.getElementById('root')
 );

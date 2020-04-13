@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GreenBead from '../components/GreenBead';
+import GreenBead from './GreenBead';
 
 class ProgressBar extends Component {
     constructor(props) {
