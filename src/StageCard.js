@@ -8,10 +8,10 @@ class StageCard extends React.Component {
   render() {
     return (
       <div
-        className="db center tc black link grow ba bw2 b--blue items-center pointer tc"
+        className="tc b--blue ba dib br3 pa3 ma2 grow bw2 shadow-5 pointer center link"
         title={this.props.title}
       >
-        <img className="center pa5" alt="" src={this.props.imgLink} />
+        <img className="center pa4" alt="" src={this.props.imgLink} />
 
         <dl className="lh-copy">
           <dd className="ml0">{this.props.stageTitle}</dd>

@@ -36,9 +36,12 @@ class StageSelection extends React.Component {
       );
     }
     return (
-      <div>
+      <div className="center tc items-center">
         <h1 className="pa3 b tc"> Simplifying fractions </h1>
-        <div className="flex center items-center pa3">{stageCards}</div>;
+        <div className="flex center items-center pa3">{stageCards}</div>
+        <div className="tc b--blue ba dib br3 pa3 ma2 grow bw2 shadow-5 pointer center link">
+          Return to main page
+        </div>
       </div>
     );
   }
