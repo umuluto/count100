@@ -1,7 +1,7 @@
 import React from 'react';
 import SimplifyingFraction from './SimplifyingFraction/SimplifyingFraction';  
 import Home from './MainScreen/Home';
-import StepByStep from './StepByStep/StepByStep';
+import StepByStep from './StepByStep/StepByStep.js';
 
 class Student extends React.Component {
     constructor(props) {

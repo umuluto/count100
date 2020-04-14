@@ -23,6 +23,14 @@ class StageSelection extends React.Component {
       "When to simplify",
     ];
 
+    const onClick = [
+      this.props.simplifyingFractionScreen,
+      () => alert('Simplifiable or not simplifiable'),
+      this.props.stepByStepScreen,
+      () => alert('Simplify everything'),
+      () => alert('When to simplify')
+    ]
+
     const imageStoreURL = "https://dragonlearn.in/assets/card_previews/";
 
     const stageCards = [];
@@ -32,6 +40,7 @@ class StageSelection extends React.Component {
           title={stageTitles[i]}
           imgLink={imageStoreURL + stageImgs[i]}
           stageTitle={stageTitles[i]}
+          onClick={onClick[i]}
         />
       );
     }
