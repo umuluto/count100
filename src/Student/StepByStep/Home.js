@@ -35,9 +35,9 @@ class Home extends React.Component {
     render() {
         return (
             <Form
-                numerator = {2}
-                denominator = {3}
-                homeScreenLink = {this.props.homeScreen()}
+                numerator = {60}
+                denominator = {96}
+                homeScreenLink = {this.props.homeScreen}
             />
         );
     }

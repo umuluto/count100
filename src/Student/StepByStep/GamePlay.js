@@ -36,6 +36,9 @@ class GamePlay extends React.Component{
         divider: this.props.answers[x]
       });
     }
+    else {
+      alert('Ôi không trả lời sai rồi.')
+    }
   }
 
   handleTerminate(){
@@ -46,7 +49,7 @@ class GamePlay extends React.Component{
       this.props.terminateGame();      
     }
     else {
-
+      alert('Hình như phân số vẫn chưa tối giản thì phải?');
     }
   }
 
