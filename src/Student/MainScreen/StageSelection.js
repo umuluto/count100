@@ -1,5 +1,7 @@
 import React from "react";
 import StageCard from "./StageCard";
+import { connect } from 'react-redux';
+import actions from '../../actions/student-actions'
 
 class StageSelection extends React.Component {
   constructor(props) {
@@ -24,9 +26,9 @@ class StageSelection extends React.Component {
     ];
 
     const onClick = [
-      this.props.simplifyingFractionScreen,
+      this.props.SimplifyingFraction,
       () => alert('Simplifiable or not simplifiable'),
-      this.props.stepByStepScreen,
+      () => alert('Step by step'),
       () => alert('Simplify everything'),
       () => alert('When to simplify')
     ]
@@ -53,4 +55,10 @@ class StageSelection extends React.Component {
   }
 }
 
-export default StageSelection;
+const mapDispatchtoProps = (dispatch, ownProps) => {
+  return {
+    SimplifyingFraction: () => dispatch(actions.SimplifyingFraction)
+  }
+}
+
+export default connect(null, mapDispatchtoProps)(StageSelection);
