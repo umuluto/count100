@@ -2,37 +2,23 @@ import React from 'react';
 import SimplifyingFraction from './SimplifyingFraction/SimplifyingFraction';  
 import Home from './MainScreen/Home';
 import StepByStep from './StepByStep/StepByStep.js';
+import { connect } from 'react-redux';
+import Ending from './MainScreen/Ending'
 
 class Student extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            screen: 0
-        }
-        this.switchScreen = this.switchScreen.bind(this)
-    }
-
-    switchScreen(idScreen) {
-        this.setState ({
-            screen: idScreen
-        })
-    }
-
     renderedScreen() {
-        switch(this.state.screen) {
-            case 1:
-                return <SimplifyingFraction mainScreen={() => this.switchScreen(0)} />
-            case 3:
-                return <StepByStep mainScreen={() => this.switchScreen(0)} />
+        switch(this.props.screen) {
             case 0:
-                return (
-                    <Home 
-                        simplifyingFractionScreen = {() => this.switchScreen(1)}
-                        stepByStepScreen={() => this.switchScreen(3)}
-                    />
-                );
+                return <Home />
+            case 1:
+                return <SimplifyingFraction />
+            case 3:
+                return <StepByStep />
+            case 6:
+                return <Ending />
+            default:
+                return <h1>Error Student Rendering</h1>
         }
-
     }
 
     render() {
@@ -40,4 +26,10 @@ class Student extends React.Component {
     }
 }
 
-export default Student;
+const mapStatetoProps = (store) => {
+    return {
+        screen: store.Student.get('screen')
+    }
+}
+
+export default connect(mapStatetoProps)(Student);
