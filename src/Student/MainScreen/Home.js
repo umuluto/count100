@@ -1,13 +1,11 @@
 import React from 'react';
 import './Home.css';
+import StageSelection from './StageSelection';
 
 class Home extends React.Component {
     render() {
         return (
-            <div>    
-                <button onClick={this.props.simplifyingFractionScreen}>SimplifyingFraction</button>
-                <button onClick={this.props.stepByStepScreen}>StepByStep</button>
-            </div>
+            <StageSelection />
         );
     }
 }

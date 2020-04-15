@@ -1,18 +1,15 @@
 import React from 'react';
 import Form from './Form';
 import Ending from '../MainScreen/Ending';
+import { connect } from 'react-redux';
+import studentActions from '../../actions/student-actions';
+import simplifyingActions from '../../actions/simplifying-actions';
 
 class Exam extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            listQuestion: [{
-                numerator: 6,
-                denominator: 12
-            }, {
-                numerator: 9,
-                denominator: 12
-            }],
+            listQuestion: this.props.listQuestion,
             screen: 0,
         }
         this.addQuestion = this.addQuestion.bind(this)
@@ -49,4 +46,19 @@ class Exam extends React.Component {
     }
 }
 
-export default Exam;
+const mapStatetoProps = (store) => {
+    return {
+        listQuestion: store.Simplifying.get('listQuestion').toJS()
+    }
+}
+
+const mapDispatchtoProps = (dispatch, ownProps) => {
+    return {
+        mainScreen: () => {
+            dispatch(studentActions.Home)
+            dispatch(simplifyingActions.Home)
+        }
+    }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(Exam);

@@ -1,39 +1,25 @@
 import React from 'react';
 import Home from './Home';
 import Exam from './Exam';
+import { connect } from 'react-redux';
 
 class SimplifyingFraction extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            homeScreen: true 
-        };
-        this.switchScreen = this.switchScreen.bind(this);
-    }
-
-    switchScreen() {
-        this.setState({
-            homeScreen: !this.state.homeScreen
-        })
-    }
-
     render() {
-        switch(this.state.homeScreen) {
-            case true :
-                return (
-                    <Home 
-                        examScreen={this.switchScreen}
-                        mainScreen={this.props.mainScreen}
-                    />
-                );
+        switch(this.props.screen) {
+            case 0:
+                return <Home />
+            case 1: 
+                return <Exam />
             default: 
-                return (
-                    <Exam 
-                        mainScreen={this.props.mainScreen}
-                    />
-                );
+                return <h1>Render Simplifying Fraction Error</h1>
         }
     }
 }
 
-export default SimplifyingFraction;
+const mapStatetoProps = (store) => {
+    return {
+        screen: store.Simplifying.get('screen')
+    }
+}
+
+export default connect(mapStatetoProps)(SimplifyingFraction);
