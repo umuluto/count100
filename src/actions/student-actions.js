@@ -8,6 +8,10 @@ var SimplifyingFraction = {
     type: types.STUDENT_SIMPLIFYING_FRACTION
 }
 
+var WhenToSimplify = {
+    type: types.STUDENT_WHEN_TO_SIMPLIFY
+}
+
 var Ending = {
     type: types.STUDENT_ENDING_SCREEN
 }
@@ -15,5 +19,6 @@ var Ending = {
 export default {
     Home,
     SimplifyingFraction,
-    Ending
+    Ending,
+    WhenToSimplify
 }
