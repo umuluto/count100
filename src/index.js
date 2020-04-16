@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './Congratulation/Congratulation.css'
 import 'tachyons';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
