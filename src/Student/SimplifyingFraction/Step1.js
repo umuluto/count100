@@ -96,7 +96,7 @@ class Step1 extends React.Component {
                                     <span style={{ position: 'relative', top: '8px' }}>÷</span>
                                     <div className="f-input cl-input blank pointerhand clickable" id="sprite_1">
                                         <div className="__outer"><div className="__inner">
-                                            <span style={{ width: '29px', marginTop: '-3px' }}>{this.props.divisor}</span>
+                                            <span style={{ width: '29px', marginTop: '-3px', position: 'absolute', left: '0%' }}>{this.props.divisor}</span>
                                             <span style={{ width: '0px', marginTop: '-3px' }} />
                                             <div className="__carriage blank" /></div>
                                         </div>
@@ -117,7 +117,7 @@ class Step1 extends React.Component {
                                     <div className="f-input cl-input blank pointerhand clickable" id="sprite_2">
                                         <div className="__outer">
                                             <div className="__inner">
-                                                <span style={{ width: '29px', marginTop: '-3px' }}>{this.props.divisor}</span>
+                                                <span style={{ width: '29px', marginTop: '-3px', position: 'absolute', left: '0%' }}>{this.props.divisor}</span>
                                                 <span style={{ width: '0px', marginTop: '-3px' }} />
                                                 <div className="__carriage blank" />
                                             </div>    

@@ -1,0 +1,775 @@
+.card.script13807 .rush{
+    -webkit-animation:rush .5s ease-out;
+    animation:rush .5s ease-out;
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both
+}
+@-webkit-keyframes rush{
+    0%{
+        opacity:0;
+        -webkit-transform:scale(.7,.7);
+        -moz-transform:scale(.7,.7);
+        transform:scale(.7,.7)
+    }
+    50%{
+        opacity:1;
+        -webkit-transform:scale(1.2,1.2);
+        -moz-transform:scale(1.2,1.2);
+        transform:scale(1.2,1.2)
+    }
+    100%{
+        opacity:1;
+        -webkit-transform:scale(1,1);
+        -moz-transform:scale(1,1);
+        transform:scale(1,1)
+    }
+}
+@-moz-keyframes rush{
+    0%{
+        opacity:0;
+        -webkit-transform:scale(.7,.7);
+        -moz-transform:scale(.7,.7);
+        transform:scale(.7,.7)
+    }
+    50%{
+        opacity:1;
+        -webkit-transform:scale(1.2,1.2);
+        -moz-transform:scale(1.2,1.2);
+        transform:scale(1.2,1.2)
+    }
+    100%{
+        opacity:1;
+        -webkit-transform:scale(1,1);
+        -moz-transform:scale(1,1);
+        transform:scale(1,1)
+    }
+}
+@-o-keyframes rush{
+    0%{
+        opacity:0;
+        -webkit-transform:scale(.7,.7);
+        -moz-transform:scale(.7,.7);
+        transform:scale(.7,.7)
+    }
+    50%{
+        opacity:1;
+        -webkit-transform:scale(1.2,1.2);
+        -moz-transform:scale(1.2,1.2);
+        transform:scale(1.2,1.2)
+    }
+    100%{
+        opacity:1;
+        -webkit-transform:scale(1,1);
+        -moz-transform:scale(1,1);
+        transform:scale(1,1)
+    }
+}
+@keyframes rush{
+    0%{
+        opacity:0;
+        -webkit-transform:scale(.7,.7);
+        -moz-transform:scale(.7,.7);
+        transform:scale(.7,.7)
+    }
+    50%{
+        opacity:1;
+        -webkit-transform:scale(1.2,1.2);
+        -moz-transform:scale(1.2,1.2);
+        transform:scale(1.2,1.2)
+    }
+    100%{
+        opacity:1;
+        -webkit-transform:scale(1,1);
+        -moz-transform:scale(1,1);
+        transform:scale(1,1)
+    }
+}
+.card.script13807 .scene{
+    position:relative;
+    min-height:540px;
+    padding:10px
+}
+.card.script13807.dev .grid{
+    display:block
+}
+.card.script13807.dev .scene div:not(.grid):not(.grid_part):not(.grid_column):not(.grid_row):not(.button_choice){
+    background-color:rgba(255,95,0,.2)
+}
+.card.script13807 .grid{
+    position:absolute;
+    top:10px;
+    bottom:10px;
+    left:10px;
+    right:10px;
+    z-index:-1;
+    display:none;
+    font-size:10px
+}
+.card.script13807 .grid_part{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    white-space:nowrap;
+    background-color:transparent
+}
+.card.script13807 .vertical_grid .grid_column{
+    position:relative;
+    display:inline-block;
+    height:100%;
+    vertical-align:top
+}
+.card.script13807 .vertical_grid .grid_column:nth-child(odd){
+    background-color:rgba(0,160,255,.2)
+}
+.card.script13807 .vertical_grid .grid_column:nth-child(4n+2){
+    background-color:rgba(0,160,255,.1)
+}
+.card.script13807 .horizontal_grid .grid_row{
+    position:relative;
+    display:block;
+    width:100%;
+    text-align:left
+}
+.card.script13807 .horizontal_grid .grid_row span{
+    vertical-align:middle
+}
+.card.script13807 .horizontal_grid .grid_row:nth-child(odd){
+    background-color:rgba(0,160,255,.2)
+}
+.card.script13807 .horizontal_grid .grid_row:nth-child(4n+2){
+    background-color:rgba(0,160,255,.1)
+}
+.card.script13807 *{
+    font-family:CirceRounded!important
+}
+.card.script13807 .under_start,.card.script13807.under_start{
+    -webkit-filter:blur(5px);
+    -moz-filter:blur(5px);
+    filter:blur(5px)
+}
+.card.script13807 .under_start.started,.card.script13807.under_start.started{
+    -webkit-filter:blur(0);
+    -moz-filter:blur(0);
+    filter:blur(0);
+    -webkit-transition:linear .8s;
+    transition:linear .8s
+}
+.card.script13807 .under_start.finished,.card.script13807.under_start.finished{
+    -webkit-filter:none;
+    -moz-filter:none;
+    filter:none;
+    -webkit-transition:none;
+    transition:none
+}
+.card.script13807 .btn_play_wall{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%
+}
+.card.script13807 .btn_play{
+    position:absolute;
+    z-index:100;
+    top:50%;
+    left:50%;
+    width:246px;
+    height:246px;
+    margin:-166px 0 0 -166px;
+    border-radius:200px;
+    background-color:rgba(184,0,161,.1);
+    border:43px solid rgba(255,255,255,.75);
+    -webkit-transition:linear .3s;
+    transition:linear .2s;
+    cursor:pointer
+}
+.card.script13807 .btn_play.started{
+    -webkit-transition:linear .2s;
+    transition:linear .2s;
+    -webkit-transform:scale(1.2);
+    transform:scale(1.2);
+    opacity:0
+}
+.card.script13807 .btn_play:hover{
+    width:260px;
+    height:260px;
+    margin:-173px 0 0 -173px
+}
+.card.script13807 .btn_play:hover .triangle{
+    background-position:0 -113px
+}
+.card.script13807 .btn_play .triangle{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:112px;
+    height:113px;
+    background:url('https://content.dragonlearn.in/143142/8900/1.png') no-repeat;
+    margin:-57px 0 0 -35px
+}
+.card.script13807 .btn_play .triangle span{
+    position:absolute;
+    top:50%;
+    font-size:20px;
+    line-height:20px;
+    margin-top:-10px;
+    left:18px;
+    color:#fff
+}
+.card.script13807 .button-basic{
+    position:relative;
+    display:inline-block
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default{
+    height:38px;
+    padding:2px 20px;
+    border-radius:7px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__placeholder{
+    position:relative
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__text{
+    position:absolute;
+    left:20px;
+    top:2px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__right,.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__wrong{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:7px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__text{
+    display:block;
+    white-space:nowrap;
+    width:auto;
+    font-size:24px;
+    line-height:25px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:6px 0 7px
+}
+.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__text,.ipad .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.ipad .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__text,.opera .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.opera .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__text,.safari .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.safari .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__text{
+    padding:6px 0 7px
+}
+.ie .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.ie .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__text{
+    padding:1px 0 10px
+}
+.android .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.android .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__text{
+    padding:7px 0 6px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default.button-basic_weight_bold .button-basic__placeholder,.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default.button-basic_weight_bold .button-basic__text{
+    padding:6px 0 7px!important
+}
+.platform_windows.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.platform_windows.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__text,.platform_windows:not(.ie) .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.platform_windows:not(.ie) .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default .button-basic__text{
+    padding:2px 0 11px!important
+}
+.platform_windows .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default.button-basic_weight_bold .button-basic__placeholder,.platform_windows .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_default.button-basic_weight_bold .button-basic__text{
+    padding:6px 0 7px!important
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc{
+    height:38px;
+    padding:2px 20px;
+    border-radius:7px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__placeholder{
+    position:relative
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    position:absolute;
+    left:20px;
+    top:2px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__right,.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__wrong{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:7px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    display:block;
+    white-space:nowrap;
+    width:auto;
+    font-size:24px;
+    line-height:25px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:7px 0 6px
+}
+.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__text,.ipad .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.ipad .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__text,.opera .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.opera .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__text,.safari .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.safari .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    padding:7px 0 6px
+}
+.ie .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.ie .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    padding:3px 0 8px
+}
+.android .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.android .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    padding:8px 0 5px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc.button-basic_weight_bold .button-basic__placeholder,.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc.button-basic_weight_bold .button-basic__text{
+    padding:7px 0 6px!important
+}
+.platform_windows.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.platform_windows.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__text,.platform_windows:not(.ie) .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.platform_windows:not(.ie) .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    padding:3px 0 10px!important
+}
+.platform_windows .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc.button-basic_weight_bold .button-basic__placeholder,.platform_windows .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc.button-basic_weight_bold .button-basic__text{
+    padding:7px 0 6px!important
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc{
+    height:38px;
+    padding:2px 20px;
+    border-radius:7px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder{
+    position:relative
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    position:absolute;
+    left:20px;
+    top:2px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__right,.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__wrong{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:7px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    display:block;
+    white-space:nowrap;
+    width:auto;
+    font-size:24px;
+    line-height:25px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:8px 0 5px
+}
+.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__text,.ipad .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.ipad .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__text,.opera .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.opera .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__text,.safari .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.safari .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    padding:8px 0 5px
+}
+.ie .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.ie .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    padding:4px 0 9px
+}
+.android .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.android .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    padding:9px 0 4px
+}
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc.button-basic_weight_bold .button-basic__placeholder,.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc.button-basic_weight_bold .button-basic__text{
+    padding:8px 0 5px!important
+}
+.platform_windows.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.platform_windows.firefox .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__text,.platform_windows:not(.ie) .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.platform_windows:not(.ie) .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    padding:4px 0 9px!important
+}
+.platform_windows .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc.button-basic_weight_bold .button-basic__placeholder,.platform_windows .card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_all_uc.button-basic_weight_bold .button-basic__text{
+    padding:8px 0 5px!important
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default{
+    height:38px;
+    padding:2px 4px;
+    border-radius:7px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__placeholder{
+    position:relative
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__text{
+    position:absolute;
+    left:4px;
+    top:2px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__right,.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__wrong{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:7px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__text{
+    display:block;
+    white-space:nowrap;
+    width:52px;
+    font-size:24px;
+    line-height:25px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:6px 0 7px
+}
+.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__text,.ipad .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.ipad .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__text,.opera .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.opera .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__text,.safari .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.safari .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__text{
+    padding:6px 0 7px
+}
+.ie .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.ie .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__text{
+    padding:1px 0 10px
+}
+.android .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.android .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__text{
+    padding:7px 0 6px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default.button-basic_weight_bold .button-basic__placeholder,.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default.button-basic_weight_bold .button-basic__text{
+    padding:6px 0 7px!important
+}
+.platform_windows.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.platform_windows.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__text,.platform_windows:not(.ie) .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__placeholder,.platform_windows:not(.ie) .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default .button-basic__text{
+    padding:2px 0 11px!important
+}
+.platform_windows .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default.button-basic_weight_bold .button-basic__placeholder,.platform_windows .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_default.button-basic_weight_bold .button-basic__text{
+    padding:6px 0 7px!important
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc{
+    height:38px;
+    padding:2px 4px;
+    border-radius:7px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__placeholder{
+    position:relative
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    position:absolute;
+    left:4px;
+    top:2px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__right,.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__wrong{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:7px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    display:block;
+    white-space:nowrap;
+    width:52px;
+    font-size:24px;
+    line-height:25px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:7px 0 6px
+}
+.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__text,.ipad .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.ipad .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__text,.opera .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.opera .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__text,.safari .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.safari .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    padding:7px 0 6px
+}
+.ie .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.ie .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    padding:3px 0 8px
+}
+.android .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.android .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    padding:8px 0 5px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc.button-basic_weight_bold .button-basic__placeholder,.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc.button-basic_weight_bold .button-basic__text{
+    padding:7px 0 6px!important
+}
+.platform_windows.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.platform_windows.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__text,.platform_windows:not(.ie) .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__placeholder,.platform_windows:not(.ie) .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc .button-basic__text{
+    padding:3px 0 10px!important
+}
+.platform_windows .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc.button-basic_weight_bold .button-basic__placeholder,.platform_windows .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_uc.button-basic_weight_bold .button-basic__text{
+    padding:7px 0 6px!important
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc{
+    height:38px;
+    padding:2px 4px;
+    border-radius:7px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder{
+    position:relative
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    position:absolute;
+    left:4px;
+    top:2px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__right,.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__wrong{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:7px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    display:block;
+    white-space:nowrap;
+    width:52px;
+    font-size:24px;
+    line-height:25px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:8px 0 5px
+}
+.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__text,.ipad .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.ipad .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__text,.opera .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.opera .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__text,.safari .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.safari .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    padding:8px 0 5px
+}
+.ie .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.ie .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    padding:4px 0 9px
+}
+.android .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.android .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    padding:9px 0 4px
+}
+.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc.button-basic_weight_bold .button-basic__placeholder,.card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc.button-basic_weight_bold .button-basic__text{
+    padding:8px 0 5px!important
+}
+.platform_windows.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.platform_windows.firefox .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__text,.platform_windows:not(.ie) .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__placeholder,.platform_windows:not(.ie) .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc .button-basic__text{
+    padding:4px 0 9px!important
+}
+.platform_windows .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc.button-basic_weight_bold .button-basic__placeholder,.platform_windows .card.script13807 .button-basic.button-basic_fixed.button-basic_font_ci.button-basic_case_all_uc.button-basic_weight_bold .button-basic__text{
+    padding:8px 0 5px!important
+}
+.card.script13807 .button-basic_color_blue{
+    background:#70c5e2
+}
+.no-touch .card.script13807 .button-basic_color_blue:not(.disabled):not(.inactive):not(.button-basic_right):not(.button-basic_wrong):hover{
+    cursor:pointer;
+    text-decoration:none;
+    background:#39b6e2
+}
+.no-touch .card.script13807 .button-basic_color_blue:not(.disabled):not(.inactive):not(.button-basic_right):not(.button-basic_wrong):active,.touch .card.script13807 .button-basic_color_blue:not(.disabled):not(.inactive):not(.button-basic_right):not(.button-basic_wrong):active{
+    background:#70c5e2
+}
+.card.script13807 .button-basic_color_blue .button-basic__right{
+    background:#8fbe83;
+    opacity:0
+}
+.card.script13807 .button-basic_color_blue .button-basic__wrong{
+    background:#f05a69;
+    opacity:0
+}
+.card.script13807 .button-basic_color_blue .button-basic__text{
+    color:#fff
+}
+.card.script13807 .button-basic_color_blue.disabled{
+    pointer-events:none;
+    cursor:default;
+    background:#b9e0ed;
+    opacity:1
+}
+.card.script13807 .button-basic_color_blue.inactive{
+    pointer-events:none;
+    cursor:default
+}
+.card.script13807 .button-basic_color_blue.button-basic_right .button-basic__right,.card.script13807 .button-basic_color_blue.button-basic_wrong .button-basic__wrong{
+    opacity:1
+}
+.card.script13807 .button-basic_color_blue:not(.no-transition).button-basic_right-end .button-basic__right,.card.script13807 .button-basic_color_blue:not(.no-transition).button-basic_wrong-end .button-basic__wrong{
+    -moz-transition:opacity .2s 0s;
+    -o-transition:opacity .2s 0s;
+    -webkit-transition:opacity .2s 0s;
+    transition:opacity .2s 0s
+}
+.card.script13807 .button-basic_color_white{
+    background:rgba(255,255,255,.9)
+}
+.no-touch .card.script13807 .button-basic_color_white:not(.disabled):not(.inactive):not(.button-basic_right):not(.button-basic_wrong):hover{
+    cursor:pointer;
+    text-decoration:none;
+    background:#fff
+}
+.no-touch .card.script13807 .button-basic_color_white:not(.disabled):not(.inactive):not(.button-basic_right):not(.button-basic_wrong):active,.touch .card.script13807 .button-basic_color_white:not(.disabled):not(.inactive):not(.button-basic_right):not(.button-basic_wrong):active{
+    background:rgba(255,255,255,.85)
+}
+.card.script13807 .button-basic_color_white .button-basic__right{
+    background:#8fbe83;
+    opacity:0
+}
+.card.script13807 .button-basic_color_white .button-basic__wrong{
+    background:#f05a69;
+    opacity:0
+}
+.card.script13807 .button-basic_color_white .button-basic__text{
+    color:#000
+}
+.card.script13807 .button-basic_color_white.disabled{
+    pointer-events:none;
+    cursor:default;
+    background:rgba(255,255,255,.9);
+    opacity:.5
+}
+.card.script13807 .button-basic_color_white.inactive{
+    pointer-events:none;
+    cursor:default
+}
+.card.script13807 .button-basic_color_white.button-basic_right .button-basic__right,.card.script13807 .button-basic_color_white.button-basic_wrong .button-basic__wrong{
+    opacity:1
+}
+.card.script13807 .button-basic_color_white:not(.no-transition).button-basic_right-end .button-basic__right,.card.script13807 .button-basic_color_white:not(.no-transition).button-basic_wrong-end .button-basic__wrong{
+    -moz-transition:opacity .2s 0s;
+    -o-transition:opacity .2s 0s;
+    -webkit-transition:opacity .2s 0s;
+    transition:opacity .2s 0s
+}
+.card.script13807 .button-basic_weight_bold .button-basic__placeholder,.card.script13807 .button-basic_weight_bold .button-basic__text{
+    font-weight:700
+}
+.card.script13807 .title{
+    font-weight:700;
+    font-size:36px;
+    top:5px;
+    position:relative
+}
+.card.script13807 .board{
+    background-image:url('https://content.dragonlearn.in/143142/8900/13.svg');
+    position:relative;
+    width:600px;
+    height:300px;
+    top:67px;
+    left:50%;
+    margin-left:-300px;
+    background-repeat:no-repeat
+}
+.card.script13807 .fraction{
+    margin-top:50px;
+    line-height:1.2;
+    display:inline-block;
+    font-size:44px;
+    color:#fff;
+    background-repeat:no-repeat;
+    width:70px
+}
+.card.script13807 .fraction *{
+    font-family:"Short Stack"!important
+}
+.card.script13807 .fraction .multiplication{
+    position:relative
+}
+.card.script13807 .fraction.equal_sign{
+    width:50px;
+    position:relative;
+    top:-30px
+}
+.card.script13807 .fraction .dash{
+    height:10px;
+    background-image:url('https://content.dragonlearn.in/143142/8900/14.svg');
+    background-repeat:no-repeat
+}
+.card.script13807 .fraction.second_fraction.wide_fraction .dash,.card.script13807 .fraction.second_fraction:not(.tight_fraction) .dash{
+    background-image:url('https://content.dragonlearn.in/143142/8900/15.svg');
+    background-repeat:no-repeat
+}
+.card.script13807 .fraction.second_fraction:not(.tight_fraction){
+    width:150px
+}
+.card.script13807 .fraction.second_fraction.wide_fraction{
+    width:190px
+}
+.card.script13807 .true_red_cross{
+    background-image:url('https://content.dragonlearn.in/143142/8900/16.svg');
+    position:absolute;
+    background-repeat:no-repeat;
+    width:60px;
+    margin-left:-30px;
+    height:40px;
+    z-index:1
+}
+.card.script13807 .true_red_cross2{
+    background-image:url('https://content.dragonlearn.in/143142/8900/17.svg');
+    position:absolute;
+    background-repeat:no-repeat;
+    width:30px;
+    margin-left:-15px;
+    height:50px;
+    z-index:1
+}
+.card.script13807 .button{
+    position:relative;
+    top:40px;
+    margin-left:20px;
+    margin-right:20px
+}
+.card.script13807 .boy{
+    position:absolute;
+    z-index:2;
+    background-image:url(https://content.dragonlearn.in/143142/8900/18.svg);
+    width:150px;
+    height:280px;
+    top:60px;
+    left:-70px;
+    background-repeat:no-repeat
+}
+.card.script13807#processes .frame{
+    padding:5px 3px;
+    border-bottom:1px solid #aaa;
+    background-color:#eee
+}
+.card.script13807#processes .frame.active{
+    background-color:#fff
+}
+.card.script13807#processes .frame .log_time{
+    color:green
+}
+.card.script13807#processes .frame .current_step b{
+    color:#00f
+}
+.card.script13807#processes .frame .state{
+    margin:3px 0
+}
+
+.card.script13807 .button-basic:not(.button-basic_fixed).button-basic_font_ci.button-basic_case_uc {
+    height: 38px;
+    padding: 2px 20px;
+    border-radius: 7px;
+}
+
+.card.script13807 .button {
+    position: relative;
+    top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card.script13807 .button-basic_color_blue {
+    background: #70c5e2;
+}
+
+.card.script13807 .button-basic {
+    display: inline-block;
+}
+
+.card.script13807 * {
+    font-family: CirceRounded!important;
+}
+
+.card.player-1 * {
+    user-select: none;
+}
+
+.pointerhand {
+    cursor: pointer;
+}
+
+*{
+    -webkit-tap-highlight-color:transparent
+}
+.uchiru-place{
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    padding-top:1px;
+    margin-top:-1px;
+    line-height:1.5
+}
+.uchiru-place.fixed{
+    width:960px;
+    min-height:483px
+}
+.uchiru-place.fixed_height_560{
+    min-height:560px
+}
+.uchiru-place .ajax-preloader{
+    display:block;
+    width:100px;
+    height:100px;
+    margin:190px auto 0
+}
+.uchiru-place-2{
+    text-align:center;
+    position:relative
+}
+.uchiru-place-2_fixed{
+    width:1024px;
+    min-height:560px;
+    border-bottom-left-radius:15px;
+    border-bottom-right-radius:15px
+}
+ 

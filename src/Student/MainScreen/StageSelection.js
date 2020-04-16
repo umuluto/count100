@@ -31,7 +31,7 @@ class StageSelection extends React.Component {
       () => alert('Simplifiable or not simplifiable'),
       () => alert('Step by step'),
       () => alert('Simplify everything'),
-      () => alert('When to simplify')
+      this.props.WhenToSimplify
     ]
 
     const imageStoreURL = "https://dragonlearn.in/assets/card_previews/";
@@ -64,7 +64,8 @@ class StageSelection extends React.Component {
 const mapDispatchtoProps = (dispatch, ownProps) => {
   return {
     SimplifyingFraction: () => dispatch(actions.SimplifyingFraction),
-    HomeScreen: () => dispatch(AppActions.Home)
+    HomeScreen: () => dispatch(AppActions.Home),
+    WhenToSimplify: () => dispatch(actions.WhenToSimplify)
   }
 }
 
