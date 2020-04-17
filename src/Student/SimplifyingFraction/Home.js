@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import StudentActions from '../../actions/student-actions';
+import Simplifying from '../../actions/simplifying-actions';
 
 class Home extends React.Component {
     render() {
@@ -33,4 +36,11 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+const mapDispatchtoProps = (dispatch, ownProps) => {
+  return {
+    mainScreen: () => dispatch(StudentActions.Home),
+    examScreen: () => dispatch(Simplifying.Exam)
+  }
+}
+
+export default connect(null, mapDispatchtoProps)(Home);

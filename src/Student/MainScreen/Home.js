@@ -5,10 +5,7 @@ import StageSelection from './StageSelection';
 class Home extends React.Component {
     render() {
         return (
-            <StageSelection 
-                simplifyingFractionScreen = {this.props.simplifyingFractionScreen}
-                stepByStepScreen = {this.props.stepByStepScreen}
-            />
+            <StageSelection />
         );
     }
 }

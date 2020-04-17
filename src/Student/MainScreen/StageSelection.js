@@ -1,5 +1,8 @@
 import React from "react";
 import StageCard from "./StageCard";
+import { connect } from 'react-redux';
+import actions from '../../actions/student-actions'
+import AppActions from '../../actions/app-actions';
 
 class StageSelection extends React.Component {
   constructor(props) {
@@ -24,11 +27,11 @@ class StageSelection extends React.Component {
     ];
 
     const onClick = [
-      this.props.simplifyingFractionScreen,
+      this.props.SimplifyingFraction,
       () => alert('Simplifiable or not simplifiable'),
-      this.props.stepByStepScreen,
+      () => alert('Step by step'),
       () => alert('Simplify everything'),
-      () => alert('When to simplify')
+      this.props.WhenToSimplify
     ]
 
     const imageStoreURL = "https://dragonlearn.in/assets/card_previews/";
@@ -45,12 +48,25 @@ class StageSelection extends React.Component {
       );
     }
     return (
-      <div>
+      <div className="center tc items-center">
         <h1 className="pa3 b tc"> Simplifying fractions </h1>
-        <div className="flex center items-center pa3">{stageCards}</div>;
+        <div className="flex center items-center pa3">{stageCards}</div>
+        <button onClick={this.props.HomeScreen}>
+          <div className="tc b--blue ba dib br3 pa3 ma2 grow bw2 shadow-5 pointer center link">
+            Return to main page
+          </div>
+        </button>
       </div>
     );
   }
 }
 
-export default StageSelection;
+const mapDispatchtoProps = (dispatch, ownProps) => {
+  return {
+    SimplifyingFraction: () => dispatch(actions.SimplifyingFraction),
+    HomeScreen: () => dispatch(AppActions.Home),
+    WhenToSimplify: () => dispatch(actions.WhenToSimplify)
+  }
+}
+
+export default connect(null, mapDispatchtoProps)(StageSelection);

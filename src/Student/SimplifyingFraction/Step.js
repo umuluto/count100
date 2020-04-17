@@ -15,7 +15,7 @@ class Step extends React.Component {
         this.setDivisor = this.setDivisor.bind(this)
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({
             numerator: nextProps.numerator,
             denominator: nextProps.denominator
