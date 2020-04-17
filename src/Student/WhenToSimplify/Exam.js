@@ -28,6 +28,8 @@ class Exam extends React.Component {
                     Question={this.state.listQuestion[this.state.curQuestion]}
                     id={this.state.curQuestion}
                     nextQuestion = {this.nextQuestion}
+                    screen = {this.state.curQuestion}
+                    len = {this.state.listQuestion.length}
                 />
             ) 
             : (

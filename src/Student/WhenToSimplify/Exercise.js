@@ -54,6 +54,11 @@ class Exercise extends React.Component {
                         <div className="arrow-left" />
                         <span>      Trở lại màn hình chính</span>
                     </a>
+                    <div className="beads-wrapper">
+                        <div id="progress">
+                            <span>Đã hoàn thành {this.props.screen} / {this.props.len}</span>
+                        </div>
+                    </div>
                 </div>
                 <div className="card_content">
                     <div id="board" className="uchiru-place card player-1 script13807 fixed">
