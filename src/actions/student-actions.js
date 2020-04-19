@@ -12,6 +12,10 @@ var WhenToSimplify = {
     type: types.STUDENT_WHEN_TO_SIMPLIFY
 }
 
+var StepByStep = {
+    type: types.STUDENT_STEP_BY_STEP
+}
+
 var Ending = {
     type: types.STUDENT_ENDING_SCREEN
 }
@@ -20,5 +24,6 @@ export default {
     Home,
     SimplifyingFraction,
     Ending,
-    WhenToSimplify
+    WhenToSimplify,
+    StepByStep
 }

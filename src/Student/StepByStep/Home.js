@@ -1,27 +1,33 @@
 import React from 'react';
-import Form from './Form';
+import { connect } from 'react-redux';
+import StudentActions from '../../actions/student-actions';
+import StepByStep from '../../actions/step-by-step-action';
 
-var createReactClass=require('create-react-class');
-
-var HomeScreen = createReactClass({
-    render: function() {
+class Home extends React.Component {
+    
+    render() {
       return (
         <div>
           <div className="uchiru_bg_cell" />
           <div className="uchiru_bg_color" />
           <div className="uchiru_bg_stuff" />
-          <img className="uchiru_bg_color" src="https://content.dragonlearn.in/fp/97/fat_player/student/grad-f07e854ce64f9aee2db7bd67146ff0e4800feeed40c8f7116fcb3b6a048deb64.jpg" />
           <div className="uchiru_box">
             <div className="uchiru_head card with_progress">
-              <a className="back-link" style={{}} href="/home.html">
-                <div className="arrow-left" />
-                <span>     Back</span>
-              </a>
+              <div>
+                <a className="back-link" onClick={this.props.mainScreen}>
+                  <div className="arrow-left" />
+                  <span>           Trở lại màn hình chính</span>
+                </a>
+              </div>
             </div>
             <div className="card_content">
               <div id="board" className="uchiru-place card player-1 script3771 fixed run_on_windows cr" style={{lineHeight: '1.29'}}>
                 <div className="btn_play">
-                  <div className="triangle"><span>start</span></div>
+                  <button style={{border: "none", padding: 0, background: "none"}} onClick={this.props.examScreen}>
+                    <div className="triangle">
+                      <span>Bắt đầu</span>
+                    </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -29,18 +35,13 @@ var HomeScreen = createReactClass({
         </div>
       );
     }
-});
-
-class Home extends React.Component {
-    render() {
-        return (
-            <Form
-                numerator = {60}
-                denominator = {96}
-                homeScreenLink = {this.props.homeScreen}
-            />
-        );
-    }
 }
 
-export default Home;
+const mapDispatchtoProps = (dispatch, ownProps) => {
+  return {
+    mainScreen: () => dispatch(StudentActions.Home),
+    examScreen: () => dispatch(StepByStep.Exam)
+  }
+}
+
+export default connect(null, mapDispatchtoProps)(Home);

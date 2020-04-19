@@ -4,6 +4,9 @@ import AnswerButton from './GamePlayStuff/AnswerButton';
 import StopButton from './GamePlayStuff/StopButton';
 import FillableSquare from './GamePlayStuff/FillableSquare';
 import Baloon from './GamePlayStuff/Baloon';
+import OldFraction from './GamePlayStuff/OldFraction';
+import './GamePlayStuff/FillForm.css';
+
 
 
 function gcd_two_numbers(x, y) {
@@ -46,7 +49,7 @@ class GamePlay extends React.Component{
     console.log(this.state);
     if(this.state.gcd === 1) {
       console.log("gameplay2");
-      this.props.terminateGame();      
+      this.props.continueGame();      
     }
     else {
       alert('Hình như phân số vẫn chưa tối giản thì phải?');
@@ -69,6 +72,30 @@ class GamePlay extends React.Component{
       return (
         
         <div className="scene">
+          <div>
+
+          <Transition
+              items={this.state.showFillableForm}
+              from={{ opacity: 0}}
+              enter={{ opacity: 1 }}
+              leave={{ opacity: 0 }}
+              config={{duration: 0}}
+              >
+              {show =>
+                show
+                  ? props => <div></div>
+                  : props => <OldFraction 
+                  numerator = {this.props.numerator}
+                  denominator = {this.props.denominator}
+                  coordLeft = {-75}
+                  coordTop = {80}
+                >
+    
+                </OldFraction>
+              }
+            </Transition>
+            
+          {/*  */}
             <Transition
               items={this.state.showFillableForm}
               from={{ opacity: 0}}
@@ -81,12 +108,14 @@ class GamePlay extends React.Component{
                   ? props => <Baloon
                                 numerator = {this.props.numerator}
                                 denominator = {this.props.denominator}
-                                coord = {0}
+                                coordLeft = {0}
+                               // coordTop = {-165}
                                 displayed = {"none"}
                              ></Baloon>
                   : props =>  <Baloon
 
-                                  coord = {10}
+                                coordLeft = {10}
+                                coordTop = {-164}
                               ></Baloon>
               }
             </Transition>
@@ -106,6 +135,8 @@ class GamePlay extends React.Component{
                   ></FillableSquare>   
               }
             </Transition>
+          </div>
+            
                         
             
             <Transition
@@ -117,14 +148,17 @@ class GamePlay extends React.Component{
               >
               {show =>
                 show
-                  ? props => <div class="title win" style={{marginLeft : 0}}>Which number can you reduce the fraction by?</div>
-                  : props =>  <div class="title win" style={{marginLeft : 30}}>Fill in the fraction after reducing it by the choosen divisor</div>
+                  ? props => <div className="title win" style={{marginLeft : 50}}>Bạn có thể rút gọn phân số đã cho bằng số nào?</div>
+                  : props =>  <div className="title win" style={{marginLeft : 30}}>Điền vào ô trống phân số đã cho sau khi được rút gọn cho  {this.state.divider} </div>
               }
             </Transition>
 
 
 
-            <div className="button-container">
+            <div className="button-container" style={{
+              marginLeft: 100,
+              textAlign: 'center'
+            }}>
               <Transition
                 items={this.state.showFillableForm}
                 from={{opacity : 0}}
@@ -136,20 +170,20 @@ class GamePlay extends React.Component{
                   <animated.div style={props}>
                     <AnswerButton 
                       divider = {this.props.answers[0]}
-                      buttonSize = {'60.5px'}
+                      buttonSize = {'40px'}
                       handleAnswer = {() => this.handleAnswer(0)}
                     ></AnswerButton>
 
                     <AnswerButton 
                       divider = {this.props.answers[1]}
-                      buttonSize = {'60.5px'}
+                      buttonSize = {'40px'}
                       handleAnswer = {() => this.handleAnswer(1)}
                     ></AnswerButton>
 
 
                     <AnswerButton 
                       divider = {this.props.answers[2]}
-                      buttonSize = {'59.5px'}
+                      buttonSize = {'40px'}
                       handleAnswer = {() => this.handleAnswer(2)}
                     ></AnswerButton>
 

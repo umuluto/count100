@@ -1,4 +1,5 @@
 import React from 'react';
+import Ending from '../MainScreen/Ending';
 import GamePlay from './GamePlay';
 import {Transition, animated} from 'react-spring/renderprops';
 
@@ -59,22 +60,18 @@ class Form extends React.Component {
       curStage: this.state.curStage + 1
     })
   }
-  
-  terminateGame() {
-    console.log("form");
-    this.props.homeScreenLink();
-  }
 
   constructor(props){
     super(props);
     this.initilize();
     console.log(this.state);  
-    this.terminateGame = this.terminateGame.bind(this);
   }
 
     render(){
       return (
-        <div>
+        (this.state.curStage > this.state.stages.length) ? 
+        (<Ending />) 
+        :(<div>
           <meta charSet="utf-8" />
           <meta name="viewport" id="viewport-meta" content="width=1024, user-scalable=0, viewport-fit=cover" />
           <meta name="google-site-verification" content="VLpVTu9qe8UpJv-pMvigm2z4dfuTJZ_ubdTe5InyYwc" />
@@ -156,7 +153,7 @@ class Form extends React.Component {
             
             <div className="card_content">
               <div id="board" className="uchiru-place card player-1 script3811 fixed cr" style={{lineHeight: '1.29'}}>
-                
+              
               <Transition
                 items={this.state.curStage}
                 from={{position:'absolute', opacity : 0}}
@@ -171,7 +168,6 @@ class Form extends React.Component {
                       numerator = {this.state.stages[this.state.curStage - 1].numerator}
                       answers = {this.state.stages[this.state.curStage - 1].answers}
                       continueGame = {() => this.changeState()}
-                       terminateGame = {() => this.terminateGame()}
                     ></GamePlay>
                   </animated.div>
                 ))}
@@ -192,7 +188,7 @@ class Form extends React.Component {
             <style data-emotion="intercom-global" dangerouslySetInnerHTML={{__html: "" }} />
           </div>
         </div>
-      );
+      ));
     }
   };
 
