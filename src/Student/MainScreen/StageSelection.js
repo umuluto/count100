@@ -29,7 +29,7 @@ class StageSelection extends React.Component {
     const onClick = [
       this.props.SimplifyingFraction,
       () => alert('Simplifiable or not simplifiable'),
-      () => alert('Step by step'),
+      this.props.StepByStep,
       () => alert('Simplify everything'),
       this.props.WhenToSimplify
     ]
@@ -65,7 +65,8 @@ const mapDispatchtoProps = (dispatch, ownProps) => {
   return {
     SimplifyingFraction: () => dispatch(actions.SimplifyingFraction),
     HomeScreen: () => dispatch(AppActions.Home),
-    WhenToSimplify: () => dispatch(actions.WhenToSimplify)
+    WhenToSimplify: () => dispatch(actions.WhenToSimplify),
+    StepByStep: () => dispatch(actions.StepByStep)
   }
 }
 
