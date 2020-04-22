@@ -1,0 +1,81 @@
+* { outline: 1px red solid; }
+
+.train-game {
+  margin: 30px;
+  height: 455px;
+  position: relative;
+}
+
+.railway {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 30px;
+  bottom: 75px;
+  left: 0;
+  text-align: center;
+  background: url(~Public/train_assets.png) 0 -195px repeat-x;
+}
+
+.holder {
+  position: relative;
+  width: 115px;
+  height: 12px;
+  display: inline-block;
+  margin: 7px 5px 0;
+  background: url(~Public/train_assets.png) -316px 0 no-repeat;
+}
+
+.holder--hidden {
+  opacity: .3;
+}
+
+.holder__empty {
+  position: absolute;
+  z-index: 1;
+  bottom: -2px;
+  left: -14px;
+  width: 139px;
+  height: 86px;
+}
+
+.wagon {
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  width: 139px;
+  height: 86px;
+  background: url(~Public/train_assets.png) -161px 0 no-repeat;
+}
+
+.wagon--engine {
+  position: absolute;
+  z-index: 20;
+  width: 148px;
+  height: 87px;
+  background: url(~Public/train_assets.png) no-repeat;
+}
+
+.wagon--inplace {
+  top: 0;
+  left: 0;
+}
+
+.wagon__num {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  font-size: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -48px;
+  left: 41px;
+  background: url(~Public/train_assets.png) 0 -121px no-repeat;
+}
+
+.wagon__num--engine {
+  top: -51px;
+  left: 62px;
+  background: url(~Public/train_assets.png) -67px -121px no-repeat;
+}
