@@ -1,16 +1,15 @@
-import React, { component } from 'react';
+import React from 'react';
 
-class Ruler extends React.Component{
-    render(){
-        return(
-            <div className="number_axis">
-                <div className="axis">
-                    <div className="ball_wrapper"></div>
-                    <div className="pointer"></div>
-                </div>               
-            </div>
-        );
-    }
+function Ruler(props) {
+    return(
+        <div className="number_axis">
+            <div className="axis">
+                <div className="ball_wrapper"></div>
+                <div className="pointer"></div>
+                <h1>Hello</h1>
+            </div>               
+         </div>
+    );
 }
 
 export default Ruler;
