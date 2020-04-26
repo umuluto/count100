@@ -5,18 +5,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
         <title>Ruler game</title>
         <link href="./style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">         
         <script defer src="index.js" type="module"></script>
     </head>
     <body>
-        <div class="main-content">
-            <div id="bar">
-                <!-- this part is for progress bar-->    
-            </div>
-            <div class="headtext">
-                <h1>Place the ball on the number line</h1>
-            </div>
-            <div id="root">
-                <!-- this part is for game component -->
+        <div class="page">
+            <div class="box_content">
+                <div class="box_head bar with_progress">
+                    <a class="back-link" href="../../index.html">
+                        <div class="arrow-left">
+                        </div>
+
+                        <span>Back</span>
+                    </a>
+                    <div class="bar_wrapper">                        <div id="progress">
+                            <div class="inner_progress">
+                                <i id="ball0" class="rotate_ball_0" style="left: 4px;"></i>
+                                <i id="ball1" class="rotate_ball_1" style="left: 28px"></i>
+                                <i id="ball2" class="rotate_ball_2" style="left: 52px"></i>
+                                <i id="ball3" class="rotate_ball_3" style="left: 76px"></i>
+                                <i id="ball4" class="rotate_ball_4" style="left: 100px"></i>
+                                <i id="ball5" class="rotate_ball_5" style="left: 124px"></i>                            </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="card_content"></div>
             </div>
         </div>
     </body>

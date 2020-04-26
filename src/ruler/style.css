@@ -2,15 +2,95 @@ body {
     height: 100%;
     margin: 0px;
     padding-bottom: 95px;
+    background-color: aqua;
+    font-family: 'PT Sans',sans-serif;
 }
 
-.main_content {
-    text-align: center;
-    justify-items: center;
+.page {
+    padding-bottom: 95px;
     
+}
+
+body .box_content {    
     position: relative;
     width: 960px;
-    min-height: 480px;
+    min-height: 600px;
+    border-radius: 15px;
+    background: white;
+    margin: 15px auto 20px;
+    z-index: 0;
+}
+
+body .box_head{
+    line-height: 49px;
+    position: relative;
+    padding: 0 20px;
+}
+
+body .box_head.with_progress {
+    border-bottom: 1px solid rgba(150,150,150,0.5);
+}
+
+body .box_head .back-link {
+    font-size: 18px;
+    color: rgb(39, 125, 175);
+    text-decoration: none;
+}
+
+body .box_head .back-link .arrow-left {
+    top: -2px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 15px solid white transparent;
+    border-bottom: 15px solid white transparent;
+    border-right: 15px solid blue ;
+    position: relative;
+    border-radius: 50%;
+}
+
+/*body .box_head .back-link .arrow-left::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: -18x;
+    top: -15px;
+    border-top: 15px solid white transparent;
+    border-bottom: 15px solid white transparent;
+    border-right: 15px solid white;
+}*/
+
+body .bar_wrapper {
+    font-size: 14px;
+    text-align: center;
+    margin-top: -54px;
+    padding: 0 80px;
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+.bar_wrapper .inner_progress {
+    margin: 0 auto;
+    width: 465px;
+    height: 26px;
+    border-radius: 16px;
+    background: #EDEDED;
+    position: relative;
+    box-shadow: inset 0px 1px 3px 0px rgba(0,0,0,0.22);
+}
+
+.inner_progress i {
+    display: block;
+    width: 21px;
+    height: 21px;
+    border-radius: 10px;
+    background-image: url(../../public/ball_progress.png);
+    position: absolute;
+    top: 3px;
+    transition: left 200ms linear;
+    -webkit-transition: left 200ms linear;
 }
 
 .headtext {
