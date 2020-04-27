@@ -228,3 +228,51 @@ body .bar_wrapper {
     border-left: 0px solid;
     width: 7px;
 }
+
+.ball_wrapper {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: -38px;
+    height: 150px;
+    width: 856px;
+}
+
+.ball_wrapper span {
+    display: inline-block;
+    font-size: 45px;
+    line-height: 45px;
+    margin-top: 16px;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+.ball_wrapper .ball {
+    position: absolute;
+    z-index: 1;
+    width: 76px;
+    height: 76px;
+    border-radius: 38px;
+    text-align: center;
+}
+
+.ball .state {
+    position: absolute;
+    z-index: 1;
+    border-radius: 38px;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    transition: ease-out;
+    background-image: url(../../public/ball_state.png);
+}
+
+.ball .state.wrong {
+    background-position: -266x -38px;
+}
+
+.ball .state.right {
+    background-position: -38px -38px;
+}
