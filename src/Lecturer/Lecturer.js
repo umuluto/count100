@@ -1,7 +1,65 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../actions/app-actions';
+import lecturerActions from '../actions/lecturer-actions';
 import './Lecturer.scss';
+import Home from './Home'
+
+const Buttons = (props) => {
+    const listContent = [
+        'Quay về màn hình chính', 
+        'Tối giản phân số', 
+        '2', 
+        'Tối giản từng bước một', 
+        '4', 
+        'Khi nào tối giản'
+    ]
+    const onClickActions = [
+        props.Home,
+        () => {
+            document.getElementById("check").checked = false;
+            props.Simplifying();
+        },
+        () => {
+            document.getElementById("check").checked = false;
+        },
+        () => {
+            document.getElementById("check").checked = false;
+        },
+        () => {
+            document.getElementById("check").checked = false;
+        },
+        () => {
+            document.getElementById("check").checked = false;
+            props.WhenToSimplify();
+        }
+    ]
+    var result = [];
+    for (let i = 0; i < 6; ++i) {
+        result.push(
+            <div key={i}>
+                <a onClick={onClickActions[i]} style={{ width: '250px' }}>
+                    <svg className="icon-arrow before">
+                        <use xlinkHref="#arrow" />
+                    </svg>
+                    <span className="label">{listContent[i]}</span>
+                    <svg className="icon-arrow after">
+                        <use xlinkHref="#arrow" />
+                    </svg>
+                </a>
+                <svg style={{ display: 'none' }}>
+                    <defs>
+                        <symbol id="arrow" viewBox="0 0 35 15">
+                            <title>Arrow</title>
+                            <path d="M27.172 5L25 2.828 27.828 0 34.9 7.071l-7.07 7.071L25 11.314 27.314 9H0V5h27.172z " />
+                        </symbol>
+                    </defs>
+                </svg>
+            </div>
+        )
+    }
+    return <div className="top">{result}</div>
+}
 
 class Lecturer extends React.Component {
     render() {
@@ -15,32 +73,29 @@ class Lecturer extends React.Component {
                     </svg> Menu
                 </label>
                 <aside>
-                <div className="top">
-                    <button onClick={this.props.Home}>Trở lại</button>
-                    <button>SimplifyingFraction</button>
-                    <button>Nav text</button>
-                    <button>StepByStep</button>
-                    <button>Nav text</button>
-                    <button>WhenToSimplify</button>
-                </div>
+                    <Buttons
+                        Home={this.props.Home}
+                        Simplifying={this.props.Simplifying}
+                        WhenToSimplify={this.props.WhenToSimplify}
+                    />
                 </aside>
                 <article>
-                <div className="wrapper">
-                    <div className="content">
-                    <h1>Off-Canvas menu on Pure CSS</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident rerum unde porro consequatur doloribus ex distinctio similique, voluptas repellendus voluptates nam dolorum! Repudiandae maxime, itaque vero dolorem distinctio inventore explicabo!</p>
-                    <p>Odio eaque cum blanditiis esse, earum saepe voluptate quae aliquid possimus facere non qui illo necessitatibus eveniet ab sit quaerat. Atque animi nulla veritatis molestiae qui ipsam ut assumenda facilis?</p>
+                    <div className="wrapper">
+                        <div className="content">
+                            <Home />
+                        </div>
                     </div>
-                </div>
                 </article>
-          </div>
+            </div>
         );
     }
 }
 
 const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
-        Home: () => dispatch(actions.Home)
+        Home: () => dispatch(actions.Home),
+        Simplifying: () => dispatch(lecturerActions.Simplifying),
+        WhenToSimplify: () => dispatch(lecturerActions.WhenToSimplify)
     }
 }
 

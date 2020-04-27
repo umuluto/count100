@@ -21,7 +21,7 @@ class Ending extends React.Component {
             <div className="contain">
                 <div class="congrats">
                     <h1 className="pa5">
-                    Congrat<span class="hide">ulation</span>s !
+                    Chúc mừng<span class="hide">ulation</span> !
                     </h1>
                     <div class="done">
                     <svg
@@ -63,7 +63,7 @@ class Ending extends React.Component {
                     </svg>
                     </div>
                     <div class="tc bold text">
-                    <h1>You've finished your exercise </h1>
+                    <h1>Bạn đã hoàn thành bài tập </h1>
                     </div>
                     <button
                     className="tc ba dib br3 grow bw2 pointer link"
@@ -73,7 +73,7 @@ class Ending extends React.Component {
                     }}
                     onClick={this.props.homeScreen}
                     >
-                    Return to main page
+                    Quay về màn hình chính
                     </button>
                 </div>
             </div>
