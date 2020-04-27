@@ -1,25 +1,62 @@
 import React from 'react';
 import Home from './Home';
 import Form from './Form';
+import {Transition, animated} from 'react-spring/renderprops';
+import StudentActions from '../../actions/student-actions';
 import { connect } from 'react-redux';
+import StartScreen from '../StartScreen';
+import Actions from '../../actions/step-by-step-action';
+
 
 class StepByStep extends React.Component {
     constructor(props) {
         super(props);
         console.log(this.props);
+
+        this.state = {
+            doneStarting: 1
+        }        
+        this.changeScreen = this.changeScreen.bind(this);
     }
+
+    changeScreen() {
+        console.log("ngfam cuteee");
+        this.setState({
+            doneStarting: !this.state.doneStarting
+        });   
+    }
+
     render() {
-        switch(this.props.screen) {
-            case 0: 
-                return <Home />
-            case 1:
-                return <Form 
-                    numerator = {60}
-                    denominator = {96}
-                />
-            default:
-                return <h1>Render StepByStep Error</h1>
-        }
+        return(
+            <div>
+                <Transition
+                    items={this.state.doneStarting}
+                    from={{ opacity: 0}}
+                    enter={{ opacity: 1 }}
+                    leave={{ opacity: 0 }}
+                    config={{duration: 0}}
+                    >
+                    {show =>
+                        show
+                        ? props => <StartScreen changeScreen={() => this.changeScreen()}></StartScreen>
+                        : props => <Form numerator = {60} denominator = {96} mainScreen = {() => {this.props.mainScreen()}}/>
+                    }
+                </Transition>
+            </div>
+        )
+        // switch(this.props.screen) {
+        //     case 0: 
+        //         return <Home
+        //         />
+        //     case 1:
+        //         return <Form 
+        //             numerator = {60}
+        //             denominator = {96}
+        //             mainScreen = {() => {this.props.mainScreen()}}
+        //         />
+        //     default:
+        //         return <h1>Render StepByStep Error</h1>
+        // }
     }
 }
 
@@ -29,4 +66,11 @@ const mapStatetoProps = (store) => {
     }
 }
 
-export default connect(mapStatetoProps)(StepByStep);
+
+const mapDispatchtoProps = (dispatch, ownProps) => {
+    return {
+        mainScreen: () => dispatch(StudentActions.Home)
+    }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(StepByStep);
