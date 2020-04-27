@@ -93,20 +93,138 @@ body .bar_wrapper {
     -webkit-transition: left 200ms linear;
 }
 
-.headtext {
+.card_content {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100px;
+    position: relative;
     width: 960px;
-    background-color: aqua;
+    min-height: 483px;
+
 }
 
-.number_axis{
-    height: 83px;
+.card_content .line {
+    text-align: center;
+    font-size: 40px;
+    padding-top: 10px;
+    line-height: 1.5;
+}
+
+.game_field_under {
+    background-color: bisque;
     width: 875px;
+    height: 83px;
     display: inline-block;
     margin-top: 160px;
-    background-color: rgb(218, 28, 28);
-    justify-items: center;
+    position: relative;
+    border-radius: 10px;
     text-align: center;
+}
+
+.number_axis_inner {
+    position: relative;
+    width: 780px;
+    height: 22px;
+    line-height: 22px;
+    margin: 9px 0 0 35px;
+
+}
+
+.axis {
+    position: absolute;
+    top: 11px;
+    left: 0;
+    width: 815px;
+    height: 2px;
+    margin-top: -1px;
+    background: #7f7d6e;
+}
+
+.a_border {
+    position: absolute;
+    top: 0;
+    height: 22px;
+    width: 3px;
+    background: #000;
+}
+.a_border.a_start {
+    left: 0px;
+}
+.a_border.a_end {
+    right: -2px;
+}
+.a_border span {
+    width: 40px;
+    text-align: center;
+    font-weight: 700;
+    position: absolute;
+    top: 31px;
+    left: -18px;
+    font-size: 27px;
+    line-height: 27px;
+}
+.end_arrow {
+    position: absolute;
+    right: 0;
+    top: -6px;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid #7f7d6e;
+    border-right: 2px solid #7f7d6e;
+    transform: rotate(45deg);
+}
+
+.decimal {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    height: 18px;
+    width: 39px;
+    margin-top: 2px;
+}
+
+.decimal.divider span {
+    width: 3px;
+    margin-left: 0px;
+    
+}
+
+.decimal > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 1px;
+    background: #000;
+    border-left: 0px solid #000;
+    box-sizing: border-box;
+}
+
+.game_field_under .number.big {
+    font-size: 20px;
+    line-height: 20px;
+    position: absolute;
+    left: -25px;
+    width: 50px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.game_field_under .number.big.size {
+    font-size: 27px;
+    line-height: 27px;
+    top: 29px;
+}
+
+.decimal .mm {
+    display: inline-block;
+    border-left: 1px solid #000;
+    height: 8px;
+    margin-top: 5px;
+    vertical-align: top;
+    width: 8px;
+    box-sizing: border-box;
+}
+
+.decimal .mm.fst {
+    border-left: 0px solid;
+    width: 7px;
 }
