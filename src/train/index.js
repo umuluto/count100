@@ -1,57 +1,42 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import ReactDOM from 'react-dom'
+import { DndProvider } from 'react-dnd'
+import Backend from 'react-dnd-html5-backend'
+import Wagon from './Wagon'
+import Railway from './Railway'
 import './temp.css'
 
-function Wagon(props) {
-  return (
-    <div className={`wagon wagon--${props.type} wagon--${props.pos}`}>
-      <div className={`wagon__num wagon__num--${props.type}`}>
-        {props.id}
-      </div>
-    </div>
-  )
-}
-
-function Holder(props) {
-  return (
-    <div className={`holder holder--${props.type}`}>
-      <div className='holder__empty'>
-        {props.children}
-      </div>
-    </div>
-  )
-}
-
-function Railway(props) {
-  const wagons = React.Children.toArray(props.children);
-  while (wagons.length < 6) {
-    wagons.push(null);
-  }
-
-  return (
-    <div className='railway'>
-      <Holder type='engine'>
-        {wagons[0]}
-      </Holder>
-      {wagons.slice(1).map(w => <Holder>{w}</Holder>)}
-    </div>
-  );
+function init() {
+  const wagons = [6, 5, 4, 3, 2, 1].map(n => ({ num: n }));
+  wagons[0].type = 'engine';
+  wagons[0].inplace = true;
+  return wagons;
 }
 
 function App() {
+  const [wagons, setWagons] = useState(init());
+
+  function swapWagon(num) {
+    setWagons(wagons.map(w => w.num == num ? {...w, inplace: !w.inplace} : w));
+  }
+
+  function test() { swapWagon(1); }
+  function empty() {
+    const [head, ...tail] = wagons;
+    setWagons([head, ...tail.map(w => ({...w, inplace: false}))]);
+  }
+
   return (
-    <div className='train-game'>
-      <Railway>
-        <Wagon id='2' type='engine' pos='inplace'/>
-        <Wagon id='3' pos='inplace'/>
-        <Wagon id='4' pos='inplace'/>
-        <Wagon id='5' pos='inplace'/>
-        <Wagon id='6' pos='inplace'/>
-        <Wagon id='7' pos='inplace'/>
-      </Railway>
-      <Wagon id='1'/>
-    </div>
-  )
+    <DndProvider backend={Backend}>
+      <div className='train-game'>
+        <Railway wagons={wagons}/>
+        {wagons.filter(w => !w.inplace).map(w =>
+          <Wagon swapWagon={swapWagon} {...w}/>
+        ).reverse()}
+      </div>
+      <button onClick={empty}>Empty</button>
+    </DndProvider>
+  );
 }
 
 const rootElement = document.getElementById('root')
