@@ -12,15 +12,15 @@ class Home extends React.Component {
                         <div className="container-fluid invite-selector container-equal-heights">
                             <div className="col-sm-12 align-center col-lg-6 col-md-6">
                                 <div className="row fixed-height">
-                                        <div className="invite-block">
-                                            <button onClick={this.props.lecturerScreen}>
-                                                <img 
-                                                src="https://dragonlearn.in/assets/invite/india/teacher-3d51186540f1f97466b800a646f6b5e0.svg"
+                                    <div className="invite-block">
+                                        <button onClick={this.props.lecturerScreen}>
+                                            <img
+                                                src="https://i.ibb.co/tbCZcY9/teacher.jpg"
                                                 alt=""
-                                                style={{height:'180px'}}
-                                                ></img>
-                                            </button>
-                                        </div>
+                                                style={{ height: '180px' }}
+                                            ></img>
+                                        </button>
+                                    </div>
                                     <h2><b>Giáo viên</b></h2>
                                     <div className="column-desc">Bạn có thể tạo bài cho học sinh làm</div>
                                 </div>
@@ -34,10 +34,10 @@ class Home extends React.Component {
                                 <div className="row fixed-height">
                                     <div className="invite-block">
                                         <button onClick={this.props.studentScreen}>
-                                            <img 
-                                            src="https://dragonlearn.in/assets/invite/india/teacher-3d51186540f1f97466b800a646f6b5e0.svg"
-                                            alt=""
-                                            style={{height:'180px'}}
+                                            <img
+                                                src="https://i.ibb.co/LYpTKNz/school-drawing-school-cartoon-child-student-education-finger-thumb-png-clip-art.png"
+                                                alt=""
+                                                style={{ height: '180px' }}
                                             ></img>
                                         </button>
                                     </div>

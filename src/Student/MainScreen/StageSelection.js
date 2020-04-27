@@ -19,11 +19,11 @@ class StageSelection extends React.Component {
     ];
 
     const stageTitles = [
-      "Simplifying fractions",
-      "Simplifiable or not simplifiable",
-      "Step-by-step",
-      "Simplify everything",
-      "When to simplify",
+      "Tối giản phân số",
+      "Tối giản được hoặc không",
+      "Tối giản từng bước",
+      "Tối giản mọi thứ",
+      "Khi nào thì tối giản",
     ];
 
     const onClick = [
@@ -49,11 +49,11 @@ class StageSelection extends React.Component {
     }
     return (
       <div className="center tc items-center">
-        <h1 className="pa3 b tc"> Simplifying fractions </h1>
+        <h1 className="pa3 b tc"> Các bài tập tối giản phân số </h1>
         <div className="flex center items-center pa3">{stageCards}</div>
         <button onClick={this.props.HomeScreen}>
           <div className="tc b--blue ba dib br3 pa3 ma2 grow bw2 shadow-5 pointer center link">
-            Return to main page
+            Quay về màn hình chính
           </div>
         </button>
       </div>
