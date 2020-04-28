@@ -1,17 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Home from './Home';
 import Exam from './Exam';
+import Start from '../MainScreen/Start'
+import whenToSimplifyActions from '../../actions/when-to-simplify-actions';
 
 class WhenToSimplify extends React.Component {
     render() {
         switch(this.props.screen) {
             case 0:
-                return <Home />
+                return (
+                    <Start 
+                        nextScreen = {this.props.examScreen}
+                    />
+                )
             case 1:
-                return <Exam />
+                return (
+                    <Exam />
+                )
             default:
-                return <h1>Error When To Simplify Screen</h1>
+                return (
+                    <h1>Error When To Simplify Screen</h1>
+                )
         }
     }
 }
@@ -22,4 +31,10 @@ const mapStatetoProps = (store) => {
     }
 }
 
-export default connect(mapStatetoProps)(WhenToSimplify);
+const mapDispatchtoProps = (dispatch, ownProps) => {
+    return {
+        examScreen: () => dispatch(whenToSimplifyActions.Exam)
+    }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(WhenToSimplify);

@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 import './Ending.css'
 
 class Ending extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         setTimeout(() => {
             document.querySelector(".done").classList.add("drawn");

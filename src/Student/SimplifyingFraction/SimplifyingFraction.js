@@ -1,13 +1,16 @@
 import React from 'react';
-import Home from './Home';
 import Exam from './Exam';
 import { connect } from 'react-redux';
+import Start from '../MainScreen/Start';
+import Simplifying from '../../actions/simplifying-actions';
 
 class SimplifyingFraction extends React.Component {
     render() {
         switch(this.props.screen) {
             case 0:
-                return <Home />
+                return <Start
+                    nextScreen = {this.props.Exam}
+                />
             case 1: 
                 return <Exam />
             default: 
@@ -22,4 +25,10 @@ const mapStatetoProps = (store) => {
     }
 }
 
-export default connect(mapStatetoProps)(SimplifyingFraction);
+const mapDispatchtoProps = (dispatch, ownProps) => {
+    return {
+        Exam: () => dispatch(Simplifying.Exam)
+    }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(SimplifyingFraction);
