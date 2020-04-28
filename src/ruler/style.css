@@ -2,13 +2,38 @@ body {
     height: 100%;
     margin: 0px;
     padding-bottom: 95px;
-    background-color: aqua;
     font-family: 'PT Sans',sans-serif;
 }
 
 .page {
     padding-bottom: 95px;
-    
+}
+
+.bg_cell,
+.bg_color_stuff,
+.bg_stuff {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+div.bg_cell {
+    background-image: url(../../public/bg_cell.png);
+}
+div.bg_color_stuff{
+    background-image: url(../../public/bg_color_stuff.png);
+}
+div.bg_stuff {
+    background-image: url(../../public/bg_stuff.png);
+}
+img.bg_color {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
 }
 
 body .box_content {    

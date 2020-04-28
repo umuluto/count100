@@ -6,26 +6,28 @@
         <title>Ruler game</title>
         <link href="./style.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">         
-        <script defer src="index.js" type="module"></script>
+        <script defer src="../dist/ruler.bundle.js" type="module"></script>
     </head>
     <body>
         <div class="page">
+            <div class="bg_cell"></div>
+            <div class="bg_color_stuff"></div>
+            <div class="bg_stuff"></div>
+            <img class="bg_color" src="bg_color.jpg" />
             <div class="box_content">
                 <div class="box_head bar with_progress">
-                    <a class="back-link" href="../../index.html">
-                        <div class="arrow-left">
-                        </div>
-                        <div id="root"></div>
+                    <a class="back-link" href="./index.html">
+                        <div class="arrow-left"></div>
                         <span>Back</span>
                     </a>
-                    <div class="bar_wrapper">                        <div id="progress">
+                    <div class="bar_wrapper">                        
                             <div class="inner_progress">
                                 <i id="ball0" class="rotate_ball_0" style="left: 4px;"></i>
                                 <i id="ball1" class="rotate_ball_1" style="left: 28px"></i>
                                 <i id="ball2" class="rotate_ball_2" style="left: 52px"></i>
                                 <i id="ball3" class="rotate_ball_3" style="left: 76px"></i>
                                 <i id="ball4" class="rotate_ball_4" style="left: 100px"></i>
-                                <i id="ball5" class="rotate_ball_5" style="left: 124px"></i>                            </div>
+                                <i id="ball5" class="rotate_ball_5" style="left: 124px"></i>                            
                             </div>
                     </div>
                 </div>
