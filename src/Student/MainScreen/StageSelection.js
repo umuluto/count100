@@ -5,10 +5,6 @@ import actions from '../../actions/student-actions'
 import AppActions from '../../actions/app-actions';
 
 class StageSelection extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const stageImgs = [
       "3389-09a7f07b4baec5efbd2609245b94fc8f.png",
@@ -40,6 +36,7 @@ class StageSelection extends React.Component {
     for (let i = 0; i < stageImgs.length; i++) {
       stageCards.push(
         <StageCard
+          key={i}
           title={stageTitles[i]}
           imgLink={imageStoreURL + stageImgs[i]}
           stageTitle={stageTitles[i]}

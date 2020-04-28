@@ -50,7 +50,7 @@ class Exercise extends React.Component {
         return (
             <div className="uchiru_box">
                 <div className="uchiru_head card with_progress">
-                    <a className="back-link" style={{}} onClick={this.props.mainScreen}>
+                    <a className="back-link" onClick={this.props.mainScreen}>
                         <div className="arrow-left" />
                         <span>      Trở lại màn hình chính</span>
                     </a>
