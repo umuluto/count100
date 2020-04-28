@@ -14,15 +14,15 @@ function gcd_two_numbers(x, y) {
 
 
 class Form extends React.Component {
-  state = {
-    curStage: 1,
-    stages: []
-  };
+  constructor(props) {
+    super(props);
 
-  initilize() {
     let x = this.props.numerator;
     let y = this.props.denominator;
     let g = gcd_two_numbers(x, y);
+
+    let stages = [];
+
     for(let i = 2; i <= g; ++i) {
       while (g % i === 0) {
         let first = 1; while(g % first === 0) ++first;        
@@ -32,26 +32,46 @@ class Form extends React.Component {
           denominator: y,
           answers: [i, first, second]
         }
-        this.state.stages.push(newStage);
-        
+
+        stages = stages.concat(newStage);
+
+        console.log(newStage);
         x /= i;
         y /= i;
         g /= i;
       }
     }
-    this.state.stages.push({
+
+
+    stages = stages.concat({
       numerator: x,
       denominator: y,
       answers: [2, 3, 5]
     });
 
-    for(let i = 0; i < this.state.stages.length; ++i) {
-      if(Math.random() * 10 <= 5) {
-        let temp = this.state.stages[i].answers[0];
-        this.state.stages[i].answers[0] = this.state.stages[i].answers[1];
-        this.state.stages[i].answers[1] = temp;
-      }
-    }
+    console.log(stages);
+
+    this.state = {
+      curStage: 1,
+      stages: stages
+    };
+
+   
+  }
+
+
+  componentDidMount() {
+    
+
+
+    // for(let i = 0; i < stages.length; ++i) {
+    //   if(Math.random() * 10 <= 5) {
+    //     let temp = stages[i].answers[0];
+    //     stages[i].answers[0] = stages[i].answers[1];
+    //     stages[i].answers[1] = temp;
+    //   }
+    // }
+
   }
 
   changeState() {
@@ -61,11 +81,6 @@ class Form extends React.Component {
     })
   }
 
-  constructor(props){
-    super(props);
-    this.initilize();
-    console.log(this.state);  
-  }
 
     render(){
       return (
@@ -140,10 +155,9 @@ class Form extends React.Component {
           <div className="uchiru_bg_cell" />
           <div className="uchiru_bg_color" />
           <div className="uchiru_bg_stuff" />
-          <img className="uchiru_bg_color" src="https://content.dragonlearn.in/fp/97/fat_player/student/grad-f07e854ce64f9aee2db7bd67146ff0e4800feeed40c8f7116fcb3b6a048deb64.jpg" />
           <div className="uchiru_box">
             <div className="uchiru_head card with_progress">
-              <a className="back-link" style={{}} onClick={this.props.mainScreen}>
+              <a className="back-link" href="#" style={{}} onClick={this.props.mainScreen}>
                 <div className="arrow-left" />
                 <span>  Trở lại màn hình chính</span>
               </a>

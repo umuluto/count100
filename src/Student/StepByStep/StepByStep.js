@@ -11,7 +11,6 @@ import Actions from '../../actions/step-by-step-action';
 class StepByStep extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
 
         this.state = {
             doneStarting: 1
@@ -20,7 +19,6 @@ class StepByStep extends React.Component {
     }
 
     changeScreen() {
-        console.log("ngfam cuteee");
         this.setState({
             doneStarting: !this.state.doneStarting
         });   
