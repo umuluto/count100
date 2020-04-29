@@ -52,6 +52,10 @@ class AddFormData extends React.Component {
     e.preventDefault();
     var numerator = parseInt(this.state.numerator)
     var denominator = parseInt(this.state.denominator)
+    if (isNaN(numerator) || isNaN(denominator)) {
+      window.alert('Hãy điền đầy đủ vào 2 ô');
+      return;
+    }
     if (numerator <= 0 || denominator <= 0) {
       window.alert('Tử số mẫu số phải là số dương');
       return;
@@ -141,6 +145,12 @@ class TableBody extends React.Component {
     this.handleCbox = this.handleCbox.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState ({
+      isToggleOn: false
+    })
+  }
+
   updateBtn(e) {
     this.props.onUpd(e.target.dataset.item);
   }
@@ -211,14 +221,8 @@ class Simplifying extends React.Component {
     super(props);
 
     this.state = {
-      TRs: [
-        {
-          id: 1,
-          numerator: "9",
-          denominator: "12",
-        },
-      ],
-      UPD: [],
+      TRs: [],
+      UPD: []
     };
 
     this.deleteRow = this.deleteRow.bind(this);
@@ -248,7 +252,6 @@ class Simplifying extends React.Component {
         this.deleteRow(arr[i]);
       }
       var foo = this.state.TRs
-      console.log("hello", foo)
       for (var i = 0; i < foo.length; ++ i) {
         foo[i].id = i + 1
       }
@@ -259,6 +262,13 @@ class Simplifying extends React.Component {
 
   onAddForm(formVal) {
     var ctr = this.state.TRs.length + 1;
+    if (ctr > 10) {
+      this.setState({
+        UPD: {}
+      })
+      alert('Không được tạo quá 10 câu hỏi')
+      return ;
+    }
     var Ndata = {
       id: ctr,
       numerator: formVal.numerator,
@@ -311,6 +321,7 @@ class Simplifying extends React.Component {
         TRs={tr}
         key={tr.id}
         canHan={this.cancelUpd}
+        style={{overflow: 'scroll'}}
       />
     ));
 
