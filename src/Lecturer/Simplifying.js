@@ -1,17 +1,14 @@
 import React from "react";
-
-// <AddFormData onAdd={this.onAddForm}
-//                         upd={this.state.UPD}
-//                         updcan={this.cancelUpd}
-//                         propUpd={this.propcessUpd} />
+import { connect } from 'react-redux';
+import simplifyingActions from '../actions/simplifying-actions';
 
 class AddFormData extends React.Component {
   constructor(props) {
     super(props);
     this.state = { numerator: "", denominator: "" };
     this.onFormSubmit = this.onFormSubmit.bind(this);
-    this.textNameChange = this.textNameChange.bind(this);
-    this.textDescChange = this.textDescChange.bind(this);
+    this.numeratorChange = this.numeratorChange.bind(this);
+    this.denominatorChange = this.denominatorChange.bind(this);
     this.cancelUpd = this.cancelUpd.bind(this);
   }
 
@@ -33,19 +30,56 @@ class AddFormData extends React.Component {
     this.setState({ denominator: e.target.value });
   }
 
+  getRandomArbitrary = (min, max) => {
+    return Math.random() * (max - min) + min;
+  }
+
+  getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  gcd_two_numbers = (x, y) => {
+    while (y) {
+      var t = y;
+      y = x % y;
+      x = t;
+    }
+    return x;
+  }
   onFormSubmit(e) {
     e.preventDefault();
+    var numerator = parseInt(this.state.numerator)
+    var denominator = parseInt(this.state.denominator)
+    if (numerator <= 0 || denominator <= 0) {
+      window.alert('Tử số mẫu số phải là số dương');
+      return;
+    }
+    var bar = 1
+    if (this.gcd_two_numbers(numerator, denominator) === 1) {
+      var foo = window.confirm('Đây là phân số tối giản.\n Bạn có muốn tạo ra phân số chưa tối giản dựa vào phân số này không')
+      if (foo === true) {
+        bar = this.getRandomInt(2, 5);
+        this.setState((prevState) => ({
+          numerator: prevState.numerator * bar,
+          denominator: prevState.denominator * bar
+        }))
+      }
+      else {
+        return;
+      }
+    }
     if (this.props.upd.id) {
-      // update component
       this.props.propUpd({
         id: this.props.upd.id,
-        numerator: this.state.numerator,
-        denominator: this.state.denominator,
+        numerator: this.state.numerator * bar,
+        denominator: this.state.denominator * bar,
       });
     } else {
       var formVal = {
-        numerator: this.state.numerator,
-        denominator: this.state.denominator,
+        numerator: this.state.numerator * bar,
+        denominator: this.state.denominator * bar,
       };
       this.props.onAdd(formVal);
     }
@@ -62,6 +96,7 @@ class AddFormData extends React.Component {
         <h1 style={{ fontSize: "30px" }}>
           {this.props.upd.id ? "Cập Nhật Lại Câu Hỏi" : "Thêm Câu Hỏi"}
         </h1>
+        <br></br>
         <div className="form-group">
           <label style={{ fontSize: "15px" }}>Tử Số</label>
           <input
@@ -114,24 +149,17 @@ class TableBody extends React.Component {
     this.setState((prevState) => ({
       isToggleOn: !prevState.isToggleOn,
     }));
-    // var cnt = $('#tableSample').find('input:checkbox[name=cbox]:checked');
-    // if (cnt.length) {
-    //     $('#del_rowBtn').show();
-    // } else {
-    //     $('#del_rowBtn').hide();
-    // }
+
     var cnt = document
       .getElementById("tableSample")
       .querySelectorAll("input[type='checkbox'][name='cbox']:checked");
 
-    console.log(cnt);
     if (cnt.length) {
-      //   $("#del_rowBtn").show();
       document.getElementById("del_rowBtn").style.display = "block";
     } else {
-      //   $("#del_rowBtn").hide();
       document.getElementById("del_rowBtn").style.display = "none";
     }
+
     this.props.canHan();
   }
 
@@ -164,14 +192,14 @@ class TableBody extends React.Component {
               Chỉnh sửa
             </button>
           ) : (
-            <button
-              onClick={this.updateBtn}
-              data-item={this.props.TRs.id}
-              className="btn btn-xs btn-default"
-            >
-              Chỉnh sửa
-            </button>
-          )}
+              <button
+                onClick={this.updateBtn}
+                data-item={this.props.TRs.id}
+                className="btn btn-xs btn-default"
+              >
+                Chỉnh sửa
+              </button>
+            )}
         </td>
       </tr>
     );
@@ -192,14 +220,15 @@ class Simplifying extends React.Component {
       ],
       UPD: [],
     };
+
     this.deleteRow = this.deleteRow.bind(this);
     this.onAddForm = this.onAddForm.bind(this);
-    //this.delNrow = this.delNrow.bind(this);
+    this.delNrow = this.delNrow.bind(this);
     this.updateRow = this.updateRow.bind(this);
     this.cancelUpd = this.cancelUpd.bind(this);
     this.propcessUpd = this.propcessUpd.bind(this);
   }
-  // delete multiple data
+
   deleteRow(z) {
     var array = this.state.TRs;
     var index = array.findIndex((e) => e.id == z);
@@ -207,20 +236,26 @@ class Simplifying extends React.Component {
     this.setState({ TRs: array });
   }
 
-  // delNrow() {
-  //     var cof = confirm('are you sure !!');
-  //     if (cof) {
-  //         const tbox = $('#tableSample').find('input:checkbox[name=cbox]:checked');
-  //         var arr = [];
-  //         tbox.each(function () {
-  //             arr.push(parseInt($(this).val()));
-  //         });
-  //         for (var i = 0; i < arr.length; i++) {
-  //             this.deleteRow(arr[i]);
-  //         }
-  //         document.getElementById("del_rowBtn").hide();
-  //     }
-  // } // end of delete function
+  delNrow() {
+    var cof = window.confirm('are you sure !!');
+    if (cof) {
+      const tbox = document.getElementById('tableSample').querySelectorAll("input[type='checkbox'][name='cbox']:checked");
+      var arr = [];
+      for (var i = 0; i < tbox.length; ++i) {
+        arr.push(parseInt(tbox[i].value))
+      }
+      for (var i = 0; i < arr.length; i++) {
+        this.deleteRow(arr[i]);
+      }
+      var foo = this.state.TRs
+      console.log("hello", foo)
+      for (var i = 0; i < foo.length; ++ i) {
+        foo[i].id = i + 1
+      }
+      this.setState({ TRs: foo })
+      document.getElementById("del_rowBtn").style.display = "none";
+    }
+  }
 
   onAddForm(formVal) {
     var ctr = this.state.TRs.length + 1;
@@ -252,7 +287,18 @@ class Simplifying extends React.Component {
   }
 
   componentDidMount() {
-    // this.setState({ TRs: this.props.tableRow })
+    var array = this.props.listQuestion.map(value => ({
+      id: value.id,
+      numerator: value.numerator.toString(),
+      denominator: value.denominator.toString()
+    }))
+    this.setState({
+      TRs: array
+    })
+  }
+
+  componentWillUnmount() {
+    this.props.updateQuestion(this.state.TRs)
   }
 
   render() {
@@ -271,10 +317,10 @@ class Simplifying extends React.Component {
     return (
       <div className="row margin-top">
         <div className="col-md-4">
-          {/* <AddFormData onAdd={this.onAddForm}
-                        upd={this.state.UPD}
-                        updcan={this.cancelUpd}
-                        propUpd={this.propcessUpd} /> */}
+          <AddFormData onAdd={this.onAddForm}
+            upd={this.state.UPD}
+            updcan={this.cancelUpd}
+            propUpd={this.propcessUpd} />
         </div>
         <div className="col-md-8">
           <div className="row h35">
@@ -310,4 +356,16 @@ class Simplifying extends React.Component {
   }
 }
 
-export default Simplifying;
+const mapStatetoProps = (store) => {
+  return {
+    listQuestion: store.Simplifying.get('listQuestion').toJS()
+  }
+}
+
+const mapDispatchtoProps = (dispatch, ownProps) => {
+  return {
+    updateQuestion: (data) => dispatch(simplifyingActions.modifyQuestion(data))
+  }
+}
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(Simplifying);
