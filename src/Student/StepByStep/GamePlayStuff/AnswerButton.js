@@ -14,7 +14,7 @@ class AnswerButton extends React.Component{
                 <div className="button-choice__wrong" />
                 <div className="button-choice__right" />
                 <div className="button-choice__select" />
-                <div className="button-choice__text" style={{left: this.props.buttonSize, textAlign: 'center'}}> by {this.props.divider}</div>
+                <div className="button-choice__text" style={{left: this.props.buttonSize, textAlign: 'center'}}> số {this.props.divider}</div>
             </div>
         )
     }

@@ -13,7 +13,7 @@ class StopButton extends React.Component{
                 <div className="button-choice__wrong" />
                 <div className="button-choice__right" />
                 <div className="button-choice__select" />
-                <div className="button-choice__text ci">You can't reduce this fraction</div>
+                <div className="button-choice__text ci">Phân số này không thể tối giản</div>
             </div>
         )
     }

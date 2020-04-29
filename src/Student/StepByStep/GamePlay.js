@@ -33,7 +33,7 @@ class GamePlay extends React.Component{
   }
 
   handleAnswer(x) {
-    if(this.state.gcd % this.props.answers[x] == 0) {
+    if(this.state.gcd % this.props.answers[x] === 0) {
       this.setState({
         showFillableForm: !this.state.showFillableForm,
         divider: this.props.answers[x]
