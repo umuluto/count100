@@ -4,9 +4,8 @@ import Form from './Form';
 import {Transition, animated} from 'react-spring/renderprops';
 import StudentActions from '../../actions/student-actions';
 import { connect } from 'react-redux';
-import StartScreen from '../StartScreen';
 import Actions from '../../actions/step-by-step-action';
-
+import Start from '../MainScreen/Start'
 
 class StepByStep extends React.Component {
     constructor(props) {
@@ -36,7 +35,7 @@ class StepByStep extends React.Component {
                     >
                     {show =>
                         show
-                        ? props => <StartScreen changeScreen={() => this.changeScreen()}></StartScreen>
+                        ? props => <Start nextScreen={() => this.changeScreen()} />
                         : props => <Form numerator = {60} denominator = {96} mainScreen = {() => {this.props.mainScreen()}}/>
                     }
                 </Transition>
