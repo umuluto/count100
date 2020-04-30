@@ -25,6 +25,7 @@ const Buttons = (props) => {
         },
         () => {
             document.getElementById("check").checked = false;
+            props.StepByStep();
         },
         () => {
             document.getElementById("check").checked = false;
@@ -77,6 +78,7 @@ class Lecturer extends React.Component {
                         Home={this.props.Home}
                         Simplifying={this.props.Simplifying}
                         WhenToSimplify={this.props.WhenToSimplify}
+                        StepByStep={this.props.StepByStep}
                     />
                 </aside>
                 <article>
@@ -95,7 +97,8 @@ const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
         Home: () => dispatch(actions.Home),
         Simplifying: () => dispatch(lecturerActions.Simplifying),
-        WhenToSimplify: () => dispatch(lecturerActions.WhenToSimplify)
+        WhenToSimplify: () => dispatch(lecturerActions.WhenToSimplify),
+        StepByStep: () => dispatch(lecturerActions.StepByStep)
     }
 }
 
