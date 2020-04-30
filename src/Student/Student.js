@@ -5,6 +5,7 @@ import StepByStep from './StepByStep/StepByStep.js';
 import { connect } from 'react-redux';
 import Ending from './MainScreen/Ending'
 import WhenToSimplify from './WhenToSimplify/WhenToSimplify'
+import SimplifyEverything from './SimplifyEverything/SimplifyEverything';
 
 class Student extends React.Component {
     renderedScreen() {
@@ -15,6 +16,8 @@ class Student extends React.Component {
                 return <SimplifyingFraction />
             case 3: 
                 return <StepByStep />
+            case 4:
+                return <SimplifyEverything />
             case 5:
                 return <WhenToSimplify />
             case 6:

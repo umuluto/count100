@@ -15,7 +15,6 @@ const initialState = Map({
 });
 
 const StepByStepReducer = (state = initialState, action) => {
-    console.log(action);
     switch(action.type) {
         case types.STEP_BY_STEP_HOME:
             return state.set('screen', 0);

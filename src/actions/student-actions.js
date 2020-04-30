@@ -16,6 +16,10 @@ var StepByStep = {
     type: types.STUDENT_STEP_BY_STEP
 }
 
+var SimplifyEverything = {
+    type: types.STUDENT_SIMPLIFY_EVERTHING
+}
+
 var Ending = {
     type: types.STUDENT_ENDING_SCREEN
 }
@@ -25,5 +29,6 @@ export default {
     SimplifyingFraction,
     Ending,
     WhenToSimplify,
-    StepByStep
+    StepByStep,
+    SimplifyEverything
 }
