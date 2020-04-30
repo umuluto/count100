@@ -22,6 +22,7 @@ export const WHEN_TO_SIMPLIFY_EXAM = 'WHEN_TO_SIMPLIFY_EXAM';
 ///step-by-step-screen
 export const STEP_BY_STEP_HOME = 'STEP_BY_STEP_HOME';
 export const STEP_BY_STEP_EXAM = 'STEP_BY_STEP_EXAM';
+export const STEP_BY_STEP_MODIFY_QUESTION = 'STEP_BY_STEP_MODIFY_QUESTION';
 
 ///lecturer-screen
 export const LECTURER_SIMPLIFY = 'LECTURER_SIMPLIFY';
