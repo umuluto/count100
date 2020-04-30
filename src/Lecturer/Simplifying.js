@@ -140,15 +140,8 @@ class AddFormData extends React.Component {
 class TableBody extends React.Component {
   constructor(props, context) {
     super(props, context);
-    this.state = { isToggleOn: false };
     this.updateBtn = this.updateBtn.bind(this);
     this.handleCbox = this.handleCbox.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState ({
-      isToggleOn: false
-    })
   }
 
   updateBtn(e) {
@@ -156,10 +149,7 @@ class TableBody extends React.Component {
   }
 
   handleCbox() {
-    this.setState((prevState) => ({
-      isToggleOn: !prevState.isToggleOn,
-    }));
-
+    this.props.switchToggleOn(this.props.id - 1)
     var cnt = document
       .getElementById("tableSample")
       .querySelectorAll("input[type='checkbox'][name='cbox']:checked");
@@ -197,7 +187,7 @@ class TableBody extends React.Component {
         <td>{this.props.TRs.numerator}</td>
         <td>{this.props.TRs.denominator}</td>
         <td>
-          {this.state.isToggleOn ? (
+          {this.props.isToggleOn === true ? (
             <button disabled className="btn btn-xs btn-default">
               Chỉnh sửa
             </button>
@@ -231,11 +221,20 @@ class Simplifying extends React.Component {
     this.updateRow = this.updateRow.bind(this);
     this.cancelUpd = this.cancelUpd.bind(this);
     this.propcessUpd = this.propcessUpd.bind(this);
+    this.switchToggleOn = this.switchToggleOn.bind(this)
+  }
+
+  switchToggleOn = (pos) => {
+    var nextTRs = this.state.TRs
+    nextTRs[pos].isToggleOn = !nextTRs[pos].isToggleOn
+    this.setState({
+      TRs: nextTRs
+    })
   }
 
   deleteRow(z) {
     var array = this.state.TRs;
-    var index = array.findIndex((e) => e.id == z);
+    var index = array.findIndex((e) => e.id === parseInt(z));
     array.splice(index, 1);
     this.setState({ TRs: array });
   }
@@ -244,16 +243,18 @@ class Simplifying extends React.Component {
     var cof = window.confirm('are you sure !!');
     if (cof) {
       const tbox = document.getElementById('tableSample').querySelectorAll("input[type='checkbox'][name='cbox']:checked");
-      var arr = [];
-      for (var i = 0; i < tbox.length; ++i) {
+      var arr = []; var i;
+      for (i = 0; i < tbox.length; ++i) {
         arr.push(parseInt(tbox[i].value))
+        tbox[i].checked = false
       }
-      for (var i = 0; i < arr.length; i++) {
+      for (i = 0; i < arr.length; i++) {
         this.deleteRow(arr[i]);
       }
       var foo = this.state.TRs
-      for (var i = 0; i < foo.length; ++ i) {
+      for (i = 0; i < foo.length; ++ i) {
         foo[i].id = i + 1
+        foo[i].isToggleOn = false
       }
       this.setState({ TRs: foo })
       document.getElementById("del_rowBtn").style.display = "none";
@@ -273,13 +274,14 @@ class Simplifying extends React.Component {
       id: ctr,
       numerator: formVal.numerator,
       denominator: formVal.denominator,
+      isToggleOn: false
     };
     this.setState({ TRs: this.state.TRs.concat([Ndata]), UPD: {} });
   }
 
   updateRow(x) {
     var array = this.state.TRs;
-    var index = array.findIndex((e) => e.id == x);
+    var index = array.findIndex((e) => e.id === parseInt(x));
     this.setState({
       UPD: this.state.TRs[index],
     });
@@ -291,7 +293,7 @@ class Simplifying extends React.Component {
 
   propcessUpd(formVal) {
     var obj = this.state.TRs;
-    var index = obj.findIndex((e) => e.id == formVal.id);
+    var index = obj.findIndex((e) => e.id === parseInt(formVal.id));
     obj[index] = formVal;
     this.setState({ TRs: obj, UPD: [] });
   }
@@ -300,7 +302,8 @@ class Simplifying extends React.Component {
     var array = this.props.listQuestion.map(value => ({
       id: value.id,
       numerator: value.numerator.toString(),
-      denominator: value.denominator.toString()
+      denominator: value.denominator.toString(),
+      isToggleOn: false
     }))
     this.setState({
       TRs: array
@@ -319,9 +322,11 @@ class Simplifying extends React.Component {
       <TableBody
         onUpd={this.updateRow}
         TRs={tr}
+        id={tr.id}
         key={tr.id}
         canHan={this.cancelUpd}
-        style={{overflow: 'scroll'}}
+        isToggleOn={tr.isToggleOn}
+        switchToggleOn={(pos) => this.switchToggleOn(pos)}
       />
     ));
 

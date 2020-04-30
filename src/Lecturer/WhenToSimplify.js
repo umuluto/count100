@@ -1,33 +1,60 @@
 import React from "react";
 import { connect } from 'react-redux';
-import simplifyingActions from '../actions/simplifying-actions';
+import whenToSimplifyActions from "../actions/when-to-simplify-actions";
+
+const Options = (props) => {
+  if (props.type === '1') {
+    return (
+      <select id="question-type" onChange={props.typeChange}>
+        <option value="0">Đáp án đúng</option>
+        <option value="1" selected>Đáp án sai</option>
+      </select>
+    )
+  }
+  return (
+    <select id="question-type" onChange={props.typeChange}>
+      <option value="0" selected>Đáp án đúng</option>
+      <option value="1">Đáp án sai</option>
+    </select>
+  )
+}
 
 class AddFormData extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { numerator: "", denominator: "" };
+    this.state = { numerator: "", denominator: "" , type: "0"};
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.numeratorChange = this.numeratorChange.bind(this);
     this.denominatorChange = this.denominatorChange.bind(this);
+    this.typeChange = this.typeChange.bind(this)
     this.cancelUpd = this.cancelUpd.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('nextProps', nextProps)
     if (nextProps.upd.id) {
       this.setState({
         numerator: nextProps.upd.numerator,
         denominator: nextProps.upd.denominator,
+        type: nextProps.upd.type
       });
     } else {
-      this.setState({ numerator: "", denominator: "" });
+      this.setState({ numerator: "", denominator: "", type: "0" });
     }
   }
 
   numeratorChange(e) {
     this.setState({ numerator: e.target.value });
   }
+
   denominatorChange(e) {
     this.setState({ denominator: e.target.value });
+  }
+
+  typeChange(e) {
+    this.setState({
+      type: e.target.value
+    })
   }
 
   getRandomArbitrary = (min, max) => {
@@ -67,7 +94,8 @@ class AddFormData extends React.Component {
         bar = this.getRandomInt(2, 5);
         this.setState((prevState) => ({
           numerator: prevState.numerator * bar,
-          denominator: prevState.denominator * bar
+          denominator: prevState.denominator * bar,
+          type: prevState.type
         }))
       }
       else {
@@ -79,19 +107,21 @@ class AddFormData extends React.Component {
         id: this.props.upd.id,
         numerator: this.state.numerator * bar,
         denominator: this.state.denominator * bar,
+        type: this.state.type
       });
     } else {
       var formVal = {
         numerator: this.state.numerator * bar,
         denominator: this.state.denominator * bar,
+        type: this.state.type
       };
       this.props.onAdd(formVal);
     }
-    this.setState({ numerator: "", denominator: "" });
+    this.setState({ numerator: "", denominator: "", type: "0" });
   }
   cancelUpd() {
     this.props.updcan();
-    this.setState({ numerator: "", denominator: "" });
+    this.setState({ numerator: "", denominator: "", type: "0" });
   }
 
   render() {
@@ -119,6 +149,14 @@ class AddFormData extends React.Component {
             value={this.state.denominator}
           />
         </div>
+        <label htmlFor="question-type">Dạng câu hỏi: </label>
+        <br></br>
+        <Options 
+          type={this.state.type}
+          typeChange={this.typeChange}
+        />
+        <br></br>
+        <br></br>
         <button type="submit" className="btn btn-success">
           {this.props.upd.id ? "Lưu lại thay đổi" : "Xác nhận thêm"}
         </button>
@@ -138,17 +176,10 @@ class AddFormData extends React.Component {
 }
 
 class TableBody extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = { isToggleOn: false };
+  constructor(props) {
+    super(props);
     this.updateBtn = this.updateBtn.bind(this);
     this.handleCbox = this.handleCbox.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState ({
-      isToggleOn: false
-    })
   }
 
   updateBtn(e) {
@@ -156,10 +187,7 @@ class TableBody extends React.Component {
   }
 
   handleCbox() {
-    this.setState((prevState) => ({
-      isToggleOn: !prevState.isToggleOn,
-    }));
-
+    this.props.switchToggleOn(this.props.id - 1)
     var cnt = document
       .getElementById("tableSample")
       .querySelectorAll("input[type='checkbox'][name='cbox']:checked");
@@ -196,8 +224,9 @@ class TableBody extends React.Component {
         </td>
         <td>{this.props.TRs.numerator}</td>
         <td>{this.props.TRs.denominator}</td>
+        <td>{(this.props.TRs.type === '0') ? 'Đáp án đúng' : 'Đáp án sai'}</td>
         <td>
-          {this.state.isToggleOn ? (
+          {this.props.isToggleOn ? (
             <button disabled className="btn btn-xs btn-default">
               Chỉnh sửa
             </button>
@@ -231,11 +260,20 @@ class WhenToSimplify extends React.Component {
     this.updateRow = this.updateRow.bind(this);
     this.cancelUpd = this.cancelUpd.bind(this);
     this.propcessUpd = this.propcessUpd.bind(this);
+    this.switchToggleOn = this.switchToggleOn.bind(this)
+  }
+
+  switchToggleOn = (pos) => {
+    var nextTRs = this.state.TRs
+    nextTRs[pos].isToggleOn = !nextTRs[pos].isToggleOn
+    this.setState({
+      TRs: nextTRs
+    })
   }
 
   deleteRow(z) {
     var array = this.state.TRs;
-    var index = array.findIndex((e) => e.id == z);
+    var index = array.findIndex((e) => e.id === parseInt(z));
     array.splice(index, 1);
     this.setState({ TRs: array });
   }
@@ -244,16 +282,18 @@ class WhenToSimplify extends React.Component {
     var cof = window.confirm('are you sure !!');
     if (cof) {
       const tbox = document.getElementById('tableSample').querySelectorAll("input[type='checkbox'][name='cbox']:checked");
-      var arr = [];
-      for (var i = 0; i < tbox.length; ++i) {
+      var arr = []; var i;
+      for (i = 0; i < tbox.length; ++i) {
         arr.push(parseInt(tbox[i].value))
+        tbox[i].checked = false
       }
-      for (var i = 0; i < arr.length; i++) {
+      for (i = 0; i < arr.length; i++) {
         this.deleteRow(arr[i]);
       }
       var foo = this.state.TRs
-      for (var i = 0; i < foo.length; ++ i) {
+      for (i = 0; i < foo.length; ++ i) {
         foo[i].id = i + 1
+        foo[i].isToggleOn = false
       }
       this.setState({ TRs: foo })
       document.getElementById("del_rowBtn").style.display = "none";
@@ -264,7 +304,7 @@ class WhenToSimplify extends React.Component {
     var ctr = this.state.TRs.length + 1;
     if (ctr > 10) {
       this.setState({
-        UPD: {}
+        UPD: []
       })
       alert('Không được tạo quá 10 câu hỏi')
       return ;
@@ -273,13 +313,15 @@ class WhenToSimplify extends React.Component {
       id: ctr,
       numerator: formVal.numerator,
       denominator: formVal.denominator,
+      type: formVal.type,
+      isToggleOn: false
     };
     this.setState({ TRs: this.state.TRs.concat([Ndata]), UPD: {} });
   }
 
   updateRow(x) {
     var array = this.state.TRs;
-    var index = array.findIndex((e) => e.id == x);
+    var index = array.findIndex((e) => e.id === parseInt(x));
     this.setState({
       UPD: this.state.TRs[index],
     });
@@ -291,7 +333,7 @@ class WhenToSimplify extends React.Component {
 
   propcessUpd(formVal) {
     var obj = this.state.TRs;
-    var index = obj.findIndex((e) => e.id == formVal.id);
+    var index = obj.findIndex((e) => e.id === parseInt(formVal.id));
     obj[index] = formVal;
     this.setState({ TRs: obj, UPD: [] });
   }
@@ -300,7 +342,9 @@ class WhenToSimplify extends React.Component {
     var array = this.props.listQuestion.map(value => ({
       id: value.id,
       numerator: value.numerator.toString(),
-      denominator: value.denominator.toString()
+      denominator: value.denominator.toString(),
+      type: value.type.toString(),
+      isToggleOn: false
     }))
     this.setState({
       TRs: array
@@ -312,6 +356,7 @@ class WhenToSimplify extends React.Component {
   }
 
   render() {
+    console.log('render')
     const display = {
       display: "none",
     };
@@ -319,16 +364,17 @@ class WhenToSimplify extends React.Component {
       <TableBody
         onUpd={this.updateRow}
         TRs={tr}
+        id={tr.id}
         key={tr.id}
         canHan={this.cancelUpd}
-        style={{overflow: 'scroll'}}
+        switchToggleOn={(pos) => this.switchToggleOn(pos)}
       />
     ));
-
     return (
       <div className="row margin-top">
         <div className="col-md-4">
-          <AddFormData onAdd={this.onAddForm}
+          <AddFormData 
+            onAdd={this.onAddForm}
             upd={this.state.UPD}
             updcan={this.cancelUpd}
             propUpd={this.propcessUpd} />
@@ -356,6 +402,7 @@ class WhenToSimplify extends React.Component {
                 <th style={{ width: "75px" }}>Số thứ tự</th>
                 <th>Tử số</th>
                 <th>Mẫu số</th>
+                <th>Loại câu hỏi</th>
                 <th>Tùy chọn</th>
               </tr>
             </thead>
@@ -369,13 +416,13 @@ class WhenToSimplify extends React.Component {
 
 const mapStatetoProps = (store) => {
   return {
-    listQuestion: store.Simplifying.get('listQuestion').toJS()
+    listQuestion: store.WhenToSimplify.get('listQuestion').toJS()
   }
 }
 
 const mapDispatchtoProps = (dispatch, ownProps) => {
   return {
-    updateQuestion: (data) => dispatch(simplifyingActions.modifyQuestion(data))
+    updateQuestion: (data) => dispatch(whenToSimplifyActions.modifyQuestion(data))
   }
 }
 
