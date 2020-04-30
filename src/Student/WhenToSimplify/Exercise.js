@@ -44,6 +44,7 @@ class Exercise extends React.Component {
             var max = Math.min(this.state.numerator, this.state.denominator);
             var min = 1;
             middleNumber = Math.floor(Math.random() * (max - min + 1) + min);
+            middleNumber = Math.min(middleNumber, 9)
             numerator1 = this.state.numerator - middleNumber;
             denominator1 = this.state.denominator - middleNumber;
         }
