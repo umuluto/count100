@@ -34,8 +34,6 @@ class Form extends React.Component {
         }
 
         stages = stages.concat(newStage);
-
-        console.log(newStage);
         x /= i;
         y /= i;
         g /= i;
@@ -48,15 +46,10 @@ class Form extends React.Component {
       denominator: y,
       answers: [2, 3, 5]
     });
-
-    console.log(stages);
-
     this.state = {
       curStage: 1,
       stages: stages
     };
-
-   
   }
 
 
@@ -75,7 +68,6 @@ class Form extends React.Component {
   }
 
   changeState() {
-    console.log("yeaye");
     this.setState({
       curStage: this.state.curStage + 1
     })
