@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Draggable, { DraggableCore } from 'react-draggable';
 
 function Ruler(props) {
+
+    const [dragActive, setDragActive] = useState(0);
+    const dragHandlers = {onStart, onStop};
+    function onStart () {
+        let stick = document.querySelector("#stick");
+        stick.style.display = "block";
+        setDragActive(dragActive+1);
+        return (setDragActive);
+    } 
+    function onStop () {
+        return setDragActive(dragActive-1);
+    }
     return(
-        <div class="page">
-            <div class="bg_cell"></div>
-            <div class="bg_color_stuff"></div>
-            <div class="bg_stuff"></div>
-            <img class="bg_color" src="bg_color.jpg" />
+        <div className="page">
+            <div className="bg_cell"></div>
+            <div className="bg_color_stuff"></div>
+            <div className="bg_stuff"></div>
+            <img className="bg_color" src="bg_color.jpg" />
             <div className="box_content">
                 <div className="box_head bar with_progress">
                     <a className="back-link" href="../../public/index.html">
@@ -32,11 +45,16 @@ function Ruler(props) {
                             <div className="axis">
                                 <div className="end_arrow"></div>
                                 <div className="ball_wrapper">
-                                    <div className="ball ready openhand" style={{top: "0px" ,left: "300px" ,opacity: "1", touchAction:"none"}}>
-                                        <span>25</span>
-                                        <div className="state wrong"></div>
-                                        <div className="state right"></div>
-                                    </div>
+                                    <Draggable axis='x' {...dragHandlers}>
+                                        <div className="ball">
+                                            <div className="stick" id="stick" style={{display: "none"}}>
+                                                <div className="point"></div>
+                                            </div>
+                                            <span>25</span>
+                                            <div className="state wrong"></div>
+                                            <div className="state right"></div>
+                                        </div>
+                                    </Draggable>
                                 </div>
                             </div>
                             <div className="a_border a_start">
