@@ -2,18 +2,52 @@ import React, { useState } from 'react';
 import Draggable, { DraggableCore } from 'react-draggable';
 
 function Ruler(props) {
-
+    let state = {
+        state_wrong: {
+            backgroundImage: "url(../../public/ball_state.png)",
+            backgroundPosition: "-228px 0px",
+            transition: "all .3s ease-out",
+        },
+        state_right: {
+            backgroundImage: "url(../../public/ball_state.png)",
+            backgroundPosition: "0px 0px",
+            transition: "all .3s ease-out",
+        },
+        state_default: {
+            backgroundImage: "url(../../public/ball_state.png)",
+            backgroundPosition: "-76px 0px",
+            transition: "all .3s ease-out",
+        }
+    }
+    let arrayBallState = [state.state_default, state.state_right, state.state_wrong];
+    
     const [dragActive, setDragActive] = useState(0);
+    const [ballNumber, setBallNumber] = useState(25);
+    const [ballState, setBallState]   = useState(0);
+    const [defaultPosition, setDefaultPosition] = useState(
+        {x: 300, y: 0}
+    )
     const dragHandlers = {onStart, onStop};
+    
     function onStart () {
         let stick = document.querySelector("#stick");
         stick.style.display = "block";
-        setDragActive(dragActive+1);
-        return (setDragActive);
-    } 
-    function onStop () {
-        return setDragActive(dragActive-1);
+        return setDragActive(dragActive+1);
     }
+     
+    function onStop (e, position) {
+        console.log(position);
+        if( (position.x > ballNumber*8-5-4) && (position.x < ballNumber*8-1) ) // because when style in css, the real value x is moved left about 5px
+        {    
+            console.log('right position');
+            setBallState(1);
+        }
+        else{
+            console.log('wrong position');
+            setBallState(2);
+        }
+    }
+
     return(
         <div className="page">
             <div className="bg_cell"></div>
@@ -45,14 +79,12 @@ function Ruler(props) {
                             <div className="axis">
                                 <div className="end_arrow"></div>
                                 <div className="ball_wrapper">
-                                    <Draggable axis='x' {...dragHandlers}>
-                                        <div className="ball">
+                                    <Draggable axis='x' bounds="parent" defaultPosition={defaultPosition} {...dragHandlers}>
+                                        <div className="ball" id="ballll" style = {arrayBallState[ballState]}>
                                             <div className="stick" id="stick" style={{display: "none"}}>
                                                 <div className="point"></div>
                                             </div>
                                             <span>25</span>
-                                            <div className="state wrong"></div>
-                                            <div className="state right"></div>
                                         </div>
                                     </Draggable>
                                 </div>

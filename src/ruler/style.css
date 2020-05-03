@@ -280,11 +280,9 @@ body .bar_wrapper {
     height: 76px;
     border-radius: 38px;
     text-align: center;
-    background: url(../../public/ball_state.png) -76px 0;
     background-repeat: no-repeat;
 
-    top: 0;
-    left: 300px;
+    
 }
 .ball_wrapper .ball .stick {
     top: 100%;
@@ -307,7 +305,7 @@ body .bar_wrapper {
 }
 
 .ball_wrapper .ball:hover {
-    opacity: 0.75;
+    opacity: 0.9;
 }
 
 .ball .state {
@@ -328,11 +326,4 @@ body .bar_wrapper {
 
 .ball .state.right {
     background-position: -38px -38px;
-}
-
-.stickStart {
-    width: 1px;
-    height: 155px;
-    border: 1px solid black;
-    z-index: 5;
 }
