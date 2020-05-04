@@ -68,8 +68,10 @@ class PlayScreen extends Component {
       leftsideNumerator: "Tử số",
       leftsideDenominator: "Mẫu số",
     });
-    document.getElementById("numerator-input").value = "";
-    document.getElementById("denominator-input").value = "";
+    if (document.getElementById("numerator-input")) {
+      document.getElementById("numerator-input").value = "";
+      document.getElementById("denominator-input").value = "";
+    }
   }
 
   inputValidation = () => {
@@ -81,12 +83,17 @@ class PlayScreen extends Component {
       document.getElementById("denominator-input").value
     );
 
+    if (this.state.leftsideNumerator === "Tử số") {
+      alert("Hãy chọn 1 phân số !!!");
+      return 0;
+    }
+
     if (
       this.state.leftsideDenominator * inputNumerator !==
       this.state.leftsideNumerator * inputDenominator
     ) {
       alert("Kết quả sai !!!");
-      return false;
+      return -1;
     } else {
       if (
         reducable(
@@ -99,7 +106,7 @@ class PlayScreen extends Component {
         alert("Phân số vẫn có thể được tối giản !!!");
       } else {
         alert("Kết quả đúng !!!");
-        return true;
+        return 1;
       }
     }
   };
@@ -132,11 +139,11 @@ class PlayScreen extends Component {
             onClick={() => {
               const result = this.inputValidation();
               // this.resetState();
-              if (result === true) {
+              if (result === 1) {
                 // this.props.getMoveBead()[this.props.exercisesLeft - 1]();
 
                 this.props.finishExercise(1, this.resetState);
-              } else if (result === false) {
+              } else if (result === -1) {
                 this.props.finishExercise(-1, this.resetState);
               }
             }}

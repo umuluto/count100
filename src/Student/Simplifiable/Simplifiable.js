@@ -1,8 +1,7 @@
 import React, { Component } from "react";
+import Ending from "../MainScreen/Ending";
 import NavigationBar from "./components/NavigationBar";
 import Task from "./components/Task";
-import Fraction from "./components/Fraction";
-import NumberInput from "./components/NumberInput";
 import PlayScreen from "./components/PlayScreen";
 
 function randomExamNumber() {
@@ -61,13 +60,13 @@ class Simplifiable extends Component {
 
   render() {
     const randomExam = [];
-    const randomMultiplier = Math.round(Math.random() * 9 + 1);
-    const randomFraction = Math.round([0, 2, 4][Math.random() * 2]);
+    const randomMultiplier = Math.round(Math.random() * 2 + 2);
+    const randomFraction = Math.round(Math.random() * 2) * 2;
     for (let i = 0; i < 6; i++) randomExam.push(randomExamNumber());
     randomExam[randomFraction] *= randomMultiplier;
     randomExam[randomFraction + 1] *= randomMultiplier;
 
-    return (
+    return this.state.exercisesLeft > 0 ? (
       <div className="center">
         <NavigationBar
           numberOfBeads={this.props.numberOfExercises}
@@ -81,6 +80,8 @@ class Simplifiable extends Component {
           exercisesLeft={this.state.exercisesLeft}
         />
       </div>
+    ) : (
+      <Ending />
     );
   }
 }
