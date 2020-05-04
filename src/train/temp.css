@@ -59,6 +59,10 @@
   background: url(~Public/train_assets.png) no-repeat;
 }
 
+.wagon--snap {
+  transition: .2s;
+}
+
 .wagon__num {
   position: absolute;
   width: 60px;
