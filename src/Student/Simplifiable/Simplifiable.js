@@ -1,14 +1,17 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Ending from "../MainScreen/Ending";
 import NavigationBar from "./components/NavigationBar";
 import Task from "./components/Task";
 import PlayScreen from "./components/PlayScreen";
+import StudentActions from "../../actions/student-actions";
+
 
 function randomExamNumber() {
   return Math.round(Math.random() * 9 + 1);
 }
 
-class Simplifiable extends Component {
+class Stage2 extends Component {
   constructor(props) {
     super(props);
     this.pushMoveBead = this.pushMoveBead.bind(this);
@@ -59,6 +62,11 @@ class Simplifiable extends Component {
   }
 
   render() {
+    if (this.state.exercisesLeft <= 0) {
+      this.props.finish();
+      return <div></div>;
+    }
+
     const randomExam = [];
     const randomMultiplier = Math.round(Math.random() * 2 + 2);
     const randomFraction = Math.round(Math.random() * 2) * 2;
@@ -66,7 +74,7 @@ class Simplifiable extends Component {
     randomExam[randomFraction] *= randomMultiplier;
     randomExam[randomFraction + 1] *= randomMultiplier;
 
-    return this.state.exercisesLeft > 0 ? (
+    return (
       <div className="center">
         <NavigationBar
           numberOfBeads={this.props.numberOfExercises}
@@ -80,10 +88,84 @@ class Simplifiable extends Component {
           exercisesLeft={this.state.exercisesLeft}
         />
       </div>
-    ) : (
-      <Ending />
     );
   }
 }
 
-export default Simplifiable;
+class Simplifiable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { finished: false, started: false };
+    this.finish = this.finish.bind(this);
+    this.start = this.start.bind(this);
+  }
+
+  finish() {
+    this.setState({
+      finish: true,
+    });
+  }
+
+  start() {
+    this.setState({
+      started: true,
+    });
+  }
+
+  render() {
+    if (this.state.finish) return <Ending />;
+
+    const insideBox = this.state.started ? (
+      <Stage2
+        numberOfExercises={this.props.numberOfExercises}
+        finish={this.finish}
+      />
+    ) : (
+      <div>
+        <div className="uchiru_head card with_progress">
+          <div>
+            <a className="back-link" onClick={this.props.mainScreen}>
+              <span> Trở lại màn hình chính</span>
+            </a>
+          </div>
+        </div>
+        <div className="card_content">
+          <div
+            id="board"
+            className="uchiru-place card player-1 script3771 fixed run_on_windows cr"
+            style={{ lineHeight: "1.29" }}
+          >
+            <div className="btn_play">
+              <button
+                style={{ border: "none", padding: 0, background: "none" }}
+                onClick={this.start}
+              >
+                <div className="triangle">
+                  <span>Bắt đầu</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+
+    return (
+      <div>
+        <div className="uchiru_bg_cell" />
+        <div className="uchiru_bg_color" />
+        <div className="uchiru_bg_stuff" />
+        <div className="uchiru_box">{insideBox}</div>
+      </div>
+    );
+  }
+}
+
+const mapDispatchtoProps = (dispatch, ownProps) => {
+  return {
+    mainScreen: () => {
+      dispatch(StudentActions.Home);
+    },
+  };
+};
+export default connect(null, mapDispatchtoProps)(Simplifiable);

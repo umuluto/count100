@@ -19,13 +19,15 @@ function NavButton(props) {
   };
 
   return (
-    <a
-      className={"glow:hover pointer b"}
-      style={backButtonStyle}
-      onClick={props.mainScreen}
-    >
-      <span>{props.text}</span>
-    </a>
+    <div>
+      <a
+        className="back-link pointer"
+        onClick={props.mainScreen}
+        style={backButtonStyle}
+      >
+        <span> Trở lại màn hình chính</span>
+      </a>
+    </div>
   );
 }
 export default connect(null, mapDispatchtoProps)(NavButton);
