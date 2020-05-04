@@ -1,4 +1,7 @@
-* { outline: 1px red solid; }
+* {
+  /*outline: 1px red solid;*/
+  font-family: 'PT Sans';
+}
 
 .train-game {
   margin: 30px;
@@ -121,4 +124,9 @@
   top: -51px;
   left: 62px;
   background: url(~Public/train_assets.png) -67px -121px no-repeat;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: local("PT Sans"),url(~Public/pt-sans.woff) format("woff");
 }
