@@ -5,6 +5,7 @@ import StepByStep from './StepByStep/StepByStep.js';
 import { connect } from 'react-redux';
 import Ending from './MainScreen/Ending'
 import WhenToSimplify from './WhenToSimplify/WhenToSimplify'
+import Simplifiable from './Simplifiable/Simplifiable';
 
 class Student extends React.Component {
     renderedScreen() {
@@ -13,6 +14,8 @@ class Student extends React.Component {
                 return <Home />
             case 1:
                 return <SimplifyingFraction />
+            case 2:
+                return <Simplifiable numberOfExercises={5}/>
             case 3: 
                 return <StepByStep />
             case 5:

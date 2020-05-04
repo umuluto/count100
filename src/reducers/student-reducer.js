@@ -11,6 +11,8 @@ const StudentReducer = (state = initialState, action) => {
             return state.set('screen', 0);
         case types.STUDENT_SIMPLIFYING_FRACTION:
             return state.set('screen', 1);
+        case types.STUDENT_SIMPLIFIABLE:
+            return state.set('screen', 2);
         case types.STUDENT_STEP_BY_STEP:
             return state.set('screen', 3);
         case types.STUDENT_WHEN_TO_SIMPLIFY:

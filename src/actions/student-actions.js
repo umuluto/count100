@@ -20,10 +20,15 @@ var Ending = {
     type: types.STUDENT_ENDING_SCREEN
 }
 
+var Simplifiable = {
+    type: types.STUDENT_SIMPLIFIABLE
+}
+
 export default {
     Home,
     SimplifyingFraction,
     Ending,
     WhenToSimplify,
-    StepByStep
+    StepByStep,
+    Simplifiable
 }
