@@ -66,7 +66,16 @@ function Ruler(props) {
     function handleRightPosition() {
         if (progressBallIndex <= 5) setProgressBallIndex(progressBallIndex+1);
         console.log(progressBallIndex);
+        if(progressBallIndex == 5) { 
+            setTimeout(() => {
+                moveToWin();
+            }, 2000);
+        }
         setBallNumber(Math.floor(Math.random() * 100 ));
+    }
+
+    function moveToWin() {
+        window.location.href = "../../public/winner.html";
     }
 
     function handleWrongPosition() {
