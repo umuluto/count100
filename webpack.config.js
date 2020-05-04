@@ -29,7 +29,7 @@ module.exports = {
 				use: {
 					loader: 'file-loader',
 					options: {
-						publicPath: '/',
+						publicPath: '../',
 						name: '[path][name].[ext]',
             emitFile: false
 					}
