@@ -12,7 +12,7 @@ import Stage2 from "./stage2/Stage2";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Stage2 />
+    <Stage2 numberOfExercises={5}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -9,7 +9,7 @@ function Task(props) {
     }
 
     return (
-        <div className="tc" style={styleObject}>
+        <div className="tc ma3" style={styleObject}>
             {props.text}
         </div>
     );
