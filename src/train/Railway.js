@@ -1,17 +1,16 @@
 import React from 'react'
+import Holder from './Holder'
 
-function Railway({wagonNum = 1, wrong, highlight = 'dim'}) {
+function Railway({wagonNum, lastWagon, highlight}) {
   const holders = [<div className='holder holder--hidden'/>];
-  while (holders.length < wagonNum - 1) {
+  while (holders.length <= wagonNum) {
     holders.push(<div className='holder'/>);
   }
 
-  if (wagonNum > 1) {
-    holders.push(<div className={`holder holder--${wrong}`}/>);
-  }
+  const ready = lastWagon >= wagonNum ? 'wrong' : highlight && 'highlight';
 
   if (holders.length < 6) {
-    holders.push(<div className={`holder holder--${highlight}`}/>);
+    holders.push(<Holder type={ready}/>);
   }
 
   while (holders.length < 6) {
