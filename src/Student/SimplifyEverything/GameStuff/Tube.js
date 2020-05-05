@@ -3,6 +3,7 @@ import React from 'react';
 class Tube extends React.Component{
     constructor(props) {
         super(props);
+        console.log(this.props);
     }
     render() {
         return(
@@ -11,14 +12,14 @@ class Tube extends React.Component{
                     <div className="_fraction">
                         <div className="input_classic_submit _fraction__numerator blank">
                         <div className="input-body _win32 _centered" style={{width: '25px'}}>
-                            <div className="input-body__digit">0</div>
+                            <div className="input-body__digit">{this.props.numerator}</div>
                             <div className="input-body__carriage" />
                         </div>
                         </div>
                     <div className="_fraction__fraction-line" />
                         <div className="input_classic_submit _fraction__denominator blank">
                         <div className="input-body _win32 _centered" style={{width: '25px'}}>
-                            <div className="input-body__digit">6</div>
+                            <div className="input-body__digit">{this.props.denominator}</div>
                             <div className="input-body__carriage" />
                         </div>
                         </div>

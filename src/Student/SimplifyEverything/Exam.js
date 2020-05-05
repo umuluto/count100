@@ -89,13 +89,13 @@ class Exam extends React.Component {
                 <div className="main_line">
                   <div className="content">
                     <div className="holder" />
-                      <Tube numerator = {0} denonminator = {6}>  </Tube>
-                      <Tube numerator = {1} denonminator = {6}>  </Tube>
-                      <Tube numerator = {2} denonminator = {6}>  </Tube>
-                      <Tube numerator = {3} denonminator = {6}>  </Tube>
-                      <Tube numerator = {4} denonminator = {6}>  </Tube>
-                      <Tube numerator = {5} denonminator = {6}>  </Tube>
-                      <Tube numerator = {6} denonminator = {6}>  </Tube>
+                      <Tube1 numerator = {8} denominator = {6}>  </Tube1>
+                      <Tube1 numerator = {1} denominator = {6}>  </Tube1>
+                      <Tube1 numerator = {2} denominator = {6}>  </Tube1>
+                      <Tube1 numerator = {3} denominator = {6}>  </Tube1>
+                      <Tube1 numerator = {4} denominator = {6}>  </Tube1>
+                      <Tube1 numerator = {5} denominator = {6}>  </Tube1>
+                      <Tube1 numerator = {9} denominator = {6}>  </Tube1>
                     </div>
                    </div>
             
