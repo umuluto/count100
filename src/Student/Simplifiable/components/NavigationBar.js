@@ -1,24 +1,7 @@
 import React, { Component } from "react";
 import ProgressBar from "./ProgressBar";
-import GreenBead from "./GreenBead";
+import NavButton from "./NavButton"
 
-function NavButton(props) {
-  const backButtonStyle = {
-    fontSize: "18px",
-    // color: '#246EA1',
-    // background: 'transparent',
-    lineHeight: "49px",
-    position: "relative",
-  };
-
-  const fakeURL = "https://google.com";
-
-  return (
-    <a className={"glow:hover pointer b"} style={backButtonStyle}>
-      <span>{props.text}</span>
-    </a>
-  );
-}
 
 class NavigationBar extends Component {
   constructor(props) {
