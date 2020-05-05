@@ -143,10 +143,11 @@ class Form extends React.Component {
           <img className="uchiru_bg_color" src="https://content.dragonlearn.in/fp/97/fat_player/student/grad-f07e854ce64f9aee2db7bd67146ff0e4800feeed40c8f7116fcb3b6a048deb64.jpg" />
           <div className="uchiru_box">
             <div className="uchiru_head card with_progress">
-              <a className="back-link" style={{}} href="/home.html">
+              <a className="back-link" style={{}} >
                 <div className="arrow-left" />
                 <span>  Back</span>
               </a>
+
               <div className="uchiru-head__right-group">
               </div>
             </div>

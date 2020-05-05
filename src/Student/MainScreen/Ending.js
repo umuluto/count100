@@ -15,7 +15,7 @@ class Ending extends React.Component {
     render() {
         return (
             <div className="contain">
-                <div class="congrats">
+                <div className="congrats">
                     <h1 className="pa5">
                     Chúc mừng<span class="hide">ulation</span> !
                     </h1>
