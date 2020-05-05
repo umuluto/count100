@@ -60,10 +60,10 @@ class Tube extends React.Component{
                     </div>
                 </div>
                 <div className="input_classic blank" style={{position: 'absolute', top: '210px', left: '29px'}} id="sprite_42">
-                <div className="input-body _win32">
-                    <div className="input-body__digit">0</div>
-                    <div className="input-body__carriage" />
-                </div>
+                    <div className="input-body _win32">
+                        <div className="input-body__digit">0</div>
+                        <div className="input-body__carriage" />
+                    </div> 
                 </div>
             </div>
         )

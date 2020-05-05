@@ -4,6 +4,43 @@ import Tube1 from './GameStuff/Tube1'
 
 
 class Exam extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      countCorrect: 0,
+      answerStatus : [0, 0, 0, 0, 0, 0, 0]
+    }
+    this.handleCorrectAnswer = this.handleCorrectAnswer.bind(this);
+    this.handleWrongAnswer = this.handleWrongAnswer.bind(this);
+  }
+
+  handleCorrectAnswer(id) {
+    let curCount = this.state.countCorrect;
+    let answers = this.state.answerStatus;
+    curCount = curCount - answers[id] + 1;
+    answers[id] = 1;
+    this.setState({
+      countCorrect: curCount,
+      answerStatus: answers
+    }, () => {
+      console.log(this.state);
+    });
+  }
+
+  handleWrongAnswer(id) {
+    let curCount = this.state.countCorrect;
+    let answers = this.state.answerStatus;
+    curCount = curCount - answers[id];
+    answers[id] = 0;
+    this.setState({
+      countCorrect: curCount,
+      answerStatus: answers
+    }, () => {
+      console.log(this.state);
+    });
+  }
+
   render(){
     return (
       <div>
@@ -89,13 +126,13 @@ class Exam extends React.Component {
                 <div className="main_line">
                   <div className="content">
                     <div className="holder" />
-                      <Tube1 numerator = {8} denominator = {6}>  </Tube1>
-                      <Tube1 numerator = {1} denominator = {6}>  </Tube1>
-                      <Tube1 numerator = {2} denominator = {6}>  </Tube1>
-                      <Tube1 numerator = {3} denominator = {6}>  </Tube1>
-                      <Tube1 numerator = {4} denominator = {6}>  </Tube1>
-                      <Tube1 numerator = {5} denominator = {6}>  </Tube1>
-                      <Tube1 numerator = {9} denominator = {6}>  </Tube1>
+                      <Tube1 numerator = {8} denominator = {6} correctAns = {() => this.handleCorrectAnswer(0)} wrongAns = {() => this.handleWrongAnswer(0)}>  </Tube1>
+                      <Tube1 numerator = {1} denominator = {6} correctAns = {() => this.handleCorrectAnswer(1)} wrongAns = {() => this.handleWrongAnswer(1)}>  </Tube1>
+                      <Tube1 numerator = {2} denominator = {6} correctAns = {() => this.handleCorrectAnswer(2)} wrongAns = {() => this.handleWrongAnswer(2)}>  </Tube1>
+                      <Tube1 numerator = {3} denominator = {6} correctAns = {() => this.handleCorrectAnswer(3)} wrongAns = {() => this.handleWrongAnswer(3)}>  </Tube1>
+                      <Tube1 numerator = {4} denominator = {6} correctAns = {() => this.handleCorrectAnswer(4)} wrongAns = {() => this.handleWrongAnswer(4)}>  </Tube1>
+                      <Tube1 numerator = {5} denominator = {6} correctAns = {() => this.handleCorrectAnswer(5)} wrongAns = {() => this.handleWrongAnswer(5)}>  </Tube1>
+                      <Tube1 numerator = {9} denominator = {6} correctAns = {() => this.handleCorrectAnswer(6)} wrongAns = {() => this.handleWrongAnswer(6)}>  </Tube1>
                     </div>
                    </div>
             
