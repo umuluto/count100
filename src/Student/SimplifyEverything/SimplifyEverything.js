@@ -5,6 +5,8 @@ import Exam from './Exam';
 import studentActions from '../../actions/student-actions';
 import simplifyEverythingActions from '../../actions/simplify-everything-actions';
 
+import Tube from './GameStuff/Tube';
+
 class SimplifyEverything extends React.Component{
     render() {
         switch(this.props.screen) {
