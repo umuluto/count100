@@ -21,7 +21,11 @@ class Start extends React.Component {
           <div className="card_content">
             <div id="board" className="uchiru-place card player-1 script3771 fixed run_on_windows cr" style={{ lineHeight: '1.29' }}>
               <div className="btn_play">
-                <button style={{ border: "none", padding: 0, background: "none" }} onClick={this.props.nextScreen}>
+                <button 
+                  style={{ border: "none", padding: 0, background: "none" }} 
+                  id="button-start-mainscreen" 
+                  onClick={this.props.nextScreen}
+                >
                   <div className="triangle">
                     <span>Bắt đầu</span>
                   </div>
