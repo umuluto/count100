@@ -1,0 +1,132 @@
+* {
+  /*outline: 1px red solid;*/
+  font-family: 'PT Sans';
+}
+
+.train-game {
+  margin: 30px;
+  height: 455px;
+  width: 960px;
+  position: relative;
+}
+
+.railway {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 30px;
+  bottom: 75px;
+  left: 0;
+  text-align: center;
+  background: url(~Public/train_assets.png) 0 -195px repeat-x;
+}
+
+.holder {
+  position: relative;
+  width: 115px;
+  height: 12px;
+  display: inline-block;
+  margin: 7px 5px 0;
+  background: url(~Public/train_assets.png) -316px 0 no-repeat;
+}
+
+.holder--hidden {
+  background: initial;
+}
+
+.holder--dim {
+  opacity: .3;
+}
+
+.holder--highlight {
+  background-position: -316px -100px;
+}
+
+.holder__glow {
+  position: absolute;
+  z-index: 1;
+  width: 161px;
+  height: 34px;
+  left: 50%;
+  top: 50%;
+  margin: -17px 0 0 -81px;
+  background: url(~Public/train_assets.png) -310px -43px no-repeat;
+  transition: ease-out .2s;
+}
+
+.hint {
+  position: absolute;
+  left: -47px;
+  top: 30px;
+}
+
+.hint__corner {
+  height: 10px;
+  overflow: hidden;
+}
+
+.hint__corner__inner {
+  position: absolute;
+  left: 96px;
+  width: 20px;
+  height: 20px;
+  background-color: #f2eec7;
+  transform: rotate(45deg);
+}
+
+.hint__content {
+  white-space: nowrap;
+  font-size: 23px;
+  line-height: 1.5em;
+  padding: 10px 20px;
+  text-align: left;
+  letter-spacing: normal;
+  border-radius: 10px;
+  color: #554b4b;
+  background-color: #f2eec7;
+  font-style: normal;
+  position: relative;
+}
+
+.wagon {
+  position: absolute;
+  z-index: 1;
+  width: 139px;
+  height: 86px;
+  background: url(~Public/train_assets.png) -161px 0 no-repeat;
+}
+
+.wagon--engine {
+  z-index: 20;
+  width: 148px;
+  height: 87px;
+  background: url(~Public/train_assets.png) no-repeat;
+}
+
+.wagon--snap {
+  transition: .2s;
+}
+
+.wagon__num {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  font-size: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -48px;
+  left: 41px;
+  background: url(~Public/train_assets.png) 0 -121px no-repeat;
+}
+
+.wagon__num--engine {
+  top: -51px;
+  left: 62px;
+  background: url(~Public/train_assets.png) -67px -121px no-repeat;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: local("PT Sans"),url(~Public/pt-sans.woff) format("woff");
+}
