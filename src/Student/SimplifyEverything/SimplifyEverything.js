@@ -16,32 +16,14 @@ class SimplifyEverything extends React.Component{
         this.state = {
             screen: this.props.screen
         }
-
-        this.terminateGame = this.terminateGame.bind(this);
-    }
-
-    terminateGame() {
-        this.setState({
-            screen: 2
-        });
-
-        console.log(this.props.screen + this.state.screen);
-    }
-
-    componentWillReceiveProps(){
-        this.setState({
-            screen: this.props.screen
-        })
     }
 
     render() {
-        switch(this.state.screen + this.props.screen) {
+        switch(this.props.screen) {
             case 0:
                 return <Start nextScreen = {this.props.examScreen}/>
             case 1: 
-                return <Exam mainScreen = {this.props.mainScreen} terminateGame = {() => this.terminateGame()}/>
-            case 3: 
-                return <Ending> </Ending>
+                return <Exam mainScreen = {this.props.mainScreen}/>
             default:
                 return (
                     <h1>PaEg NOt fOuND 404</h1>

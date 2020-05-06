@@ -2,6 +2,7 @@ import React from 'react';
 import Tube from './GameStuff/Tube';
 import Tube1 from './GameStuff/Tube1'
 import Ending from '../MainScreen/Ending';
+import {connect} from 'react-redux';
 
 
 class Exam extends React.Component {
@@ -16,6 +17,8 @@ class Exam extends React.Component {
     this.handleCorrectAnswer = this.handleCorrectAnswer.bind(this);
     this.handleWrongAnswer = this.handleWrongAnswer.bind(this);
     this.handleButton = this.handleButton.bind(this);
+
+    console.log(this.props.listQuestion);
   }
 
   handleCorrectAnswer(id) {
@@ -27,7 +30,6 @@ class Exam extends React.Component {
       countCorrect: curCount,
       answerStatus: answers
     }, () => {
-      console.log(this.state);
     });
   }
 
@@ -40,7 +42,6 @@ class Exam extends React.Component {
       countCorrect: curCount,
       answerStatus: answers
     }, () => {
-      console.log(this.state);
     });
   }
 
@@ -49,7 +50,6 @@ class Exam extends React.Component {
       this.setState({
         screen: 1
       });
-      console.log(this.state);
     }
     else {
       return window.alert('Ôi không đáp án của bạn vẫn bị sai/thiếu thì phải...');
@@ -149,13 +149,13 @@ class Exam extends React.Component {
                     <div className="main_line">
                       <div className="content">
                         <div className="holder" />
-                          <Tube1 numerator = {8} denominator = {6} correctAns = {() => this.handleCorrectAnswer(0)} wrongAns = {() => this.handleWrongAnswer(0)}>  </Tube1>
-                          <Tube1 numerator = {1} denominator = {6} correctAns = {() => this.handleCorrectAnswer(1)} wrongAns = {() => this.handleWrongAnswer(1)}>  </Tube1>
-                          <Tube1 numerator = {2} denominator = {6} correctAns = {() => this.handleCorrectAnswer(2)} wrongAns = {() => this.handleWrongAnswer(2)}>  </Tube1>
-                          <Tube1 numerator = {3} denominator = {6} correctAns = {() => this.handleCorrectAnswer(3)} wrongAns = {() => this.handleWrongAnswer(3)}>  </Tube1>
-                          <Tube1 numerator = {4} denominator = {6} correctAns = {() => this.handleCorrectAnswer(4)} wrongAns = {() => this.handleWrongAnswer(4)}>  </Tube1>
-                          <Tube1 numerator = {5} denominator = {6} correctAns = {() => this.handleCorrectAnswer(5)} wrongAns = {() => this.handleWrongAnswer(5)}>  </Tube1>
-                          <Tube1 numerator = {9} denominator = {6} correctAns = {() => this.handleCorrectAnswer(6)} wrongAns = {() => this.handleWrongAnswer(6)}>  </Tube1>
+                          <Tube1 numerator = {this.props.listQuestion[0].numerator} denominator = {this.props.listQuestion[0].denominator} correctAns = {() => this.handleCorrectAnswer(0)} wrongAns = {() => this.handleWrongAnswer(0)}>  </Tube1>
+                          <Tube1 numerator = {this.props.listQuestion[1].numerator} denominator = {this.props.listQuestion[1].denominator} correctAns = {() => this.handleCorrectAnswer(1)} wrongAns = {() => this.handleWrongAnswer(1)}>  </Tube1>
+                          <Tube1 numerator = {this.props.listQuestion[2].numerator} denominator = {this.props.listQuestion[2].denominator} correctAns = {() => this.handleCorrectAnswer(2)} wrongAns = {() => this.handleWrongAnswer(2)}>  </Tube1>
+                          <Tube1 numerator = {this.props.listQuestion[3].numerator} denominator = {this.props.listQuestion[3].denominator} correctAns = {() => this.handleCorrectAnswer(3)} wrongAns = {() => this.handleWrongAnswer(3)}>  </Tube1>
+                          <Tube1 numerator = {this.props.listQuestion[4].numerator} denominator = {this.props.listQuestion[4].denominator} correctAns = {() => this.handleCorrectAnswer(4)} wrongAns = {() => this.handleWrongAnswer(4)}>  </Tube1>
+                          <Tube1 numerator = {this.props.listQuestion[5].numerator} denominator = {this.props.listQuestion[5].denominator} correctAns = {() => this.handleCorrectAnswer(5)} wrongAns = {() => this.handleWrongAnswer(5)}>  </Tube1>
+                          <Tube1 numerator = {this.props.listQuestion[6].numerator} denominator = {this.props.listQuestion[6].denominator} correctAns = {() => this.handleCorrectAnswer(6)} wrongAns = {() => this.handleWrongAnswer(6)}>  </Tube1>
                         </div>
                       </div>
                 
@@ -185,4 +185,10 @@ class Exam extends React.Component {
   }
 };
 
-export default Exam;
+const mapStatetoProps = (store) => {
+  return {
+    listQuestion: store.SimplifyEverything.get('listQuestion').toJS()
+  }
+}
+
+export default connect(mapStatetoProps) (Exam);

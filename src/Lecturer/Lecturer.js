@@ -11,7 +11,7 @@ const Buttons = (props) => {
         'Tối giản phân số', 
         '2', 
         'Tối giản từng bước một', 
-        '4', 
+        'Tối giản mọi thứ', 
         'Khi nào tối giản'
     ]
     const onClickActions = [
@@ -28,6 +28,7 @@ const Buttons = (props) => {
         },
         () => {
             document.getElementById("check").checked = false;
+            props.SimplifyEverything();
         },
         () => {
             document.getElementById("check").checked = false;
@@ -76,6 +77,7 @@ class Lecturer extends React.Component {
                     <Buttons
                         Home={this.props.Home}
                         Simplifying={this.props.Simplifying}
+                        SimplifyEverything={this.props.SimplifyEverything}
                         WhenToSimplify={this.props.WhenToSimplify}
                     />
                 </aside>
@@ -95,7 +97,8 @@ const mapDispatchtoProps = (dispatch, ownProps) => {
     return {
         Home: () => dispatch(actions.Home),
         Simplifying: () => dispatch(lecturerActions.Simplifying),
-        WhenToSimplify: () => dispatch(lecturerActions.WhenToSimplify)
+        WhenToSimplify: () => dispatch(lecturerActions.WhenToSimplify),
+        SimplifyEverything: () => dispatch(lecturerActions.SimplifyEverything)
     }
 }
 

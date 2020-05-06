@@ -1,7 +1,7 @@
 import * as types from './action-types';
 
 var Home = {
-    type: types.SIMPLIFYING_HOME_SCREEN
+    type: types.SIMPLIFY_EVERYTHING_HOME
 }
 
 var Exam = {
@@ -9,7 +9,7 @@ var Exam = {
 }
 
 var modifyQuestion = (data) =>({
-    type: types.SIMPLIFYING_MODIFY_QUESTION,
+    type: types.SIMPLIFY_EVERYTHING_MODIFY_QUESTION,
     data: data.map(value => ({
         numerator: parseInt(value.numerator),
         denominator: parseInt(value.denominator)

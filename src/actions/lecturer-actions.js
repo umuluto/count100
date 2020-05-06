@@ -8,7 +8,12 @@ var WhenToSimplify = {
     type: types.LECTURER_WHEN_TO_SIMPLIFY
 }
 
+var SimplifyEverything = {
+    type: types.LECTURER_SIMPLIFY_EVERYTHING
+}
+
 export default {
     Simplifying,
-    WhenToSimplify
+    WhenToSimplify,
+    SimplifyEverything
 }

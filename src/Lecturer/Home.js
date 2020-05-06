@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Simplifying from './Simplifying';
 import WhenToSimplify from './WhenToSimplify';
+import SimplifyEverything from './SimplifyEverything';
 
 class Home extends React.Component {
     render() {
@@ -13,7 +14,7 @@ class Home extends React.Component {
             case 2:
                 return <h1>Step By Step</h1>
             case 3:
-                return <h1>Simplify everything</h1>
+                return <SimplifyEverything> </SimplifyEverything>
             case 4:
                 return <WhenToSimplify />
             default:
