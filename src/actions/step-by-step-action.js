@@ -19,5 +19,6 @@ var modifyQuestion = (data) => ({
 
 export default {
     Exam,
-    Home
+    Home,
+    modifyQuestion
 }

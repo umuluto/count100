@@ -45,10 +45,7 @@ class GamePlay extends React.Component{
   }
 
   handleTerminate(){
-    console.log("gameplay1");
-    console.log(this.state);
     if(this.state.gcd === 1) {
-      console.log("gameplay2");
       this.props.continueGame();      
     }
     else {
@@ -57,9 +54,7 @@ class GamePlay extends React.Component{
   }
 
   checkAnswer(x, y) {
-    console.log(this.state, this.props.numerator / this.state.divider, this.props.denominator / this.state.divider, x, y);
     if(x === this.props.numerator / this.state.divider && y === this.props.denominator / this.state.divider) {
-      console.log("ok");
       this.props.continueGame();
     }
     else {

@@ -34,8 +34,6 @@ class Form extends React.Component {
         }
 
         stages = stages.concat(newStage);
-
-        console.log(newStage);
         x /= i;
         y /= i;
         g /= i;
@@ -48,20 +46,15 @@ class Form extends React.Component {
       denominator: y,
       answers: [2, 3, 5]
     });
-
-    console.log(stages);
-
     this.state = {
       curStage: 1,
       stages: stages
     };
-
-   
   }
 
 
   componentDidMount() {
-    
+    console.log(this.props);
 
 
     // for(let i = 0; i < stages.length; ++i) {
@@ -75,17 +68,19 @@ class Form extends React.Component {
   }
 
   changeState() {
-    console.log("yeaye");
+    if(this.state.curStage == this.state.stages.length) {
+      return this.props.updateScreen();
+    }
     this.setState({
       curStage: this.state.curStage + 1
-    })
+    });
   }
 
 
     render(){
       return (
         (this.state.curStage > this.state.stages.length) ? 
-        (<Ending />) 
+        (<div></div>) 
         :(<div>
           <meta charSet="utf-8" />
           <meta name="viewport" id="viewport-meta" content="width=1024, user-scalable=0, viewport-fit=cover" />
@@ -161,6 +156,12 @@ class Form extends React.Component {
                 <div className="arrow-left" />
                 <span>  Trở lại màn hình chính</span>
               </a>
+
+              <div className="beads-wrapper">
+                  <div id="progress">
+                      <span>Đã hoàn thành {this.props.screen} / {this.props.length}</span>
+                  </div>
+              </div>
               <div className="uchiru-head__right-group">
               </div>
             </div>
