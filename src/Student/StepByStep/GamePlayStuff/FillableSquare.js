@@ -33,13 +33,13 @@ class FillableSquare extends React.Component{
         return(
                 <div className="input_fs_36 disabled" style={{left: '456px', top: '108px', opacity: 1}}>
                     <form>
-                        <input className="answerinput" ref={this.numeratorInput} type="number" id ="numerator" onChange={this.handleChange} min="1" max="100" 
+                        <input className="answerinput1" ref={this.numeratorInput} type="number" id ="numerator" onChange={this.handleChange} min="1" max="100" 
                         style={{
                             marginTop: 4,
                             marginLeft: 1
                         }}></input>
                         <div className="_fraction__fraction-line" />
-                        <input className="answerinput" ref={this.denominatorInput} type="number" id ="denominator" onChange={this.handleChange} min="1" max="100" style={{
+                        <input className="answerinput1" ref={this.denominatorInput} type="number" id ="denominator" onChange={this.handleChange} min="1" max="100" style={{
                             marginTop: 4,
                             marginLeft: 1
                         }}></input>
