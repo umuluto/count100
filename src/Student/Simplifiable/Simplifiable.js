@@ -6,9 +6,18 @@ import Task from "./components/Task";
 import PlayScreen from "./components/PlayScreen";
 import StudentActions from "../../actions/student-actions";
 
-
 function randomExamNumber() {
   return Math.round(Math.random() * 9 + 1);
+}
+
+function generateExam() {
+  const randomExam = [];
+  const randomMultiplier = Math.round(Math.random() * 2 + 2);
+  const randomFraction = Math.round(Math.random() * 2) * 2;
+  for (let i = 0; i < 6; i++) randomExam.push(randomExamNumber());
+  randomExam[randomFraction] *= randomMultiplier;
+  randomExam[randomFraction + 1] *= randomMultiplier;
+  return randomExam;
 }
 
 class Stage2 extends Component {
@@ -20,6 +29,7 @@ class Stage2 extends Component {
     this.state = {
       moveBead: [],
       exercisesLeft: this.props.numberOfExercises,
+      randomExam: generateExam(),
     };
   }
 
@@ -33,6 +43,7 @@ class Stage2 extends Component {
 
     if (value === 1) {
       this.getMoveBead()[this.state.exercisesLeft - 1].move(afterMoveCallback);
+      this.setState({ randomExam: generateExam() });
     } else {
       if (typeof this.getMoveBead()[this.state.exercisesLeft] !== "undefined") {
         this.getMoveBead()[this.state.exercisesLeft].moveBackward(
@@ -53,12 +64,8 @@ class Stage2 extends Component {
   }
 
   getMoveBead() {
-    console.log(this.state.moveBead);
+    // console.log(this.state.moveBead);
     return this.state.moveBead;
-  }
-
-  componentDidMount() {
-    this.getMoveBead();
   }
 
   render() {
@@ -66,13 +73,6 @@ class Stage2 extends Component {
       this.props.finish();
       return <div></div>;
     }
-
-    const randomExam = [];
-    const randomMultiplier = Math.round(Math.random() * 2 + 2);
-    const randomFraction = Math.round(Math.random() * 2) * 2;
-    for (let i = 0; i < 6; i++) randomExam.push(randomExamNumber());
-    randomExam[randomFraction] *= randomMultiplier;
-    randomExam[randomFraction + 1] *= randomMultiplier;
 
     return (
       <div className="center">
@@ -82,7 +82,7 @@ class Stage2 extends Component {
         />
         <Task text={"Chọn một trong các phân số sau và tối giản nó"} />
         <PlayScreen
-          exam={randomExam}
+          exam={this.state.randomExam}
           getMoveBead={this.getMoveBead}
           finishExercise={this.finishExercise}
           exercisesLeft={this.state.exercisesLeft}

@@ -51,8 +51,10 @@ class PlayScreen extends Component {
     this.state = {
       leftsideNumerator: "Tử số",
       leftsideDenominator: "Mẫu số",
+      opacity: 1,
     };
     this.resetState = this.resetState.bind(this);
+    this.fade = this.fade.bind(this);
     // this.selectLeftSide = this.selectLeftSide.bind(this);
   }
 
@@ -72,6 +74,20 @@ class PlayScreen extends Component {
       document.getElementById("numerator-input").value = "";
       document.getElementById("denominator-input").value = "";
     }
+  }
+
+  fade() {
+    const interval = setInterval(() => {
+      if (this.state.opacity <= 0) {
+        clearInterval(interval);
+        this.setState({
+          opacity: 1,
+        });
+      }
+      this.setState({
+        opacity: this.state.opacity - 0.1,
+      });
+    }, 90);
   }
 
   inputValidation = () => {
@@ -113,7 +129,10 @@ class PlayScreen extends Component {
 
   render() {
     return (
-      <div className="ba bw2 b--blue mh5">
+      <div
+        className="ba bw2 b--blue mh5"
+        style={{ opacity: this.state.opacity }}
+      >
         <AnswersButton
           selectLeftSide={this.selectLeftSide}
           exam={this.props.exam}
@@ -143,6 +162,7 @@ class PlayScreen extends Component {
                 // this.props.getMoveBead()[this.props.exercisesLeft - 1]();
 
                 this.props.finishExercise(1, this.resetState);
+                this.fade();
               } else if (result === -1) {
                 this.props.finishExercise(-1, this.resetState);
               }
