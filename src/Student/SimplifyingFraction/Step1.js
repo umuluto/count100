@@ -29,7 +29,7 @@ class Step1 extends React.Component {
         var denominatorResult = Number(this.state.denominatorResult)
         if (this.props.numerator / this.props.divisor !== numeratorResult ||
             this.props.denominator / this.props.divisor !== denominatorResult) {
-            alert('Wrong Answer!');
+            alert('Đáp án sai!');
             return;
         }
         this.props.switchStep();

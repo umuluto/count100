@@ -12,8 +12,13 @@ var StepByStep = {
     type: types.LECTURER_STEP_BY_STEP
 }
 
+var SimplifyEverything = {
+    type: types.LECTURER_SIMPLIFY_EVERYTHING
+}
+
 export default {
     Simplifying,
     WhenToSimplify,
-    StepByStep
+    StepByStep,
+    SimplifyEverything
 }

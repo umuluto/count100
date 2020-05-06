@@ -156,7 +156,6 @@ class Form extends React.Component {
                 <div className="arrow-left" />
                 <span>  Trở lại màn hình chính</span>
               </a>
-
               <div className="beads-wrapper">
                   <div id="progress">
                       <span>Đã hoàn thành {this.props.screen} / {this.props.length}</span>

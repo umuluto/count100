@@ -92,7 +92,7 @@ class Exercise extends React.Component {
                             style={{width: "40px", height: "40px"}}
                             onClick={() => {
                                 if (this.state.type === 0) this.props.nextQuestion();
-                                else alert('Wrong Answer!!!');
+                                else alert('Đáp án sai!!!');
                             }}
                             >
                                 <div className="button-basic__placeholder ci">Đúng</div>
@@ -102,7 +102,7 @@ class Exercise extends React.Component {
                             style={{width: "40px", height: "40px"}}
                             onClick={() => {
                                 if (this.state.type === 1) this.props.nextQuestion();
-                                else alert('Wrong Answer!!!');
+                                else alert('Đáp án sai!!!');
                             }}
                             >
                                 <div className="button-basic__placeholder ci" style={{textAlign: "center"}}>Sai</div>

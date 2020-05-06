@@ -20,20 +20,20 @@ class Step0 extends React.Component {
     buttonAttion() {
         var inputValue = this.state.inputValue;
         if (inputValue === '') {
-            alert('input empty');
+            alert('Các ô phải được điền đẩy đủ');
             return;
         }
         var inputNumber = Number(inputValue);
         if (inputNumber === 0) {
-            alert('0 is abandon');
+            alert('Không được chọn số 0');
             return;
         }
         else if (inputNumber === 1) {
-            alert('1 is not interesting');
+            alert('Số 1 thì hiển nhiên quá');
             return;
         }
         else if (this.props.numerator % inputNumber !== 0 || this.props.denominator % inputNumber !== 0) {
-            alert('That is not the common divisor of numerator and denominator');
+            alert('Không phải ước chung của tử số và mẫu số');
             return;
         }
         this.props.setDivisor(inputNumber);
