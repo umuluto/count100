@@ -39,8 +39,10 @@ function Wagon(props) {
       onDrag={onDrag}
       onStop={onStop}
     >
-      <div className={`wagon wagon--${props.type} wagon--${snap}`} style={style}>
-        <div className={`wagon__num wagon__num--${props.type}`}>
+      <div className={`wagon wagon--${snap} wagon--${props.finished}`}
+        style={style}
+      >
+        <div className='wagon__num'>
           {props.num}
         </div>
       </div>
