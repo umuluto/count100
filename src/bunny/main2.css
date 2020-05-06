@@ -67,7 +67,7 @@
 
 .empty {}
 
-.tree_0 {
+.trees_0 {
     position: absolute;
     z-index: 2;
     width: 265px;
@@ -77,7 +77,7 @@
     background-image: url(image/17.png);
 }
 
-.tree_1 {
+.trees_1 {
     position: absolute;
     z-index: 2;
     width: 665px;
