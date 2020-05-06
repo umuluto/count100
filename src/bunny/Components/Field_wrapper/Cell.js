@@ -1,7 +1,21 @@
 import React from 'react'
 export default Cell;
 
-
+function Check(x) {
+    if (x < 10) return (
+        <span> {x}</span>
+    )
+    else {
+        
+        
+        return (
+        <div>
+            <span>{Math.floor(x / 10)}</span>
+            <span>{x % 10}</span>
+        </div>
+    )
+        }
+}
 
 
 function Cell() {
@@ -12,7 +26,7 @@ function Cell() {
                 <div className="input blank" style={{ display: 'block' }}>
                     <div className="__outer">
                         <div className="__inner">
-                            <span>{i++}</span>
+                            {Check(i++)}
                         </div>
                     </div>
                 </div>
@@ -30,20 +44,20 @@ function Cell() {
 
         for (let y = 0; y < 10; y++) {
             if (not_dark == true) {
-                Cell.push(<Caro key ={key_cell++} top={count_top} left={count_left += 50} />)
+                Cell.push(<Caro key={key_cell++} top={count_top} left={count_left += 50} />)
                 not_dark = false;
             }
             else {
                 not_dark = true;
-                Cell.push(<Caro key ={key_cell++} dark='dark' top={count_top} left={count_left += 50} />)
+                Cell.push(<Caro key={key_cell++} dark='dark' top={count_top} left={count_left += 50} />)
             }
         }
-        
+
         count_top += 50;;
         count_left = -50;
 
     }
-    
+
 
     return (
         <div className="field_wrapper" style={{ display: 'block' }}>
