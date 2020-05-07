@@ -1,8 +1,12 @@
-* { outline: 1px red solid; }
+* {
+  /*outline: 1px red solid;*/
+  font-family: 'PT Sans';
+}
 
 .train-game {
   margin: 30px;
   height: 455px;
+  width: 960px;
   position: relative;
 }
 
@@ -26,7 +30,7 @@
   background: url(~Public/train_assets.png) -316px 0 no-repeat;
 }
 
-.holder--engine {
+.holder--hidden {
   background: initial;
 }
 
@@ -34,13 +38,59 @@
   opacity: .3;
 }
 
-.holder__empty {
+.holder--highlight {
+  background-position: -316px -100px;
+}
+
+.holder--finished {
+  opacity: 0;
+  transition: .2s;
+}
+
+.holder__glow {
   position: absolute;
   z-index: 1;
-  bottom: -2px;
-  left: -14px;
-  width: 139px;
-  height: 86px;
+  width: 161px;
+  height: 34px;
+  left: 50%;
+  top: 50%;
+  margin: -17px 0 0 -81px;
+  background: url(~Public/train_assets.png) -310px -43px no-repeat;
+  transition: ease-out .2s;
+}
+
+.hint {
+  position: absolute;
+  left: -47px;
+  top: 30px;
+}
+
+.hint__corner {
+  height: 10px;
+  overflow: hidden;
+}
+
+.hint__corner__inner {
+  position: absolute;
+  left: 96px;
+  width: 20px;
+  height: 20px;
+  background-color: #f2eec7;
+  transform: rotate(45deg);
+}
+
+.hint__content {
+  white-space: nowrap;
+  font-size: 23px;
+  line-height: 1.5em;
+  padding: 10px 20px;
+  text-align: left;
+  letter-spacing: normal;
+  border-radius: 10px;
+  color: #554b4b;
+  background-color: #f2eec7;
+  font-style: normal;
+  position: relative;
 }
 
 .wagon {
@@ -51,15 +101,17 @@
   background: url(~Public/train_assets.png) -161px 0 no-repeat;
 }
 
-.wagon--inplace {
-  position: static;
-}
-
 .wagon--engine {
   z-index: 20;
+  left: 91px;
+  top: 284px;
   width: 148px;
   height: 87px;
   background: url(~Public/train_assets.png) no-repeat;
+}
+
+.wagon--snap {
+  transition: .2s transform;
 }
 
 .wagon__num {
@@ -79,4 +131,34 @@
   top: -51px;
   left: 62px;
   background: url(~Public/train_assets.png) -67px -121px no-repeat;
+}
+
+.wagon--finished {
+  margin-left: -1000px;
+  transition: margin 4s cubic-bezier(1, -0.01, 0.71, 0.31) .3s;
+}
+
+.smoke {
+  position: absolute;
+  top: -25px;
+  left: 15px;
+  width: 30px;
+  height: 31px;
+  transform: scale(.4, .4);
+  background: url(~Public/train_assets.png) -161px -135px;
+  animation: rise 2s infinite ease-out;
+}
+
+@keyframes rise {
+  to {
+    top: -95px;
+    left: 35px;
+    transform: scale(1.8, 1.8);
+    opacity: 0;
+  }
+}
+
+@font-face {
+  font-family: "PT Sans";
+  src: local("PT Sans"),url(~Public/pt-sans.woff) format("woff");
 }
