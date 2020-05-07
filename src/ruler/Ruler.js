@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import Draggable, { DraggableCore } from 'react-draggable';
+import Draggable from 'react-draggable';
 
 function Ruler(props) {
 
+    //this part for creating state required
     const [progressBallIndex, setProgressBallIndex] = useState(0);
-    const [dragActive, setDragActive] = useState(0);
     const [ballNumber, setBallNumber] = useState(63);
-    const [ballState, setBallState]   = useState(0);
+    const [ballState, setBallState]   = useState(3);
     const [defaultPosition, setDefaultPosition] = useState(
         {x: 300, y: 0}
     )
     const dragHandlers = {onStart, onStop};
-    //above is const
 
+    // prBall is used for moving progress ball when user determines the 
+    //right position or wrong position
     let prBall0 = { left: "440px", transition: "all .5s ease-out",}
     let prBall1 = { left: "416px", transition: "all .5s ease-out",}
     let prBall2 = { left: "392px", transition: "all .5s ease-out",}
@@ -20,45 +21,50 @@ function Ruler(props) {
     let prBall4 = { left: "342px", transition: "all .5s ease-out",}
     let prBall5 = { left: "318px", transition: "all .5s ease-out",}
 
+    // when user chooses the right or wrong position, state need to be updated
+    // for now, I choose to change background color
     let state = {
         state_wrong: {
-            backgroundImage: "url(../../public/ball_state.png)",
-            backgroundPosition: "-228px 0px",
-            transition: "all .3s ease-out",
+            backgroundColor: "#fb9766",
+            boxShadow: "5px -13px 10px 7px #b04f20 inset",
+            transition: "background .8s ease-out",
         },
         state_right: {
-            backgroundImage: "url(../../public/ball_state.png)",
-            backgroundPosition: "0px 0px",
-            transition: "all .3s ease-out",
+            backgroundColor: "#91ea54",
+            boxShadow: "5px -13px 10px 7px #47ac23 inset",
+            transition: "background .8s ease-out",
         },
         state_default: {
-            backgroundImage: "url(../../public/ball_state.png)",
-            backgroundPosition: "-76px 0px",
-            transition: "all .3s ease-out",
+            backgroundColor: "#81ccea",
+            boxShadow: "5px -13px 10px 7px #5c88b7 inset",
+            transition: "background .8s ease-out",
         }
     }
-    let arrayBallState = [state.state_default, state.state_right, state.state_wrong];
-    //above is let
-    
-    // under is function
+    let arrayBallState = [state.state_wrong, state.state_right, state.state_default];
+    // I use array because, draggable only accept direct style property for inline
+
+    // when user starts to move the ball, a stick will appear for easing the determine coordinate 
     function onStart () {
         let stick = document.querySelector("#stick");
         stick.style.display = "block";
-        return setDragActive(dragActive+1);
     }
      
+    // when user finish drag, some event needed to be handled
     function onStop (e, position) {
         console.log(position);
-        if( (position.x > (ballNumber*8-5-2)) && (position.x < (ballNumber*8+5)) ) 
-        // because when style in css, the real value x is moved left about 5px
+        let x_unexpected = ballNumber / 5;
+        let real_x = ballNumber * 8 - x_unexpected;
+        // x_unexpected means for each 5cm in ruler, the real width is 39, not 40
+        // so we need to reconfigure the real x position
+        if( (position.x > (real_x - 4)) && (position.x < (real_x + 4)) ) 
         {    
             console.log('right position');
-            setBallState(1);
+            setBallState(1);                
             handleRightPosition();
         }
         else{
             console.log('wrong position');
-            setBallState(2);
+            setBallState(0);
             handleWrongPosition();
         }
     }
@@ -71,11 +77,11 @@ function Ruler(props) {
                 moveToWin();
             }, 2000);
         }
-        setBallNumber(Math.floor(Math.random() * 100 ));
-    }
-
-    function moveToWin() {
-        window.location.href = "../../public/winner.html";
+        setTimeout(() => {
+            setBallState(2);
+            setBallNumber(Math.floor(Math.random() * 100 ));
+        }, 1800);
+        
     }
 
     function handleWrongPosition() {
@@ -83,7 +89,14 @@ function Ruler(props) {
         // when we decrease the progressBallIndex, the condition in className=inner_progress will be false for the last
         // then the ball will comback to it's default position
         console.log(ballNumber);
-        setBallNumber(Math.floor(Math.random() * 100 ));
+        setTimeout(() => {
+            setBallState(2);
+            setBallNumber(Math.floor(Math.random() * 100 ));            
+        }, 1800);
+    }
+
+    function moveToWin() {
+        window.location.href = "../../public/winner.html";
     }
 
     return(
@@ -96,7 +109,8 @@ function Ruler(props) {
                 <div className="box_head bar with_progress">
                     <a className="back-link" href="../../public/index.html">
                         <div className="arrow-left"></div>
-                        <span>Back</span>
+
+                        <span> Back</span>
                     </a>
                     <div className="bar_wrapper">                        
                             <div className="inner_progress">
@@ -118,7 +132,7 @@ function Ruler(props) {
                                 <div className="end_arrow"></div>
                                 <div className="ball_wrapper">
                                     <Draggable axis='x' bounds="parent" defaultPosition={defaultPosition} {...dragHandlers}>
-                                        <div className="ball" id="ballll" style = {arrayBallState[ballState]}>
+                                        <div className="ball state" style = {arrayBallState[ballState]}>
                                             <div className="stick" id="stick" style={{display: "none"}}>
                                                 <div className="point"></div>
                                             </div>

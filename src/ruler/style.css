@@ -1,7 +1,7 @@
 body {
     height: 100%;
     margin: 0px;
-    padding-bottom: 95px;
+    padding-bottom: 80px;
     font-family: 'PT Sans',sans-serif;
 }
 
@@ -64,24 +64,24 @@ body .box_head .back-link .arrow-left {
     display: inline-block;
     width: 0;
     height: 0;
-    border-top: 15px solid white transparent;
-    border-bottom: 15px solid white transparent;
-    border-right: 15px solid blue ;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #246EA1 ;
     position: relative;
     border-radius: 50%;
 }
 
-/*body .box_head .back-link .arrow-left::before {
+body .box_head .back-link .arrow-left::before {
     content: "";
     position: absolute;
     width: 0;
     height: 0;
-    right: -18x;
+    right: -18px;
     top: -15px;
-    border-top: 15px solid white transparent;
-    border-bottom: 15px solid white transparent;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
     border-right: 15px solid white;
-}*/
+}
 
 body .bar_wrapper {
     font-size: 14px;
@@ -130,7 +130,7 @@ body .bar_wrapper {
 }
 
 .game_field_under {
-    background-color: bisque;
+    background-color: #faf3c9;
     width: 875px;
     height: 83px;
     display: inline-block;
@@ -167,7 +167,7 @@ body .bar_wrapper {
     background: #000;
 }
 .a_border.a_start {
-    left: 0px;
+    left: -1px;
 }
 .a_border.a_end {
     right: -2px;
@@ -204,7 +204,7 @@ body .bar_wrapper {
 
 .decimal.divider span {
     width: 3px;
-    margin-left: 0px;
+    margin-left: -1px;
     
 }
 
@@ -215,7 +215,7 @@ body .bar_wrapper {
     height: 18px;
     width: 1px;
     background: #000;
-    border-left: 0px solid #000;
+    border-left: 1px solid #000;
     box-sizing: border-box;
 }
 
@@ -277,8 +277,9 @@ body .bar_wrapper {
     border-radius: 38px;
     text-align: center;
     background-repeat: no-repeat;
-
-    
+    background: #81ccea;
+    transition: background 1s ease-out;
+    box-shadow: 5px -13px 13px 7px #5c88b7 inset;
 }
 .ball_wrapper .ball .stick {
     top: 100%;
@@ -304,22 +305,4 @@ body .bar_wrapper {
     opacity: 0.9;
 }
 
-.ball .state {
-    position: absolute;
-    z-index: 1;
-    border-radius: 38px;
-    left: 50%;
-    top: 50%;
-    width: 0;
-    height: 0;
-    transition: ease-out;
-    background-image: url(../../public/ball_state.png);
-}
 
-.ball .state.wrong {
-    background-position: -266px -38px;
-}
-
-.ball .state.right {
-    background-position: -38px -38px;
-}
