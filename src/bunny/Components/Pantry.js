@@ -3,9 +3,10 @@ function Pantry(props) {
     
     const Pantry = [];
     for (let i = 0; i < 10; ++i) {
-      if(i<props.num) Pantry.push(<div key={i} className="carrot_bead filled" />);
-      else Pantry.push(<div key={i} className="carrot_bead empty" />);
+      if(i<props.num) Pantry.push(<div key={'pantry_'+i} className="carrot_bead filled" />);
+      else Pantry.push(<div key={'pantry_'+i} className="carrot_bead empty" />);
     }
+
     return (
         <div className="pantry">
             <span className="text">Nhà của thỏ</span>

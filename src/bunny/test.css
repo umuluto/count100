@@ -20,7 +20,9 @@
  .input {
     display: inline-block;
     line-height: 1;
-    font-size: 1px
+    font-size: 1px;
+    width: 40px;
+    height: 32px;
 }
 
  .input .__outer {
@@ -29,6 +31,7 @@
     line-height: 1;
     font-size: 1px;
     width: 30px;
+    height: 22px;
 }
 
  .input .__outer .__inner {
@@ -37,7 +40,9 @@
     white-space: nowrap;
     padding: 0;
     line-height: 1;
-    font-size: 1px
+    font-size: 1px;
+    width: 30px;
+    height: 22px;
 }
 
  .input .__outer .__inner>span {
@@ -194,7 +199,7 @@
 
  .balloon_white {
     white-space: nowrap;
-    font-size: 23px;
+    font-size: 19px;
     line-height: 1.5em;
     padding: 10px 20px;
     text-align: left;
@@ -244,7 +249,7 @@
 
  .balloon_holder {
     position: absolute;
-    left: 0;
+    left: 0px;
     top: 280px
 }
 
