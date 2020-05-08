@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import Railway from './Railway'
+import Engine from './Engine'
 import Wagon from './Wagon'
 import './temp.css'
 
@@ -47,6 +48,7 @@ function App() {
     return offset > 0;
   };
 
+  const finished = state.wagonNum === 5 ? 'finished' : null;
   const wagons = initial.map((w, idx) => {
     return (
       <Wagon idx={idx}
@@ -54,13 +56,15 @@ function App() {
         hilite={hilite}
         target={target[state.wagonNum]}
         dest={dest[state.wagonNum]}
+        finished={finished}
         {...w} />
     );
   })
 
   return (
     <div className='train-game'>
-      <Railway highlight={highlight} {...state}/>
+      <Railway highlight={highlight} finished={finished} {...state}/>
+      <Engine num={5} finished={finished}/>
       {wagons}
     </div>
   );
