@@ -24,6 +24,7 @@
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.2",
+    "cypress": "^4.5.0",
     "file-loader": "^6.0.0",
     "react-dnd": "^10.0.2",
     "react-dnd-html5-backend": "^10.0.2",
