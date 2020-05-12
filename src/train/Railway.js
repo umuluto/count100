@@ -1,24 +1,25 @@
 import React from 'react'
 import Holder from './Holder'
-import Wagon from './Wagon'
 
-function Railway(props) {
-  const wagons = props.wagons.filter(w => w.inplace);
-  if (wagons[wagons.length - 1].wrong !== true && wagons.length < 6) {
-    wagons.push({droppable: true});
+function Railway({wagonNum, lastWagon, highlight, finished}) {
+  const holders = [<div className='holder holder--hidden'/>];
+  while (holders.length <= wagonNum) {
+    holders.push(<div className={`holder holder--${finished}`}/>);
   }
 
-  while (wagons.length < 6) {
-    wagons.push({type: 'dim'});
+  const ready = lastWagon >= wagonNum ? 'wrong' : highlight && 'highlight';
+
+  if (holders.length < 6) {
+    holders.push(<Holder type={ready}/>);
+  }
+
+  while (holders.length < 6) {
+    holders.push(<div className='holder holder--dim'/>);
   }
 
   return (
     <div className='railway'>
-    {wagons.map(w =>
-      <Holder type={w.type} droppable={w.droppable} key={w.num}>
-        {w.num && <Wagon {...w}/>}
-      </Holder>
-    )}
+      {holders}
     </div>
   );
 }

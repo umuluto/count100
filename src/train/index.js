@@ -1,41 +1,72 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
-import { DndProvider } from 'react-dnd'
-import Backend from 'react-dnd-html5-backend'
-import Wagon from './Wagon'
 import Railway from './Railway'
+import Engine from './Engine'
+import Wagon from './Wagon'
 import './temp.css'
 
 function init() {
-  const wagons = [6, 5, 4, 3, 2, 1].map(n => ({ num: n }));
-  wagons[0].type = 'engine';
-  wagons[0].inplace = true;
-  return wagons;
+  const initial = [];
+  for (let i = 0; i < 5; ++i) {
+    initial.push({
+      num: 4- i,
+      pos: {x: i*140, y: 100}
+    });
+  }
+  return initial;
 }
 
+const target = [];
+for (let i = 0; i < 5; ++i) {
+  target.push({x: 230 + 125*i, y: 285});
+}
+target.push({});
+
+const dest = [];
+for (let i = 0; i < 5; ++i) {
+  dest.push({x:221 + i*125, y: 285});
+}
+
+
 function App() {
-  const [wagons, setWagons] = useState(init());
+  const [initial, ] = useState(init());
+  const [state, setState] = useState({
+    wagonNum: 0,
+    lastWagon: -1,
+  });
+  const [highlight, hilite] = useState(false);
 
-  function swapWagon(num) {
-    setWagons(wagons.map(w => w.num == num ? {...w, inplace: !w.inplace} : w));
-  }
+  const push = idx => {
+    let offset;
+    setState(st => {
+      offset = idx === st.wagonNum ? 1 : 0
+      return {
+        wagonNum: st.wagonNum + offset,
+        lastWagon: idx,
+      }
+    })
+    return offset > 0;
+  };
 
-  function test() { swapWagon(1); }
-  function empty() {
-    const [head, ...tail] = wagons;
-    setWagons([head, ...tail.map(w => ({...w, inplace: false}))]);
-  }
+  const finished = state.wagonNum === 5 ? 'finished' : null;
+  const wagons = initial.map((w, idx) => {
+    return (
+      <Wagon idx={idx}
+        push={push}
+        hilite={hilite}
+        target={target[state.wagonNum]}
+        dest={dest[state.wagonNum]}
+        finished={finished}
+        {...w} />
+    );
+  })
 
   return (
-    <DndProvider backend={Backend}>
-      <div className='train-game'>
-        <Railway wagons={wagons}/>
-        {wagons.filter(w => !w.inplace).map(w =>
-          <Wagon swapWagon={swapWagon} {...w}/>
-        ).reverse()}
-      </div>
-      <button onClick={empty}>Empty</button>
-    </DndProvider>
+    <div className='train-game'>
+      <Railway highlight={highlight} finished={finished} {...state}/>
+      <Engine num={5} finished={finished}/>
+      {wagons}
+    </div>
   );
 }
 

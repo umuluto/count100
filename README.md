@@ -19,5 +19,5 @@ rồi vào trình duyệt mở localhost:3000
 
 Build (khi hoàn thành dự án):
 ```bash
-npm build
+npm run build
 ```
