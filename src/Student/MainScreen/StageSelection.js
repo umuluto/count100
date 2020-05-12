@@ -3,6 +3,7 @@ import StageCard from "./StageCard";
 import { connect } from 'react-redux';
 import actions from '../../actions/student-actions'
 import AppActions from '../../actions/app-actions';
+import {Link} from 'react-router-dom'
 
 class StageSelection extends React.Component {
   render() {
@@ -48,11 +49,13 @@ class StageSelection extends React.Component {
       <div className="center tc items-center">
         <h1 className="pa3 b tc"> Các bài tập tối giản phân số </h1>
         <div className="flex center items-center pa3">{stageCards}</div>
-        <button onClick={this.props.HomeScreen}>
-          <div className="tc b--blue ba dib br3 pa3 ma2 grow bw2 shadow-5 pointer center link">
-            Quay về màn hình chính
-          </div>
-        </button>
+        <Link to="/Fraction">
+          <button onClick={this.props.HomeScreen}>
+            <div className="tc b--blue ba dib br3 pa3 ma2 grow bw2 shadow-5 pointer center link">
+              Quay về màn hình chính
+            </div>
+          </button>
+        </Link>
       </div>
     );
   }
