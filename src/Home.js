@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import actions from './actions/app-actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
     render() {
@@ -13,42 +14,50 @@ class Home extends React.Component {
                             <div className="col-sm-12 align-center col-lg-6 col-md-6">
                                 <div className="row fixed-height">
                                     <div className="invite-block">
-                                        <button onClick={this.props.lecturerScreen}>
-                                            <img
-                                                src="https://i.ibb.co/tbCZcY9/teacher.jpg"
-                                                alt=""
-                                                style={{ height: '180px' }}
-                                            ></img>
-                                        </button>
+                                        <Link to="/Fraction/Lecturer">
+                                            <button onClick={this.props.lecturerScreen}>
+                                                <img
+                                                    src="https://i.ibb.co/tbCZcY9/teacher.jpg"
+                                                    alt=""
+                                                    style={{ height: '180px' }}
+                                                ></img>
+                                            </button>
+                                        </Link>
                                     </div>
                                     <h2><b>Giáo viên</b></h2>
                                     <div className="column-desc">Bạn có thể tạo bài cho học sinh làm</div>
                                 </div>
-                                <div className="row invite-row">
-                                    <a className="invites--button" id="teacher-select-button" onClick={this.props.lecturerScreen}>
-                                        Tiếp Tục
+                                <Link to="/Fraction/Lecturer">
+                                    <div className="row invite-row">
+                                        <a className="invites--button" id="teacher-select-button" onClick={this.props.lecturerScreen}>
+                                            Tiếp Tục
                                     </a>
-                                </div>
+                                    </div>
+                                </Link>
                             </div>
                             <div className="col-sm-12 align-center col-lg-6 col-md-6">
                                 <div className="row fixed-height">
                                     <div className="invite-block">
-                                        <button onClick={this.props.studentScreen}>
-                                            <img
-                                                src="https://i.ibb.co/LYpTKNz/school-drawing-school-cartoon-child-student-education-finger-thumb-png-clip-art.png"
-                                                alt=""
-                                                style={{ height: '180px' }}
-                                            ></img>
-                                        </button>
+                                        <Link to="/Fraction/Student">
+                                            <button onClick={this.props.studentScreen}>
+                                                <img
+                                                    src="https://i.ibb.co/LYpTKNz/school-drawing-school-cartoon-child-student-education-finger-thumb-png-clip-art.png"
+                                                    alt=""
+                                                    style={{ height: '180px' }}
+                                                ></img>
+                                            </button>
+                                        </Link>
                                     </div>
                                     <h2><b>Học Sinh</b></h2>
                                     <div className="column-desc">Bạn có thể làm các bài kiểm tra</div>
                                 </div>
-                                <div className="row invite-row">
-                                    <a className="invites--button" id="parent-select-button" onClick={this.props.studentScreen}>
-                                        Tiếp Tục
+                                <Link to="/Fraction/Student">
+                                    <div className="row invite-row">
+                                        <a className="invites--button" id="parent-select-button" onClick={this.props.studentScreen}>
+                                            Tiếp Tục
                                     </a>
-                                </div>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                     </div>
