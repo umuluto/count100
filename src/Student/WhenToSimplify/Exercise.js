@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import StudentActions from '../../actions/student-actions';
 import WhenToSimplifyActions from '../../actions/when-to-simplify-actions';
 import './Exercise.css';
+import GreenBead from '../MainScreen/GreenBead';
 
 function Sign(props) {
     return ((props.type === 0) ? 
@@ -33,6 +34,12 @@ class Exercise extends React.Component {
         return x;
     }
 
+    componentWillUnmount() {
+        setTimeout(() => {
+            
+        }, 2000);
+    }
+
     render() {
         var numerator1, denominator1, middleNumber;
         if (this.state.type === 0) {
@@ -57,7 +64,10 @@ class Exercise extends React.Component {
                     </a>
                     <div className="beads-wrapper">
                         <div id="progress">
-                            <span>Đã hoàn thành {this.props.screen} / {this.props.len}</span>
+                            <GreenBead 
+                                screen={this.props.screen}
+                                len={this.props.len}
+                            />
                         </div>
                     </div>
                 </div>

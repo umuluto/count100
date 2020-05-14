@@ -7,8 +7,6 @@ class Ending extends React.Component {
     componentDidMount() {
         setTimeout(() => {
             document.querySelector(".done").classList.add("drawn");
-
-            console.log(document.getElementsByClassName("done"));
         }, 500);
     }
 

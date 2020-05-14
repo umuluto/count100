@@ -5,6 +5,7 @@ import NavigationBar from "./components/NavigationBar";
 import Task from "./components/Task";
 import PlayScreen from "./components/PlayScreen";
 import StudentActions from "../../actions/student-actions";
+import Start from '../MainScreen/Start'
 
 function randomExamNumber() {
   return Math.round(Math.random() * 9 + 1);
@@ -113,50 +114,23 @@ class Simplifiable extends React.Component {
   }
 
   render() {
-    if (this.state.finish) return <Ending />;
-
-    const insideBox = this.state.started ? (
-      <Stage2
-        numberOfExercises={this.props.numberOfExercises}
-        finish={this.finish}
-      />
-    ) : (
-      <div>
-        <div className="uchiru_head card with_progress">
-          <div>
-            <a className="back-link" onClick={this.props.mainScreen}>
-              <span> Trở lại màn hình chính</span>
-            </a>
-          </div>
-        </div>
-        <div className="card_content">
-          <div
-            id="board"
-            className="uchiru-place card player-1 script3771 fixed run_on_windows cr"
-            style={{ lineHeight: "1.29" }}
-          >
-            <div className="btn_play">
-              <button
-                style={{ border: "none", padding: 0, background: "none" }}
-                onClick={this.start}
-              >
-                <div className="triangle">
-                  <span>Bắt đầu</span>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-
+    if (this.state.finish) {
+      return <Ending />;
+    }
     return (
-      <div>
-        <div className="uchiru_bg_cell" />
-        <div className="uchiru_bg_color" />
-        <div className="uchiru_bg_stuff" />
-        <div className="uchiru_box">{insideBox}</div>
-      </div>
+      this.state.started ? (
+        <div>
+          <div className="uchiru_bg_cell" />
+          <div className="uchiru_bg_color" />
+          <div className="uchiru_bg_stuff" />
+          <div className="uchiru_box">
+            <Stage2
+              numberOfExercises={this.props.numberOfExercises}
+              finish={this.finish}
+            />
+          </div>
+        </div>
+      ) : <Start nextScreen={this.start}/>
     );
   }
 }

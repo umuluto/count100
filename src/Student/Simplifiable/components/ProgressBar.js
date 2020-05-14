@@ -28,17 +28,6 @@ class ProgressBar extends Component {
         />
       );
     }
-
-    // const beadList = [];
-    // for (let i = 0; i < this.props.numberOfBeads; i++) {
-    //   beadList.push(
-    //     <GreenBead
-    //       position={i}
-    //       numberOfBeads={this.props.numberOfBeads}
-    //     />
-    //   );
-    // }
-
     return <div style={styleObject}>{beadList}</div>;
   }
 }
