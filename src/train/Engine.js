@@ -12,7 +12,7 @@ function Engine({num, finished}) {
 
       return {
         ...st,
-        smokes: [...st.smokes, <div className='smoke'/>],
+        smokes: [...st.smokes, <div key={st.smokes.length} className='smoke'/>],
       };
     });
   }

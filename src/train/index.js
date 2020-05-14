@@ -51,7 +51,8 @@ function App() {
   const finished = state.wagonNum === 5 ? 'finished' : null;
   const wagons = initial.map((w, idx) => {
     return (
-      <Wagon idx={idx}
+      <Wagon key={idx}
+        idx={idx}
         push={push}
         hilite={hilite}
         target={target[state.wagonNum]}
