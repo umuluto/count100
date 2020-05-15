@@ -135,6 +135,12 @@ class Simplifiable extends React.Component {
   }
 }
 
+const mapStatetoProps = (store) => {
+  return {
+    numberOfExercises: store.Simplifiable.get('noQuestions')
+  }
+}
+
 const mapDispatchtoProps = (dispatch, ownProps) => {
   return {
     mainScreen: () => {
@@ -142,4 +148,4 @@ const mapDispatchtoProps = (dispatch, ownProps) => {
     },
   };
 };
-export default connect(null, mapDispatchtoProps)(Simplifiable);
+export default connect(mapStatetoProps, mapDispatchtoProps)(Simplifiable);

@@ -10,7 +10,7 @@ const Buttons = (props) => {
     const listContent = [
         'Quay về màn hình chính',
         'Tối giản phân số',
-        '2',
+        'Tối giản được hay không',
         'Tối giản từng bước một',
         'Tối giản mọi thứ',
         'Khi nào tối giản'
@@ -23,6 +23,7 @@ const Buttons = (props) => {
         },
         () => {
             document.getElementById("check").checked = false;
+            props.Simplifiable();
         },
         () => {
             document.getElementById("check").checked = false;
@@ -103,6 +104,7 @@ class Lecturer extends React.Component {
                         SimplifyEverything={this.props.SimplifyEverything}
                         WhenToSimplify={this.props.WhenToSimplify}
                         StepByStep={this.props.StepByStep}
+                        Simplifiable={this.props.Simplifiable}
                     />
                 </aside>
                 <article>
@@ -123,7 +125,8 @@ const mapDispatchtoProps = (dispatch, ownProps) => {
         Simplifying: () => dispatch(lecturerActions.Simplifying),
         WhenToSimplify: () => dispatch(lecturerActions.WhenToSimplify),
         StepByStep: () => dispatch(lecturerActions.StepByStep),
-        SimplifyEverything: () => dispatch(lecturerActions.SimplifyEverything)
+        SimplifyEverything: () => dispatch(lecturerActions.SimplifyEverything),
+        Simplifiable: () => dispatch(lecturerActions.Simplifiable)
     }
 }
 

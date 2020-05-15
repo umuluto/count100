@@ -4,6 +4,7 @@ import Simplifying from './Simplifying';
 import WhenToSimplify from './WhenToSimplify';
 import StepByStep from './StepByStep';
 import SimplifyEverything from './SimplifyEverything';
+import Simplifiable from './Simplifiable';
 
 class Home extends React.Component {
     render() {
@@ -11,11 +12,11 @@ class Home extends React.Component {
             case 0:
                 return <Simplifying />
             case 1:
-                return <h1>Simplifiable or not Simplifiable</h1>
+                return <Simplifiable />
             case 2:
                 return <StepByStep />
             case 3:
-                return <SimplifyEverything> </SimplifyEverything>
+                return <SimplifyEverything />
             case 4:
                 return <WhenToSimplify />
             default:
