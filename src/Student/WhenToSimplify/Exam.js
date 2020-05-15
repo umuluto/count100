@@ -20,21 +20,20 @@ class Exam extends React.Component {
     }
 
     render() {
-        console.log(this.state.listQuestion)
         return (
             (this.state.curQuestion < this.state.listQuestion.length) ?
-            (
-                <Exercise 
-                    Question={this.state.listQuestion[this.state.curQuestion]}
-                    id={this.state.curQuestion}
-                    nextQuestion = {this.nextQuestion}
-                    screen = {this.state.curQuestion}
-                    len = {this.state.listQuestion.length}
-                />
-            ) 
-            : (
-                <Ending />
-            )
+                (
+                    <Exercise
+                        Question={this.state.listQuestion[this.state.curQuestion]}
+                        id={this.state.curQuestion}
+                        nextQuestion={this.nextQuestion}
+                        screen={this.state.curQuestion}
+                        len={this.state.listQuestion.length}
+                    />
+                )
+                : (
+                    <Ending />
+                )
         );
     }
 }

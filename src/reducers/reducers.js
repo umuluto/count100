@@ -6,6 +6,7 @@ import WhenToSimpliFyReducer from './when-to-simplify-reducers';
 import StepByStepReducer from './step-by-step-reducer';
 import SimplifyEverythingReducer from './simplify-everything-reducer';
 import LecturerReducer from './lecturer-reducer';
+import SimplifiableReducer from './simplifiable-reducer';
 
 var reducers = combineReducers({
     App: AppReducer,
@@ -14,7 +15,8 @@ var reducers = combineReducers({
     WhenToSimplify: WhenToSimpliFyReducer,
     StepByStep: StepByStepReducer,
     SimplifyEverything: SimplifyEverythingReducer,
-    Lecturer: LecturerReducer
+    Lecturer: LecturerReducer,
+    Simplifiable: SimplifiableReducer
 })
 
 export default reducers;

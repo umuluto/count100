@@ -16,7 +16,7 @@ class Student extends React.Component {
             case 1:
                 return <SimplifyingFraction />
             case 2:
-                return <Simplifiable numberOfExercises={5}/>
+                return <Simplifiable />
             case 3: 
                 return <StepByStep />
             case 4:

@@ -237,11 +237,11 @@ class StepByStep extends React.Component {
 
     onAddForm(formVal) {
         var ctr = this.state.TRs.length + 1;
-        if(ctr > 10) {
+        if(ctr > 5) {
             this.setState({
                 UPD: {}
             });
-            return alert('Sống chậm thôi cô ơi, 10 câu là quá nhiều rồi ;)');
+            return alert('Sống chậm thôi cô ơi, 5 câu là quá nhiều rồi ;)');
         }
         var Ndata = {
             id: ctr,

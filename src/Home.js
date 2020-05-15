@@ -27,13 +27,11 @@ class Home extends React.Component {
                                     <h2><b>Giáo viên</b></h2>
                                     <div className="column-desc">Bạn có thể tạo bài cho học sinh làm</div>
                                 </div>
-                                <Link to="/Fraction/Lecturer">
                                     <div className="row invite-row">
-                                        <a className="invites--button" id="teacher-select-button" onClick={this.props.lecturerScreen}>
+                                        <Link to="/Fraction/Lecturer" className="invites--button" id="teacher-select-button" onClick={this.props.lecturerScreen}>
                                             Tiếp Tục
-                                    </a>
+                                    </Link>
                                     </div>
-                                </Link>
                             </div>
                             <div className="col-sm-12 align-center col-lg-6 col-md-6">
                                 <div className="row fixed-height">

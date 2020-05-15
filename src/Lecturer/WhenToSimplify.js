@@ -302,11 +302,11 @@ class WhenToSimplify extends React.Component {
 
   onAddForm(formVal) {
     var ctr = this.state.TRs.length + 1;
-    if (ctr > 10) {
+    if (ctr > 5) {
       this.setState({
         UPD: []
       })
-      alert('Không được tạo quá 10 câu hỏi')
+      alert('Không được tạo quá 5 câu hỏi')
       return ;
     }
     var Ndata = {

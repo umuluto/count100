@@ -1,6 +1,7 @@
 import React from 'react';
 import './Form.css';
 import Step from './Step';
+import GreenBead from '../MainScreen/GreenBead';
 
 class Form extends React.Component {
     render() {
@@ -36,7 +37,10 @@ class Form extends React.Component {
                     </a>
                     <div className="beads-wrapper">
                         <div id="progress">
-                            <span>Đã hoàn thành {this.props.screen} / {this.props.len}</span>
+                            <GreenBead 
+                                screen={this.props.screen}
+                                len={this.props.len}
+                            />
                         </div>
                     </div>
                 </div>
