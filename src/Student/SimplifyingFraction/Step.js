@@ -1,6 +1,7 @@
 import React from 'react';
 import Step0 from './Step0.js';
 import Step1 from './Step1.js';
+import { Transition } from 'react-spring/renderprops'
 
 class Step extends React.Component {
     constructor(props) {
@@ -23,12 +24,11 @@ class Step extends React.Component {
     }
 
     changeInfo(foo, bar) {
-        console.log(foo, bar)
         this.setState({
             numerator: foo,
             denominator: bar
         })
-    } 
+    }
 
     switchStep() {
         this.setState({
@@ -46,22 +46,22 @@ class Step extends React.Component {
         switch (this.state.step) {
             case 0:
                 return (
-                    <Step0 
-                    numerator={this.state.numerator}
-                    denominator={this.state.denominator}
-                    switchStep={this.switchStep}
-                    setDivisor={(divisor) => this.setDivisor(divisor)}
+                    <Step0
+                        numerator={this.state.numerator}
+                        denominator={this.state.denominator}
+                        switchStep={this.switchStep}
+                        setDivisor={(divisor) => this.setDivisor(divisor)}
                     />
                 );
             case 1:
                 return (
-                    <Step1 
-                    numerator={this.state.numerator}
-                    denominator={this.state.denominator}
-                    divisor={this.state.divisor}
-                    switchStep={this.switchStep}
-                    nextExam={this.props.nextExam}
-                    changeInfo={(foo, bar) => this.changeInfo(foo, bar)}
+                    <Step1
+                        numerator={this.state.numerator}
+                        denominator={this.state.denominator}
+                        divisor={this.state.divisor}
+                        switchStep={this.switchStep}
+                        nextExam={this.props.nextExam}
+                        changeInfo={(foo, bar) => this.changeInfo(foo, bar)}
                     />
                 );
             default:

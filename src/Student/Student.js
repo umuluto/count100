@@ -7,7 +7,6 @@ import Ending from './MainScreen/Ending'
 import WhenToSimplify from './WhenToSimplify/WhenToSimplify'
 import Simplifiable from './Simplifiable/Simplifiable';
 import SimplifyEverything from './SimplifyEverything/SimplifyEverything';
-import { Spring } from 'react-spring/renderprops';
 
 class Student extends React.Component {
     renderedScreen = (id) => {
