@@ -65,7 +65,6 @@ class Stage2 extends Component {
   }
 
   getMoveBead() {
-    // console.log(this.state.moveBead);
     return this.state.moveBead;
   }
 

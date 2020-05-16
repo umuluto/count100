@@ -5,6 +5,7 @@ import lecturerActions from '../actions/lecturer-actions';
 import './Lecturer.scss';
 import Home from './Home'
 import { Link } from 'react-router-dom';
+import { Spring } from 'react-spring/renderprops';
 
 const Buttons = (props) => {
     const listContent = [
@@ -89,32 +90,41 @@ const Buttons = (props) => {
 class Lecturer extends React.Component {
     render() {
         return (
-            <div id="lecturer-component">
-                <input type="checkbox" id="check" />
-                <label htmlFor="check">
-                    <svg viewBox="0 0 30 30" width={30} height={30}>
-                        <path id="one" d="M4 10h22M4" stroke="#fff" strokeWidth={2} strokeLinecap="round" />
-                        <path id="two" d="M4 20h22M4" stroke="#fff" strokeWidth={2} strokeLinecap="round" />
-                    </svg> Menu
-                </label>
-                <aside>
-                    <Buttons
-                        Home={this.props.Home}
-                        Simplifying={this.props.Simplifying}
-                        SimplifyEverything={this.props.SimplifyEverything}
-                        WhenToSimplify={this.props.WhenToSimplify}
-                        StepByStep={this.props.StepByStep}
-                        Simplifiable={this.props.Simplifiable}
-                    />
-                </aside>
-                <article>
-                    <div className="wrapper">
-                        <div className="content">
-                            <Home />
+            <Spring
+                from={{ transform: 'translate3d(-200px, 200px, 0)' }}
+                to={{ transform: 'translate3d(0px, 0px, 0)' }}
+            >
+                {
+                    props => (
+                        <div id="lecturer-component" style={props}>
+                            <input type="checkbox" id="check" />
+                            <label htmlFor="check">
+                                <svg viewBox="0 0 30 30" width={30} height={30}>
+                                    <path id="one" d="M4 10h22M4" stroke="#fff" strokeWidth={2} strokeLinecap="round" />
+                                    <path id="two" d="M4 20h22M4" stroke="#fff" strokeWidth={2} strokeLinecap="round" />
+                                </svg> Menu
+                            </label>
+                            <aside>
+                                <Buttons
+                                    Home={this.props.Home}
+                                    Simplifying={this.props.Simplifying}
+                                    SimplifyEverything={this.props.SimplifyEverything}
+                                    WhenToSimplify={this.props.WhenToSimplify}
+                                    StepByStep={this.props.StepByStep}
+                                    Simplifiable={this.props.Simplifiable}
+                                />
+                            </aside>
+                            <article>
+                                <div className="wrapper">
+                                    <div className="content">
+                                        <Home />
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                    </div>
-                </article>
-            </div>
+                    )
+                }
+            </Spring>
         );
     }
 }

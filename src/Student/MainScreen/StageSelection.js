@@ -46,7 +46,7 @@ class StageSelection extends React.Component {
       );
     }
     return (
-      <div className="center tc items-center">
+      <div style={this.props.style} className="center tc items-center">
         <h1 className="pa3 b tc"> Các bài tập tối giản phân số </h1>
         <div className="flex center items-center pa3">{stageCards}</div>
         <Link to="/Fraction">

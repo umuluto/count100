@@ -1,5 +1,5 @@
 import React from 'react';
-import SimplifyingFraction from './SimplifyingFraction/SimplifyingFraction';  
+import SimplifyingFraction from './SimplifyingFraction/SimplifyingFraction';
 import Home from './MainScreen/Home';
 import StepByStep from './StepByStep/StepByStep.js';
 import { connect } from 'react-redux';
@@ -7,10 +7,11 @@ import Ending from './MainScreen/Ending'
 import WhenToSimplify from './WhenToSimplify/WhenToSimplify'
 import Simplifiable from './Simplifiable/Simplifiable';
 import SimplifyEverything from './SimplifyEverything/SimplifyEverything';
+import { Spring } from 'react-spring/renderprops';
 
 class Student extends React.Component {
-    renderedScreen() {
-        switch(this.props.screen) {
+    renderedScreen = (id) => {
+        switch (id) {
             case 0:
                 return <Home />
             case 1:
@@ -31,7 +32,9 @@ class Student extends React.Component {
     }
 
     render() {
-        return this.renderedScreen();
+        return (
+            this.renderedScreen(this.props.screen)
+        );
     }
 }
 

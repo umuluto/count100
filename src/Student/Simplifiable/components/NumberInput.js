@@ -6,6 +6,7 @@ function NumberInput(props) {
       id={`${props.field}-input`}
       className="ba"
       style={{ width: "44px" }}
+      autoComplete="off"
     ></input>
   );
 }
