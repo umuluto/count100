@@ -20,7 +20,6 @@ class Exam extends React.Component {
     }
 
     render() {
-        console.log(this.state.listQuestion)
         return (
             (this.state.curQuestion < this.state.listQuestion.length) ?
             (

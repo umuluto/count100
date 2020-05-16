@@ -8,7 +8,6 @@ class Ending extends React.Component {
     componentDidMount() {
         setTimeout(() => {
             document.querySelector(".done").classList.add("drawn");
-            console.log(document.getElementsByClassName("done"));
         }, 500);
     }
 
@@ -23,14 +22,12 @@ class Ending extends React.Component {
                         <div className="contain" style={props}>
                             <div className="congrats">
                                 <h1 className="pa5">
-                                    Chúc mừng<span class="hide">ulation</span> !
+                                    Chúc mừng<span className="hide">ulation</span> !
                     </h1>
-                                <div class="done">
+                                <div className="done">
                                     <svg
                                         version="1.1"
                                         id="tick"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        xmlnsXxlink="http://www.w3.org/1999/xlink"
                                         x="0px"
                                         y="0px"
                                         viewBox="0 0 37 37"
@@ -38,7 +35,7 @@ class Ending extends React.Component {
                                     // xml:space="preserve"
                                     >
                                         <path
-                                            class="circ path"
+                                            className="circ path"
                                             style={{
                                                 fill: "#0cdcc7",
                                                 stroke: "#07a796",
@@ -52,7 +49,7 @@ class Ending extends React.Component {
                                             }
                                         />
                                         <polyline
-                                            class="tick path"
+                                            className="tick path"
                                             style={{
                                                 fill: "none",
                                                 stroke: "#fff",
@@ -64,7 +61,7 @@ class Ending extends React.Component {
                                         />
                                     </svg>
                                 </div>
-                                <div class="tc bold text">
+                                <div className="tc bold text">
                                     <h1>Bạn đã hoàn thành bài tập </h1>
                                 </div>
                                 <button

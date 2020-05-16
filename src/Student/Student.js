@@ -33,18 +33,7 @@ class Student extends React.Component {
 
     render() {
         return (
-            <Spring
-                from={{ transform: 'translate3d(200px, 200px, 0)' }}
-                to={{ transform: 'translate3d(0px, 0px, 0)' }}
-            >
-                {
-                    props => (
-                        <div style={props}>
-                            {this.renderedScreen(this.props.screen)}
-                        </div>
-                    )
-                }
-            </Spring>
+            this.renderedScreen(this.props.screen)
         );
     }
 }

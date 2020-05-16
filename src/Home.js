@@ -59,13 +59,11 @@ class Home extends React.Component {
                                                 <h2><b>Học Sinh</b></h2>
                                                 <div className="column-desc">Bạn có thể làm các bài kiểm tra</div>
                                             </div>
-                                            <Link to="/Fraction/Student">
-                                                <div className="row invite-row">
-                                                    <a className="invites--button" id="parent-select-button" onClick={this.props.studentScreen}>
-                                                        Tiếp Tục
-                                    </a>
-                                                </div>
-                                            </Link>
+                                            <div className="row invite-row">
+                                                <Link to="/Fraction/Student" className="invites--button" id="parent-select-button" onClick={this.props.studentScreen}>
+                                                    Tiếp Tục
+                                    </Link>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
