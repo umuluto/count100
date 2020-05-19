@@ -1,6 +1,7 @@
 import React from 'react';
 import Step0 from './Step0.js';
 import Step1 from './Step1.js';
+import './button.css'
 import { Transition } from 'react-spring/renderprops'
 
 class Step extends React.Component {
