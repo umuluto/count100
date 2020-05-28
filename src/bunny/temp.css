@@ -179,15 +179,114 @@ body {
 
 .bunny {
     position: absolute;
-    left: 127px;
-    top: 19px;
+    left: -90px;
+    top: -30px;
     height: 107px;
     width: 80px;
     background-image: url(~Public/bunny_imgs/23.png);
     background-repeat: no-repeat;
+    transition: 1s;
 }
 
-@keyframes run1 {
+.carrots_holder{
+    position: absolute;
+    left: 0;
+    top: 115px;
+    height: 160px;
+    width: 170px;
+    z-index: 1;
+}
+
+.carrot{
+    position: absolute;
+    width: 43px;
+    height: 173px;
+    overflow: hidden;    
+}
+
+.carrot_img {
+    position: absolute;
+    width: 43px;
+    height: 93px;
+    top: 15px;
+    background-image: url(~Public/bunny_imgs/25.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;    
+}
+
+
+.card_back {
+    position: absolute;
+    z-index: 1;
+    left: 30px;
+    top: 12px;
+    font-size: 18px;
+    line-height: 18px;
+    color: #fff;
+    text-decoration: none
+}
+
+.card_back:hover {
+    color: #fff;
+    text-decoration: underline
+}
+
+ .card_back:hover .pointer {
+    border-color: #fff
+}
+
+
+.card_back .pointer {
+    position: absolute;
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    top: 2px;
+    right: 100%;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+
+
+.entrance, .exit, .exit .door {
+    position: absolute;
+    background-position: 0 0;
+    background-repeat: no-repeat
+}
+
+ .entrance {
+    left: -15px;
+    z-index: 20;
+    width: 16px;
+    height: 74px;
+    background-image: url(~Public/bunny_imgs/29.png)
+}
+
+
+
+ .exit {
+    left: 100%;
+    z-index: 20;
+    width: 51px;
+    height: 124px;
+    background-image: url(~Public/bunny_imgs/31.png)
+}
+
+
+
+ .exit .door {
+    z-index: 1;
+    width: 45px;
+    height: 61px;
+    left: 0;
+    top: 27px;
+    background-image: url(~Public/bunny_imgs/33.png)
+}
+
+/* @keyframes run1 {
     0% {
         left: 0px;
         top: 0px;
@@ -210,3 +309,51 @@ body {
         height: 107px;
     }
 }
+
+@keyframes run2 {
+    0% {
+        left: 0px;
+        top: 0px;
+        background-image: url(~Public/bunny_imgs/23.png);
+        width: 80px;
+        height: 107px;
+    }
+    25% {
+        left: 0px;
+        top: 100px;
+        background-image: url(~Public/bunny_imgs/23.png);
+        width: 80px;
+        height: 107px;
+    }
+    100% {
+        left: 50px;
+        top: 100px;
+        background-image: url(~Public/bunny_imgs/23.png);
+        width: 80px;
+        height: 107px;
+    }
+}
+
+@keyframes run3 {
+    0% {
+        left: 0px;
+        top: 0px;
+        background-image: url(~Public/bunny_imgs/23.png);
+        width: 80px;
+        height: 107px;
+    }
+    25% {
+        left: 0px;
+        top: 100px;
+        background-image: url(~Public/bunny_imgs/23.png);
+        width: 80px;
+        height: 107px;
+    }
+    100% {
+        left: 50px;
+        top: 100px;
+        background-image: url(~Public/bunny_imgs/23.png);
+        width: 80px;
+        height: 107px;
+    }
+} */
