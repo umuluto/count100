@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom';
 import Pantry from './Pantry';
 import Holder from './Holder'
 import Table from './Table';
-import Bunny from './Bunny';
-import Input from './Input';
-import './temp.css';
 import Balloon_holder from './Balloon_holder';
+import './temp.css';
 
 const arr_roads = [
     [21, 22, 23, 33, 34, 35, 36, 46, 56, 57, 58, 59, 69, 70],
@@ -19,93 +17,62 @@ const arr_roads = [
     [71, 72, 62, 52, 53, 54, 55, 65, 66, 67, 57, 47, 37, 38, 39, 40],
 ];
 
+function Frills() {
+    return (
+        <>
+            <div className='tree1' />
+            <div className='tree2' />
+            <a href="index.html" className="card_back">
+                Quay lại
+		        <div className="pointer" />
+            </a>
+        </>
+    );
+}
+
+
 function App() {
-    const [game, setGame] = useState(1); // set màn chơi
-    const [isDone, setisDone] = useState(false); // đã hoàn thành màn chơi chưa
-    const [progress, setProgress] = useState(1); //set tiến độ
-    const upProgress = () => setProgress(progress + 1);
+    const [game, setGame] = useState(0); // set màn chơi
+    const [key, setKey] = useState(0);
     const [carrotPantry, setcarrotPantry] = useState(0); // số carrot ở nhà
     const [carrotHolder, setcarrotHolder] = useState(4); // số carrot trong holder
 
-    const end = () => {
+    const over = () => {
+        setKey(key + 1);
+        setcarrotPantry(0);
+        setcarrotHolder(4);
+    };
+
+    const drop = () => {
+        setcarrotHolder(carrotHolder - 1);
+    };
+
+    if (carrotHolder <= 0) over();
+
+    const finish = () => {
         setGame(game + 1);
-        setisDone(false);
-        setProgress(1);
-        setcarrotPantry(carrotPantry + carrotHolder);
-    }
-
-    function Table(props) {
-
-        let roads = arr_roads[game - 1]; // set con đường của màn chơi
-
-        let posEntrance = (roads[0] - 1) * 5 - 12; // set pos entrance
-
-        let posDoor = roads[roads.length - 1] * 5 - 88;
-
-        const cells = [];
-
-        useEffect(() => {
-            if (progress == (roads.length)) // đến đích
-            {
-                setisDone(true);   // set trạng thái hoàn thành màn chơi
-                // setProgress(1);
-                setProgress(progress - 1); // ngăn progress tăng thêm
-            }
-        }, [progress]);
-
-        for (let x = 0; x < 10; x++)
-            for (let y = 0; y < 10; y++) {
-                const num = x * 10 + y + 1;
-                let isRoad = '';
-                for (let x = 0; x <= progress; x++)  // bôi vàng những câu trả lời đúng
-                {
-                    if (roads[x] == num) isRoad = 'road';
-                }
-
-                const isDark = (x + y) % 2 ? 'dark' : ''; // Cài đặt hiển thị đậm nhạt xen kẽ của bảng
-
-                const isInput = (roads[progress] == num && isDone == false);  // cài đặt hiển thị ô nhập đáp án
-
-                cells.push(
-                    <div key={x * 10 + y} className={`table__cell table__cell--${isRoad} table__cell--${isDark}`}>
-                        {isInput ? <Input upProgress={upProgress} answer={num} carrotHolder={carrotHolder} setcarrotHolder={setcarrotHolder} /> : <span className='table__cell__text' >{num}</span>}
-                    </div>);
-            }
-
-        return (
-            <div className='table'>
-                {props.children}
-                {cells}
-                <div className="entrance" style={{ top: posEntrance, display: 'block' }} />
-                <div className="exit" style={{ top: posDoor }}>
-                    <div className="door" />
-                </div>
-            </div>
-        );
-    }
+        setKey(key + 1);
+        setcarrotPantry(0);
+        setcarrotHolder(4);
+    };
 
     return (
         <>
             <div className='board' >
-                <div className="all_wrapper" style={{ width: '1536px' }}>
+                <div className="all_wrapper">
                     <div className="scene_wrapper">
-                        <Table game={game} isDone={isDone} setisDone={setisDone}>
-                            <Bunny game={game} isDone={isDone} end={end} />
-                        </Table>
-                        <div className='tree1' />
-                        <div className='tree2' />
-                        <a href="index.html" className="card_back">
-                            Quay lại
-                        <div className="pointer" />
-                        </a>
-                        <Pantry carrotPantry={carrotPantry} />
-
+                        <Table key={key}
+                            road={arr_roads[game]}
+                            drop={drop}
+                            finish={finish}
+                        />
+                        <Frills />
                         <Balloon_holder />
+                        <Pantry carrotPantry={carrotPantry} />
                         <Holder carrotHolder={carrotHolder} />
                     </div>
                 </div>
             </div>
-            <button onClick={()=>{setisDone(true)}}>CHEAT!!!</button>
         </>
     );
 }
