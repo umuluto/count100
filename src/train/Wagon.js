@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import Draggable from 'react-draggable'
 
+const snapRange = 50;
+const topLimit = 200;
+
 function Wagon(props) {
   const [pos, setPos] = useState(props.pos);
   const [snap, setSnap] = useState(null);
   const [style, setStyle] = useState(null);
 
-  const _inrange = (x, y) => Math.abs(x - props.target.x) < 50 &&
-    Math.abs(y - props.target.y) < 50;
+  const _inrange = (x, y) => Math.abs(x - props.target.x) < snapRange &&
+    Math.abs(y - props.target.y) < snapRange;
 
   const oMD = () => setSnap(null);
 
@@ -20,14 +23,15 @@ function Wagon(props) {
       if (!props.push(props.idx)) {
         setTimeout(setPos, 1000, props.pos);
       }
-      setStyle({zIndex: props.num + 6});
-      ({x, y} = props.dest);
+      setStyle({zIndex: 6 - props.idx});
       setSnap('snap');
-    } else if (y > 200) {
-      y = 200;
+      ({x, y} = props.target);
+    } else if (y > topLimit) {
+      y = topLimit;
       setSnap('snap');
     }
 
+		props.hilite(false);
     setPos(pos => ({x, y}));
   }
 
