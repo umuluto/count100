@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function Engine({num, finished}) {
+function Engine({num, finished, end}) {
   const [state, setState] = useState({});
 
   const _add_smoke = () => {
@@ -24,7 +24,9 @@ function Engine({num, finished}) {
   }, [finished]);
 
   return (
-    <div className={`wagon wagon--engine wagon--${finished}`}>
+    <div className={`wagon wagon--engine wagon--${finished}`}
+			onTransitionEnd={end}
+		>
       {state.smokes}
       <div className='wagon__num wagon__num--engine'>
         {num}
