@@ -52,3 +52,4 @@ const Box = total => Component => props => {
 }
 
 export default Box;
+	
