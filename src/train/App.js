@@ -7,13 +7,17 @@ import { target, init} from './levels.js';
 import './train.css';
 
 function App({ success, fail }) {
+	// trạng thái các toa tàu
   const [initial, setInitial] = useState(init);
+	// số toa đã xếp đúng và chỉ số toa cuối vừa xếp
   const [state, setState] = useState({
     wagonNum: 0,
     lastWagon: -1,
   });
+	// có tô sáng ô ngay sau toa cuối hay không
   const [highlight, hilite] = useState(false);
 
+	// khởi tạo lại trạng thái khi hết màn
 	const complete = () => {
 		success();
 		setInitial(init());
@@ -24,6 +28,7 @@ function App({ success, fail }) {
 		hilite(false);
 	};
 
+	// thử xếp 1 toa vào trả về thành công hay không
   const push = idx => {
     let offset;
     setState(st => {

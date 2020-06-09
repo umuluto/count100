@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Holder(props) {
+	// chỉ hiển thị gợi ý khi đặt sai vị trí
   const hinted = props.type == 'wrong' ? null : {display: 'none'};
   return (
     <div className={`holder holder--${props.type}`}>

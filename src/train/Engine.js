@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
 function Engine({num, finished, end}) {
+	// các vệt khói và 1 ref đến 1 hàm async tạo ra các vệt khói
   const [state, setState] = useState({});
 
+	// thêm vào các vệt khói cho đến có 3 vệt
   const _add_smoke = () => {
     setState(st => {
       if (st.smokes.length >= 3) {
@@ -17,6 +19,7 @@ function Engine({num, finished, end}) {
     });
   }
 
+	// khi hoàn thành màn chơi tạo ra các vệt khói
   useEffect(() => {
     if (finished) {
       setState({smokes: [], id: setInterval(_add_smoke, 220)});

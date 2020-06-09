@@ -2,6 +2,7 @@ const leftMostSlot = 221;
 const slotSpacing = 125;
 const railPos = 285;
 
+// vị trí của các ô
 const target = [];
 for (let i = 0; i < 5; ++i) {
   target.push({x: leftMostSlot + slotSpacing*i, y: railPos});
@@ -1961,6 +1962,7 @@ const initials = [{
         loco: 96
     }];
 
+// trả về 1 màn ngẫu nhiên với các toa được sắp xếp
 function init() {
 	const rand = Math.floor(Math.random() * initials.length);
 	const initial = initials[rand];
