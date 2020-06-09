@@ -4,11 +4,10 @@
 }
 
 .train-game {
-  margin: 30px;
   height: 455px;
   width: 960px;
   position: relative;
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .railway {
