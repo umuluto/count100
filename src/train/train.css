@@ -149,6 +149,14 @@
   animation: rise 2s infinite ease-out;
 }
 
+.instruction {
+	margin: 0;
+	text-align: center;
+	font-size: 40px;
+	padding-top: 10px;
+	line-height: 1.5;
+}
+
 @keyframes rise {
   to {
     top: -95px;

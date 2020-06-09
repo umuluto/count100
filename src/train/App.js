@@ -59,11 +59,14 @@ function App({ success, fail }) {
   })
 
   return (
+		<>
+		<p className='instruction'>Place the carts in increasing or decreasing order</p>
     <div className='train-game'>
       <Railway highlight={highlight} finished={finished} {...state}/>
       <Engine num={initial.loco} finished={finished} end={complete}/>
       {wagons}
     </div>
+		</>
   );
 }
 
