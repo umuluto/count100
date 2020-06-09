@@ -15,7 +15,18 @@ const arr_roads = [
     [81, 82, 83, 73, 74, 75, 76, 77, 67, 57, 58, 48, 49, 39, 29, 30],
     [21, 22, 23, 33, 43, 44, 45, 35, 25, 15, 16, 17, 18, 28, 38, 48, 58, 59, 60],
     [71, 72, 62, 52, 53, 54, 55, 65, 66, 67, 57, 47, 37, 38, 39, 40],
-];
+]; // map vẽ đường 
+
+const arr_mini = [
+    [17, 23, 29, 42, 56, 85],
+    [15, 39, 72, 77, 85],
+    [8, 39, 45, 71, 100],
+    [23, 38, 65, 79],
+    [1, 25, 39, 62, 78],
+    [17, 33, 67, 65, 92],
+    [10, 32, 33, 64, 80],
+    [7, 23,57, 59, 88]
+]; // map vẽ carrot nhỏ hiện trên bảng 
 
 function Frills() {
     return (
@@ -36,25 +47,31 @@ function App() {
     const [key, setKey] = useState(0);
     const [carrotPantry, setcarrotPantry] = useState(0); // số carrot ở nhà
     const [carrotHolder, setcarrotHolder] = useState(4); // số carrot trong holder
-
+    const [isDone, setisDone] = useState(false);
+    const [numCarrot,setnumCarrot] = useState(0);
+    
     const over = () => {
         setKey(key + 1);
-        setcarrotPantry(0);
         setcarrotHolder(4);
-    };
-
+        setGame(game+1);
+    };  // Khi nhập sai 4 lần
+    const win = () => {
+        setnumCarrot(carrotHolder);
+        setcarrotHolder(0);
+    }
     const drop = () => {
         setcarrotHolder(carrotHolder - 1);
-    };
+    }; // Khi nhập sai
 
-    if (carrotHolder <= 0) over();
+    if (carrotHolder <= 0 && isDone==false ) over();
 
     const finish = () => {
+        setisDone(false);
         setGame(game + 1);
         setKey(key + 1);
-        setcarrotPantry(0);
+        setcarrotPantry(numCarrot+carrotPantry+1);
         setcarrotHolder(4);
-    };
+    }; // Khi hoàn thành 1 màn
 
     return (
         <>
@@ -62,17 +79,21 @@ function App() {
                 <div className="all_wrapper">
                     <div className="scene_wrapper">
                         <Table key={key}
+                            win={win}
                             road={arr_roads[game]}
+                            mini={arr_mini[game]}
                             drop={drop}
                             finish={finish}
+                            setisDone={setisDone}
                         />
-                        <Frills />
+                        {/* <Frills /> */}
                         <Balloon_holder />
                         <Pantry carrotPantry={carrotPantry} />
                         <Holder carrotHolder={carrotHolder} />
                     </div>
                 </div>
             </div>
+            
         </>
     );
 }
