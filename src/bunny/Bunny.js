@@ -18,7 +18,7 @@ function _getNext(road, posIdx) {
     }
 }
 
-export default function Bunny({ win, isDone, end, road }) {
+export default function Bunny({win, isDone, end, road }) {
     const [state, setState] = useState({ posIdx: -3, direction: undefined });
     useEffect(() => {
         if (isDone) {
@@ -26,22 +26,18 @@ export default function Bunny({ win, isDone, end, road }) {
         }
     }, [isDone]);
 
-    // useEffect(() => {
-    //     if (posIdx == 0) win();
-    // }, [posIdx]);
-
     const doEnd = () => {
-        if (state.posIdx == -3) {
-            setState({ ...state, posIdx: -2 });
-        } else if (state.posIdx == -2) {
-            setState({ ...state, posIdx: -1 });
-            win();
-        }
-        else if (state.posIdx == road.length - 1) {
-            end();
-        } else {
-            setState(_getNext(road, state.posIdx));
-        }
+            if (state.posIdx == -3) {
+                setState({ ...state, posIdx: -2 });
+            } else if (state.posIdx == -2) {
+                setState({ ...state, posIdx: -1 });
+                win();
+            }
+            else if (state.posIdx == road.length - 1) {
+                end();
+            } else {
+                setState(_getNext(road, state.posIdx));
+            }
     };
 
     const x = ((road[state.posIdx] - 1) % 10) * 50 - 13;                  // toạ độ left thỎ
