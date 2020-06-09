@@ -5,7 +5,6 @@ export default function Input(props) {
     const ref = useRef(null);
 
     const wrong = String(props.answer).startsWith(value) || 'wrong';
-
     useEffect(() => {
         ref.current.focus();
     }, []);
@@ -15,14 +14,15 @@ export default function Input(props) {
     useEffect(() => {
         if (wrong == 'wrong')
             props.drop();
-    }, [wrong]);
+    }, [wrong]);  // nếu sai thì trừ 1 carrot trng carrot holder
 
-    if(value == props.answer) props.upProgress();
+    if (value == props.answer) props.upProgress(); // đúng thì tăng tiến độ progress
 
     const handleInput = e => {
         const o = e.target.validity.valid ? e.target.value : value;
         setValue(o);
     };
+
 
 
     return (

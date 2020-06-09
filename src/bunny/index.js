@@ -18,7 +18,7 @@ const arr_roads = [
 ]; // map vẽ đường 
 
 const arr_mini = [
-    [17, 23, 29, 42, 56, 85],
+    [17, 29, 42, 56, 85],
     [15, 39, 72, 77, 85],
     [8, 39, 45, 71, 100],
     [23, 38, 65, 79],
@@ -86,7 +86,7 @@ function App() {
                             finish={finish}
                             setisDone={setisDone}
                         />
-                        {/* <Frills /> */}
+                        <Frills />
                         <Balloon_holder />
                         <Pantry carrotPantry={carrotPantry} />
                         <Holder carrotHolder={carrotHolder} />

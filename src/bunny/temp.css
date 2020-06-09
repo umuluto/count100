@@ -1,20 +1,6 @@
-/* * {
-    outline: red solid 1px;
-} */
-
 body {
     margin: 0px !important;
     padding: 0px;
-}
-
-#root {
-    /* background: #4a5360;
-    height: 100%;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    padding-top: 1px;
-    margin-top: -1px; */
 }
 
 .board {
