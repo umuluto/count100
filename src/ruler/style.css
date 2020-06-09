@@ -5,116 +5,7 @@ body {
     font-family: 'PT Sans',sans-serif;
 }
 
-.bg_cell,
-.bg_color_stuff,
-.bg_stuff {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-}
-
-div.bg_cell {
-    background-image: url(../../public/bg_cell.png);
-}
-div.bg_color_stuff{
-    background-image: url(../../public/bg_color_stuff.png);
-}
-div.bg_stuff {
-    background-image: url(../../public/bg_stuff.png);
-}
-img.bg_color {
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-}
-
-body .box_content {    
-    position: relative;
-    width: 960px;
-    min-height: 600px;
-    border-radius: 15px;
-    background: white;
-    margin: 15px auto 20px;
-    z-index: 0;
-}
-
-body .box_head{
-    line-height: 49px;
-    position: relative;
-    padding: 0 20px;
-}
-
-body .box_head.with_progress {
-    border-bottom: 1px solid rgba(150,150,150,0.5);
-}
-
-body .box_head .back-link {
-    font-size: 18px;
-    color: rgb(39, 125, 175);
-    text-decoration: none;
-}
-
-body .box_head .back-link .arrow-left {
-    top: -2px;
-    vertical-align: middle;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-right: 15px solid #246EA1 ;
-    position: relative;
-    border-radius: 50%;
-}
-
-body .box_head .back-link .arrow-left::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    right: -18px;
-    top: -15px;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-right: 15px solid white;
-}
-
-body .bar_wrapper {
-    font-size: 14px;
-    text-align: center;
-    margin-top: -54px;
-    padding: 0 80px;
-    padding-top: 15px;
-    margin-bottom: 15px;
-}
-
-.bar_wrapper .inner_progress {
-    margin: 0 auto;
-    width: 465px;
-    height: 26px;
-    border-radius: 16px;
-    background: #EDEDED;
-    position: relative;
-    box-shadow: inset 0px 1px 3px 0px rgba(0,0,0,0.22);
-}
-
-.inner_progress i {
-    display: block;
-    width: 21px;
-    height: 21px;
-    border-radius: 10px;
-    background-image: url(../../public/ball_progress.png);
-    position: absolute;
-    top: 3px;
-    transition: left 200ms linear;
-    -webkit-transition: left 200ms linear;
-}
-
-.card_content {
+.ruler-game {
     text-align: center;
     position: relative;
     width: 960px;
@@ -122,14 +13,69 @@ body .bar_wrapper {
     user-select: none;
 }
 
-.card_content .line {
+.ruler-game .line {
     text-align: center;
     font-size: 40px;
     padding-top: 10px;
     line-height: 1.5;
 }
 
-.game_field_under {
+.ball_wrapper {
+    position: absolute;
+    z-index: 1;
+    bottom: 232px;
+    left: 39.5px;
+    height: 150px;
+    width: 856px;
+}
+
+.ball_wrapper span {
+    display: inline-block;
+    font-size: 45px;
+    line-height: 45px;
+    margin-top: 16px;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+.ball_wrapper .ball {
+    position: absolute;
+    z-index: 1;
+    width: 76px;
+    height: 76px;
+    border-radius: 38px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background: #81ccea;
+    transition: background 1s ease-out;
+    box-shadow: 5px -13px 13px 7px #5c88b7 inset;
+}
+.ball_wrapper .ball .stick {
+    top: 100%;
+    left: 50%;
+    width: 1px;
+    height: 74px;
+    background: #5288b4;
+    position: absolute;
+}
+
+.ball_wrapper .ball .point {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 5px;
+    height: 6px;
+    margin: -4px 0 0 -2px;
+    border-radius: 5px;
+    background: #5288b4;
+}
+
+.ball_wrapper .ball:hover {
+    opacity: 0.9;
+}
+
+.ruler-field {
     background-color: #faf3c9;
     width: 875px;
     height: 83px;
@@ -140,7 +86,7 @@ body .bar_wrapper {
     text-align: center;
 }
 
-.number_axis_inner {
+.ruler {
     position: relative;
     width: 780px;
     height: 22px;
@@ -193,116 +139,43 @@ body .bar_wrapper {
     transform: rotate(45deg);
 }
 
-.decimal {
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    height: 18px;
-    width: 39px;
-    margin-top: 2px;
-}
-
-.decimal.divider span {
-    width: 3px;
-    margin-left: -1px;
-    
-}
-
-.decimal > span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 18px;
-    width: 1px;
-    background: #000;
-    border-left: 1px solid #000;
-    box-sizing: border-box;
-}
-
-.game_field_under .number.big {
-    font-size: 20px;
-    line-height: 20px;
-    position: absolute;
-    left: -25px;
-    width: 50px;
-    text-align: center;
-    font-weight: 700;
-}
-
-.game_field_under .number.big.size {
-    font-size: 27px;
-    line-height: 27px;
-    top: 29px;
-}
-
-.decimal .mm {
+.mm {
     display: inline-block;
     border-left: 1px solid #000;
     height: 8px;
-    margin-top: 5px;
+    margin-top: 7px;
     vertical-align: top;
     width: 8px;
     box-sizing: border-box;
+    left: -1px;
 }
 
-.decimal .mm.fst {
-    border-left: 0px solid;
+.mm.fst {
+    border-left: 1px solid;
     width: 7px;
+    height: 18px;
+    vertical-align: center;
+    margin-top: 2px;
 }
 
-.ball_wrapper {
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: -38px;
-    height: 150px;
-    width: 856px;
+.mm.fst.even {
+    border-left: 2.25px solid;
 }
 
-.ball_wrapper span {
-    display: inline-block;
-    font-size: 45px;
-    line-height: 45px;
-    margin-top: 16px;
-    width: 100%;
-    position: relative;
-    z-index: 5;
-}
-
-.ball_wrapper .ball {
-    position: absolute;
-    z-index: 1;
-    width: 76px;
-    height: 76px;
-    border-radius: 38px;
+.number_center {
+    top: 31px;
     text-align: center;
-    background-repeat: no-repeat;
-    background: #81ccea;
-    transition: background 1s ease-out;
-    box-shadow: 5px -13px 13px 7px #5c88b7 inset;
-}
-.ball_wrapper .ball .stick {
-    top: 100%;
-    left: 50%;
-    width: 1px;
-    height: 74px;
-    background: #5288b4;
     position: absolute;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 27px;
+    left: 375px;
 }
 
-.ball_wrapper .ball .point {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 5px;
-    height: 6px;
-    margin: -4px 0 0 -2px;
-    border-radius: 5px;
-    background: #5288b4;
-}
-
-.ball_wrapper .ball:hover {
-    opacity: 0.9;
+.cover {
+    position: relative;
+    height: 22px;
+    width: 780px;
 }
 
 

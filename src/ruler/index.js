@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import Ruler from './Ruler'
+import App from './App'
 
-ReactDOM.render(<Ruler />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
