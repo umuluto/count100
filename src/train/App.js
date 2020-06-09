@@ -14,6 +14,16 @@ function App({ success, fail }) {
   });
   const [highlight, hilite] = useState(false);
 
+	const complete = () => {
+		success();
+		setInitial(init());
+		setState({
+			wagonNum: 0,
+			lastWagon: -1,
+		});
+		hilite(false);
+	};
+
   const push = idx => {
     let offset;
     setState(st => {
@@ -46,7 +56,7 @@ function App({ success, fail }) {
   return (
     <div className='train-game'>
       <Railway highlight={highlight} finished={finished} {...state}/>
-      <Engine num={initial.loco} finished={finished} end={success}/>
+      <Engine num={initial.loco} finished={finished} end={complete}/>
       {wagons}
     </div>
   );

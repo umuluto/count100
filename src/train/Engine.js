@@ -20,7 +20,9 @@ function Engine({num, finished, end}) {
   useEffect(() => {
     if (finished) {
       setState({smokes: [], id: setInterval(_add_smoke, 220)});
-    }
+    } else {
+			setState({});
+		}
   }, [finished]);
 
   return (
